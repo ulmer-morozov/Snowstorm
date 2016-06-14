@@ -1,0 +1,6 @@
+{
+  "buildOnSave": true,
+  "atom": {
+    "formatOnSave": true
+  }
+}
