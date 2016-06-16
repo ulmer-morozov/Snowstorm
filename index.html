@@ -14,33 +14,28 @@
 
 <body ng-app="App" ng-controller="AppCtrl">
 
-    <svg id="drawingPlot">
-        <!-- стенки -->
-        <rect ng-repeat="colider in coliders" ng:attr:x="{{colider.box.position.x-colider.box.size.width/2}}"
-            ng:attr:y="{{colider.box.position.y-colider.box.size.height/2}}" ng:attr:width="{{colider.box.size.width}}"
-            ng:attr:height="{{colider.box.size.height}}" style="fill:rgb(0,0,255);" />
+  <svg id="drawingPlot">
+      <!-- стенки -->
+      <circle ng-repeat="colider in coliders" ng:attr:cx="{{colider.p.x}}" ng:attr:cy="{{colider.p.y}}" ng:attr:r="{{colider.r}}" fill="blue" />
 
-        <!-- человечки -->
-        <rect ng-repeat="mascot in mascots" ng:attr:x="{{mascot.box.position.x-mascot.box.size.width/2}}"
-            ng:attr:y="{{mascot.box.position.y-mascot.box.size.height/2}}" ng:attr:width="{{mascot.box.size.width}}"
-            ng:attr:height="{{mascot.box.size.height}}" style="fill:rgb(255,0,0);" />
-    </svg>
+      <!-- человечки -->
 
-    {{coliders||json}}
+      <circle ng-repeat="mascot in mascots" ng:attr:cx="{{mascot.p.x}}" ng:attr:cy="{{mascot.p.y}}" ng:attr:r="{{mascot.r}}" stroke="black" stroke-width="3" fill="red" />
 
-    <!-- скрипты -->
-    <script src="assets/libs/jquery/jquery-2.2.2.min.js"></script>
-    <script src="assets/libs/angular/angular.js"></script>
-    <!-- функции рисования -->
-    <script src="assets/app/drawing/Point.js"></script>
-    <script src="assets/app/drawing/Size.js"></script>
-    <script src="assets/app/drawing/Rectangle.js"></script>
-    <script src="assets/app/drawing/Vector.js"></script>
-    <script src="assets/app/drawing/SpeedTuple.js"></script>
-    <script src="assets/app/drawing/Colider.js"></script>
-    <!-- само приложение -->
-    <script src="assets/controllers/AppCtrl.js"></script>
-    <script src="assets/app/App.js"></script>
+  </svg>
+
+
+  <!-- скрипты -->
+  <script src="assets/libs/jquery/jquery-2.2.2.min.js"></script>
+  <script src="assets/libs/angular/angular.js"></script>
+  <!-- функции рисования -->
+  <script src="assets/app/drawing/Vector.js"></script>
+  <script src="assets/app/drawing/BallObject.js"></script>
+  <script src="assets/app/drawing/FloorObject.js"></script>
+
+  <!-- само приложение -->
+  <script src="assets/controllers/AppCtrl2.js"></script>
+  <script src="assets/app/App.js"></script>
 </body>
 
 </html>

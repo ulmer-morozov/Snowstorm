@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Snowstorm</title>
+    <!-- <meta name="description" content="The HTML5 Herald"> -->
+    <meta name="author" content="Ulmer-Morozov for Interactopus">
+
+    <link href="assets/app/app.min.css" rel="stylesheet">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
+</head>
+
+<body ng-app="App" ng-controller="AppCtrl">
+
+    <svg id="drawingPlot">
+        <!-- стенки -->
+        <circle ng-repeat="colider in coliders" ng:attr:cx="{{colider.body.position.x}}" ng:attr:cy="{{colider.body.position.y}}" ng:attr:r="{{colider.body.radius}}" fill="blue" />
+
+        <!-- человечки -->
+
+        <circle ng-repeat="mascot in mascots" ng:attr:cx="{{mascot.body.position.x}}" ng:attr:cy="{{mascot.body.position.y}}" ng:attr:r="{{mascot.body.radius}}" stroke="black" stroke-width="3" fill="red" />
+
+    </svg>
+
+    {{coliders||json}}
+
+    <!-- скрипты -->
+    <script src="assets/libs/jquery/jquery-2.2.2.min.js"></script>
+    <script src="assets/libs/angular/angular.js"></script>
+    <!-- функции рисования -->
+    <script src="assets/app/drawing/Point.js"></script>
+    <script src="assets/app/drawing/Size.js"></script>
+    <script src="assets/app/drawing/Rectangle.js"></script>
+    <script src="assets/app/drawing/Circle.js"></script>
+    <script src="assets/app/drawing/Vector.js"></script>
+    <script src="assets/app/drawing/SpeedTuple.js"></script>
+    <script src="assets/app/drawing/Colider.js"></script>
+    <!-- само приложение -->
+    <script src="assets/controllers/AppCtrl.js"></script>
+    <script src="assets/app/App.js"></script>
+</body>
+
+</html>

@@ -2,11 +2,11 @@ var Snowstorm;
 (function (Snowstorm) {
     "use strict";
     var Colider = (function () {
-        function Colider(width, height, x, y, weight) {
+        function Colider(radius, x, y, weight) {
             var _this = this;
             if (weight === void 0) { weight = 1; }
             this.interact = function (other) {
-                var collisiionFinded = _this.box.findCollision(other.box);
+                var collisiionFinded = _this.body.findCollision(other.body);
                 var currentCollisionIndex = _this.currentCollisions.indexOf(other);
                 var isOldCollision = currentCollisionIndex != -1;
                 if (!collisiionFinded) {
@@ -14,12 +14,10 @@ var Snowstorm;
                         _this.currentCollisions.splice(currentCollisionIndex, 1);
                         console.log("collision ended");
                     }
-                    return;
+                    return false;
                 }
-                if (isOldCollision)
-                    return;
-                var thisP = _this.box.position;
-                var otherP = other.box.position;
+                var thisP = _this.body.position;
+                var otherP = other.body.position;
                 var dn = new Snowstorm.Vector(thisP.x - otherP.x, thisP.y - otherP.y);
                 dn = dn.normalize();
                 var sm = _this.weight + other.weight;
@@ -33,20 +31,20 @@ var Snowstorm;
                 other.speed = other.speed.add(dn.multiply((cr * _this.weight * (v1 - v2) + other.weight * v2 + _this.weight * v1) / sm));
                 _this.currentCollisions.push(other);
                 console.log("collisiion Finded");
+                return true;
             };
-            var size = new Snowstorm.Size(width, height);
             var position = new Snowstorm.Point(x, y);
             this.currentCollisions = [];
             this.weight = weight;
-            this.box = new Snowstorm.Rectangle(size, position);
+            this.body = new Snowstorm.Circle(radius, position);
             this.speed = new Snowstorm.Vector();
         }
         Colider.prototype.punch = function (vx, vy) {
             this.speed = new Snowstorm.Vector(vx, vy);
         };
         Colider.prototype.enterFrame = function () {
-            this.box.position.x += this.speed.x;
-            this.box.position.y += this.speed.y;
+            this.body.position.x += this.speed.x;
+            this.body.position.y += this.speed.y;
         };
         Colider.calculateSpeed = function (speed, m1, m2) {
             var v10 = speed.v1;

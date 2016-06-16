@@ -1,8 +1,8 @@
 var Snowstorm;
 (function (Snowstorm) {
     "use strict";
-    var AppCtrl = (function () {
-        function AppCtrl($scope, $window, $interval, $timeout) {
+    var AppCtrl2 = (function () {
+        function AppCtrl2($scope, $window, $interval, $timeout) {
             var _this = this;
             this.$scope = $scope;
             this.$window = $window;
@@ -21,23 +21,23 @@ var Snowstorm;
                 var currentWidth = 0;
                 var currentPosition = stripeHeight / 2;
                 var borderThikness = 10;
-                var leftBorder = new Snowstorm.Colider(borderThikness, screenHeight, 0, screenCenterY, borderWeght);
-                var rightBorder = new Snowstorm.Colider(borderThikness, screenHeight, screenWidth, screenCenterY, borderWeght);
-                var topBorder = new Snowstorm.Colider(screenWidth, borderThikness, screenCenterX, 0, borderWeght);
-                var bottomBorder = new Snowstorm.Colider(screenWidth, borderThikness, screenCenterX, screenHeight, borderWeght);
+                var borderRadius = 10000;
+                var leftBorder = new Snowstorm.Colider(borderRadius, -borderRadius + borderThikness, screenWidth / 2, borderWeght);
+                var rightBorder = new Snowstorm.Colider(borderRadius, screenWidth + borderRadius - borderThikness, screenWidth / 2, borderWeght);
+                var topBorder = new Snowstorm.Colider(borderRadius, screenWidth / 2, -borderRadius + borderThikness, borderWeght);
+                var bottomBorder = new Snowstorm.Colider(borderRadius, screenWidth / 2, screenHeight + borderRadius - borderThikness, borderWeght);
                 coliders.push(leftBorder);
                 coliders.push(rightBorder);
                 coliders.push(topBorder);
                 coliders.push(bottomBorder);
             };
             this.createMascots = function () {
-                var bodyWidth = 50;
-                var bodyHeight = 50;
+                var bodySize = 6;
                 _this.$scope.mascots = [];
-                for (var i = 0; i < 1; i++) {
-                    var mascot = new Snowstorm.Colider(bodyWidth, bodyHeight, 50, 2 * bodyHeight * i + 50);
+                for (var i = 0; i < 5; i++) {
+                    var mascot = new Snowstorm.Colider(bodySize * i, 50, 2 * (bodySize + 30) * i + 50, i);
                     _this.$scope.mascots.push(mascot);
-                    mascot.punch(2, 2);
+                    mascot.punch(3, Math.pow(-1, i) * 1);
                 }
             };
             this.enterFrame = function () {
@@ -45,18 +45,24 @@ var Snowstorm;
                 var coliders = _this.$scope.coliders;
                 for (var i = 0; i < mascots.length; i++) {
                     var mascot = mascots[i];
-                    mascot.enterFrame();
-                    for (var i_1 = 0; i_1 < coliders.length; i_1++) {
-                        var colider = coliders[i_1];
-                        mascot.interact(colider);
-                        colider.enterFrame();
-                    }
-                    for (var j = 0; j < mascots.length; j++) {
+                    for (var j = i; j < mascots.length; j++) {
                         var otherMascot = mascots[j];
                         if (otherMascot === mascot)
                             continue;
-                        mascot.interact(otherMascot);
+                        var interactionFinded = mascot.interact(otherMascot);
                     }
+                    for (var i_1 = 0; i_1 < coliders.length; i_1++) {
+                        var colider = coliders[i_1];
+                        mascot.interact(colider);
+                    }
+                }
+                for (var i = 0; i < mascots.length; i++) {
+                    var mascot = mascots[i];
+                    mascot.enterFrame();
+                }
+                for (var i = 0; i < coliders.length; i++) {
+                    var colider = coliders[i];
+                    colider.enterFrame();
                 }
                 console.log("enterFrame");
             };
@@ -65,15 +71,15 @@ var Snowstorm;
             };
             this.init();
         }
-        AppCtrl.prototype.init = function () {
+        AppCtrl2.prototype.init = function () {
             this.createWall();
             this.createMascots();
             this.startAnimation();
         };
-        AppCtrl.$inject = [
+        AppCtrl2.$inject = [
             "$scope", "$window", "$interval", "$timeout"
         ];
-        return AppCtrl;
+        return AppCtrl2;
     }());
-    Snowstorm.AppCtrl = AppCtrl;
+    Snowstorm.AppCtrl2 = AppCtrl2;
 })(Snowstorm || (Snowstorm = {}));

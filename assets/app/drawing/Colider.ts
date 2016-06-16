@@ -3,19 +3,18 @@ module Snowstorm {
 
     export class Colider {
 
-        private box: Rectangle;
+        private body: Circle;
         private speed: Vector;
         private weight: number;
 
         private currentCollisions: Colider[];
 
-        constructor(width: number, height: number, x: number, y: number, weight: number = 1) {
-            let size = new Size(width, height);
+        constructor(radius: number, x: number, y: number, weight: number = 1) {
             let position = new Point(x, y);
 
             this.currentCollisions = [];
             this.weight = weight;
-            this.box = new Rectangle(size, position);
+            this.body = new Circle(radius, position);
             this.speed = new Vector();
         }
 
@@ -24,8 +23,8 @@ module Snowstorm {
         }
 
         enterFrame(): void {
-            this.box.position.x += this.speed.x;
-            this.box.position.y += this.speed.y;
+            this.body.position.x += this.speed.x;
+            this.body.position.y += this.speed.y;
         }
 
         private static calculateSpeed(speed: SpeedTuple, m1: number, m2: number): SpeedTuple {
@@ -56,8 +55,8 @@ module Snowstorm {
             return resultSpeed;
         }
 
-        interact = (other: Colider): void => {
-            let collisiionFinded = this.box.findCollision(other.box);
+        interact = (other: Colider): boolean => {
+            let collisiionFinded = this.body.findCollision(other.body);
             let currentCollisionIndex = this.currentCollisions.indexOf(other);
             let isOldCollision = currentCollisionIndex != -1;
 
@@ -67,14 +66,14 @@ module Snowstorm {
                     this.currentCollisions.splice(currentCollisionIndex, 1);
                     console.log("collision ended");
                 }
-                return;
+                return false;
             }
 
-            if (isOldCollision)
-                return;
+            // if (isOldCollision)
+            //     return false;
 
-            let thisP = this.box.position;
-            let otherP = other.box.position;
+            let thisP = this.body.position;
+            let otherP = other.body.position;
 
             let dn = new Vector(thisP.x - otherP.x, thisP.y - otherP.y);
 
@@ -118,8 +117,34 @@ module Snowstorm {
             other.speed = dt.multiply(other.speed.dot(dt));
             other.speed = other.speed.add(dn.multiply((cr * this.weight * (v1 - v2) + other.weight * v2 + this.weight * v1) / sm));
 
+            // let thisP = this.body.position;
+            // let otherP = other.body.position;
+            //
+            // let newSpeed1 = new Vector();
+            // let newSpeed2 = new Vector();
+            //
+            // newSpeed1.x = (this.speed.x * (this.weight - other.weight) + (2 * other.weight * other.speed.x)) / (this.weight + other.weight);
+            // newSpeed1.y = (this.speed.y * (this.weight - other.weight) + (2 * other.weight * other.speed.y)) / (this.weight + other.weight);
+            //
+            // newSpeed2.x = (other.speed.x * (other.weight - this.weight) + (2 * this.weight * this.speed.x)) / (this.weight + other.weight);
+            // newSpeed2.y = (other.speed.y * (other.weight - this.weight) + (2 * this.weight * this.speed.y)) / (this.weight + other.weight);
+            //
+            // this.speed.x = newSpeed1.x;
+            // this.speed.y = newSpeed1.y;
+            //
+            // other.speed.x = newSpeed2.x;
+            // other.speed.y = newSpeed2.y;
+            //
+            // this.body.position.x = this.body.position.x + this.speed.x;
+            // this.body.position.y = this.body.position.y + this.speed.y;
+            //
+            // other.body.position.x = other.body.position.x + other.speed.x;
+            // other.body.position.y = other.body.position.y + other.speed.y;
+
             this.currentCollisions.push(other);
             console.log("collisiion Finded");
+
+            return true;
         }
 
     }

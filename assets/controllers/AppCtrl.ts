@@ -1,7 +1,7 @@
 module Snowstorm {
     "use strict";
 
-    export class AppCtrl {
+    export class AppCtrl2 {
 
         //DI
         static $inject = [
@@ -50,11 +50,12 @@ module Snowstorm {
             // }
 
             const borderThikness = 10;
+            const borderRadius = 10000;
 
-            let leftBorder = new Colider(borderThikness, screenHeight, 0, screenCenterY, borderWeght)
-            let rightBorder = new Colider(borderThikness, screenHeight, screenWidth, screenCenterY, borderWeght)
-            let topBorder = new Colider(screenWidth, borderThikness, screenCenterX, 0, borderWeght)
-            let bottomBorder = new Colider(screenWidth, borderThikness, screenCenterX, screenHeight, borderWeght)
+            let leftBorder = new Colider(borderRadius, -borderRadius + borderThikness, screenWidth / 2, borderWeght)
+            let rightBorder = new Colider(borderRadius, screenWidth + borderRadius - borderThikness, screenWidth / 2, borderWeght)
+            let topBorder = new Colider(borderRadius, screenWidth / 2, -borderRadius + borderThikness, borderWeght)
+            let bottomBorder = new Colider(borderRadius, screenWidth / 2, screenHeight + borderRadius - borderThikness, borderWeght)
 
             coliders.push(leftBorder);
             coliders.push(rightBorder);
@@ -65,16 +66,15 @@ module Snowstorm {
         }
 
         private createMascots = (): void => {
-            const bodyWidth = 50;
-            const bodyHeight = 50;
+            const bodySize = 6;
 
             this.$scope.mascots = [];
 
-            for (let i = 0; i < 1; i++) {
-                var mascot = new Colider(bodyWidth, bodyHeight, 50, 2 * bodyHeight * i + 50);
+            for (let i = 0; i < 5; i++) {
+                var mascot = new Colider(bodySize * i, 50, 2 * (bodySize + 30) * i + 50, i);
                 this.$scope.mascots.push(mascot);
 
-                mascot.punch(2, 2);
+                mascot.punch(3, Math.pow(-1, i) * 1);
             }
         }
 
@@ -84,22 +84,44 @@ module Snowstorm {
 
             for (let i = 0; i < mascots.length; i++) {
                 var mascot = mascots[i];
-                mascot.enterFrame();
+
+                for (let j = i; j < mascots.length; j++) {
+                    var otherMascot = mascots[j];
+                    if (otherMascot === mascot)
+                        continue;
+                    //interact!
+                    var interactionFinded = mascot.interact(otherMascot);
+
+                }
 
                 //проверим пересечения
                 for (let i = 0; i < coliders.length; i++) {
                     var colider = coliders[i];
                     mascot.interact(colider);
-                    colider.enterFrame();
                 }
+                //
+                // for (let j = i; j < mascots.length; j++) {
+                //     var otherMascot = mascots[j];
+                //     if (otherMascot === mascot)
+                //         continue;
+                //     //interact!
+                //     var interactionFinded = mascot.interact(otherMascot);
+                //     if (interactionFinded) {
+                //         // debugger;
+                //         return;
+                //     }
+                // }
+            }
 
-                for (let j = 0; j < mascots.length; j++) {
-                    var otherMascot = mascots[j];
-                    if (otherMascot === mascot)
-                        continue;
-                    //interact!
-                    mascot.interact(otherMascot);
-                }
+            // сделаем шаги
+            for (let i = 0; i < mascots.length; i++) {
+                var mascot = mascots[i];
+                mascot.enterFrame();
+            }
+
+            for (let i = 0; i < coliders.length; i++) {
+                var colider = coliders[i];
+                colider.enterFrame();
             }
 
 

@@ -14,22 +14,27 @@ var Snowstorm;
             };
             this.normalize = function () {
                 var s = 1 / _this.length;
-                var result = new Vector(_this.x * s, _this.y * s);
-                return result;
+                _this.x *= s;
+                _this.y *= s;
+                return _this;
             };
             this.multiply = function (value) {
                 var result = new Vector(_this.x * value, _this.y * value);
                 return result;
             };
-            this.add = function (other) {
-                var result = new Vector(_this.x + other.x, _this.y + other.y);
+            this.tx = function (other) {
+                _this.x += other.x;
+                _this.y += other.y;
+                return _this;
+            };
+            this.substract = function (other) {
+                var result = new Vector(_this.x - other.x, _this.y - other.y);
                 return result;
             };
         }
         Object.defineProperty(Vector.prototype, "length", {
             get: function () {
                 var length = Math.sqrt(this.x * this.x + this.y * this.y);
-                ;
                 return length;
             },
             enumerable: true,
