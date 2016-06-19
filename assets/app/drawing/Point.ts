@@ -1,13 +1,10 @@
-module Snowstorm {
-    "use strict";
+﻿module Snowstorm {
 
     export class Point {
 
-        constructor(
-            public x: number,
-            public y: number
-        ) {
+        constructor(public x: number, public y: number) {
 
         }
+
     }
 }

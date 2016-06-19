@@ -2,7 +2,8 @@ module Snowstorm {
     "use strict";
 
     export interface IAppCtrlScope extends ng.IScope {
-        coliders: Colider[];
-        mascots: Colider[];
+        balls: Ball[];
+        obstacles: Ball[];
+        requestAnimationFrameID: number;
     }
 }

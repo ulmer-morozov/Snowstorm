@@ -1,93 +1,43 @@
-module Snowstorm {
-    "use strict";
+﻿module Snowstorm {
+
     export class Vector {
 
-        constructor(public x: number = 0, public y: number = 0) {
+        constructor(public xc: number, public yc: number) {
+
         }
 
-        public dot = (other: Vector): number => {
-            let result = this.x * other.x + this.y * other.y;
-            return result;
-        };
+        add = (other: Vector): Vector => {
+            var gv = new Vector(0, 0);
 
-        public get length(): number {
-            let length = Math.sqrt(this.x * this.x + this.y * this.y);
-            return length;
-        };
+            gv.xc = this.xc + other.xc;
+            gv.yc = this.yc + other.yc;
 
-        public normalize = (): Vector => {
-            var s = 1 / this.length;
-            this.x *= s;
-            this.y *= s;
-            return this;
+            return gv;
         }
 
-        public multiply = (value: number): Vector => {
-            var result = new Vector(this.x * value, this.y * value);
-            return result;
-        };
+        diff = (other: Vector): Vector => {
+            var gv = new Vector(0, 0);
 
-        public tx = (other: Vector): Vector => {
-            this.x += other.x;
-            this.y += other.y;
-            return this;
+            gv.xc = this.xc - other.xc;
+            gv.yc = this.yc - other.yc;
+
+            return gv;
         }
 
-        public substract = (other: Vector): Vector => {
-            var result = new Vector(this.x - other.x, this.y - other.y);
-            return result;
+
+        multi = (s: number): Vector => {
+            // "gv" stands for "generic vector"
+            var gv = new Vector(0, 0);
+
+            gv.xc = s * this.xc;
+            gv.yc = s * this.yc;
+
+            return gv;
         }
 
-        public get isEmpty(): boolean {
-            let result = this.x == 0 && this.y == 0;
-            return result;
+        dot = (other: Vector): number => {
+            return this.xc * other.xc + this.yc * other.yc;
         }
+
     }
 }
-
-// module Snowstorm {
-//     "use strict";
-//
-//     export class Vector {
-//
-//         constructor(public x: number = 0, public y: number = 0) {
-//         }
-//
-//         dot = (other: Vector): number => {
-//             let result = this.x * other.x + this.y * other.y;
-//             return result;
-//         };
-//
-//         get length(): number {
-//             let length = Math.sqrt(this.x * this.x + this.y * this.y);;
-//             return length;
-//         };
-//
-//         normalize = (): Vector => {
-//             var s = 1 / this.length;
-//             var result = new Vector(this.x * s, this.y * s)
-//             return result;
-//         }
-//
-//         multiply = (value: number): Vector => {
-//             var result = new Vector(this.x * value, this.y * value);
-//             return result;
-//         };
-//
-//         add = (other: Vector): Vector => {
-//             this.x += other.x;
-//             this.y += other.y;
-//             return this;
-//         }
-//
-//         substract = (other: Vector): Vector => {
-//             var result = new Vector(this.x - other.x, this.y - other.y);
-//             return result;
-//         }
-//
-//         get isEmpty(): boolean {
-//             let result = this.x == 0 && this.y == 0;
-//             return result;
-//         }
-//     }
-// }

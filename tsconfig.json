@@ -2,5 +2,8 @@
   "buildOnSave": true,
   "atom": {
     "formatOnSave": true
+  },
+  "compilerOptions": {
+    "watch": true
   }
 }

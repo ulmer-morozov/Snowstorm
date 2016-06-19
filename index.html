@@ -1,41 +1,37 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
-
     <title>Snowstorm</title>
     <!-- <meta name="description" content="The HTML5 Herald"> -->
     <meta name="author" content="Ulmer-Morozov for Interactopus">
-
     <link href="assets/app/app.min.css" rel="stylesheet">
     <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
 </head>
 
 <body ng-app="App" ng-controller="AppCtrl">
 
-  <svg id="drawingPlot">
-      <!-- стенки -->
-      <circle ng-repeat="colider in coliders" ng:attr:cx="{{colider.p.x}}" ng:attr:cy="{{colider.p.y}}" ng:attr:r="{{colider.r}}" fill="blue" />
+    <svg id="drawingPlot">
+        <circle ng-repeat="ball in balls" ng:attr:cx="{{ball.cx}}" ng:attr:cy="{{ball.cy}}"
+            ng:attr:r="{{ball.r}}" fill="{{ball.color}}" />
+        <circle ng-repeat="obstacle in obstacles" ng:attr:cx="{{obstacle.cx}}" ng:attr:cy="{{obstacle.cy}}"
+            ng:attr:r="{{obstacle.r}}" ng:attr:fill="red" />
+    </svg>
 
-      <!-- человечки -->
+    <!-- скрипты -->
+    <script src="assets/libs/jquery/jquery-2.2.2.min.js"></script>
+    <script src="assets/libs/angular/angular.js"></script>
+    <!-- функции рисования -->
+    <script src="assets/app/drawing/Random.js"></script>
+    <script src="assets/app/drawing/Point.js"></script>
+    <script src="assets/app/drawing/Vector.js"></script>
+    <script src="assets/app/drawing/Ball.js"></script>
 
-      <circle ng-repeat="mascot in mascots" ng:attr:cx="{{mascot.p.x}}" ng:attr:cy="{{mascot.p.y}}" ng:attr:r="{{mascot.r}}" stroke="black" stroke-width="3" fill="red" />
-
-  </svg>
-
-
-  <!-- скрипты -->
-  <script src="assets/libs/jquery/jquery-2.2.2.min.js"></script>
-  <script src="assets/libs/angular/angular.js"></script>
-  <!-- функции рисования -->
-  <script src="assets/app/drawing/Vector.js"></script>
-  <script src="assets/app/drawing/BallObject.js"></script>
-  <script src="assets/app/drawing/FloorObject.js"></script>
-
-  <!-- само приложение -->
-  <script src="assets/controllers/AppCtrl2.js"></script>
-  <script src="assets/app/App.js"></script>
+    <!-- само приложение -->
+    <script src="assets/controllers/AppCtrl.js"></script>
+    <script src="assets/app/App.js"></script>
 </body>
 
 </html>
