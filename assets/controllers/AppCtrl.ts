@@ -22,8 +22,7 @@
         }
 
         svgSupported = (): boolean => {
-            const svgElement = document.getElementById("drawingPlot"); // Required for Mozilla, this line not necessary for IE9 or Chrome.
-            return svgElement.namespaceURI === "http://www.w3.org/2000/svg";
+            return true;
         }
 
 
@@ -103,7 +102,7 @@
         createBallElements(): void {
             for (let i = 0; i < 5; i++) {
 
-                const radius = 60; //this.getRandomBallRadius(); // The radius of the ball.
+                const radius = 64; //this.getRandomBallRadius(); // The radius of the ball.
                 const ballWeight = 1;
 
                 const ballElement = new Ball(radius, 0, 0, ballWeight);
@@ -197,8 +196,8 @@
             }
 
 
-            const borderThikness = 10;
-            const borderRadius = 10000000;
+            const borderThikness = 0;
+            const borderRadius = 100000;
 
 
             const leftBorder = new Ball(borderRadius, -borderRadius + borderThikness - newOriginx, screenWidth / 2 - newOriginx, borderWeght);

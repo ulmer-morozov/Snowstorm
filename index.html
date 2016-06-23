@@ -13,12 +13,15 @@
 
 <body ng-app="App" ng-controller="AppCtrl">
 
-    <svg id="drawingPlot">
-        <circle ng-repeat="ball in balls" ng:attr:cx="{{ball.cx}}" ng:attr:cy="{{ball.cy}}"
-            ng:attr:r="{{ball.r}}" fill="{{ball.color}}" />
-        <circle ng-repeat="obstacle in obstacles" ng:attr:cx="{{obstacle.cx}}" ng:attr:cy="{{obstacle.cy}}"
-            ng:attr:r="{{obstacle.r}}" ng:attr:fill="red" />
-    </svg>
+    <div id="drawingPlot">
+        <div ng-repeat="ball in balls"
+             ng-style="{left: ball.cx, top: ball.cy, width: 2*ball.r, height: 2*ball.r, 'margin-left': -ball.r, 'margin-top': - ball.r}"
+      ng-class="['ball'+$index]" class="ball" />
+        <div ng-repeat="obstacle in obstacles"
+
+        ng-style="{left: obstacle.cx, top: obstacle.cy, width: 2*obstacle.r, height: 2*obstacle.r, 'margin-left': -obstacle.r, 'margin-top': - obstacle.r}"
+      ng-class="['obstacle'+$index]"  class="obstacle" />
+    </div>
 
     <!-- скрипты -->
     <script src="assets/libs/jquery/jquery-2.2.2.min.js"></script>

@@ -9,8 +9,7 @@ var Snowstorm;
             this.$interval = $interval;
             this.$timeout = $timeout;
             this.svgSupported = function () {
-                var svgElement = document.getElementById("drawingPlot");
-                return svgElement.namespaceURI === "http://www.w3.org/2000/svg";
+                return true;
             };
             this.getRandomSpeed = function () {
                 return Snowstorm.Random.getRandomReal(-200, 200);
@@ -105,8 +104,8 @@ var Snowstorm;
                     currentPosition += stripeHeight;
                     currentWidth += wStep;
                 }
-                var borderThikness = 10;
-                var borderRadius = 10000000;
+                var borderThikness = 0;
+                var borderRadius = 100000;
                 var leftBorder = new Snowstorm.Ball(borderRadius, -borderRadius + borderThikness - newOriginx, screenWidth / 2 - newOriginx, borderWeght);
                 var rightBorder = new Snowstorm.Ball(borderRadius, screenWidth + borderRadius - borderThikness - newOriginx, screenWidth / 2 - newOriginx, borderWeght);
                 var topBorder = new Snowstorm.Ball(borderRadius, screenWidth / 2 - newOriginx, -borderRadius + borderThikness - newOriginx, borderWeght);
@@ -140,7 +139,7 @@ var Snowstorm;
         };
         AppCtrl.prototype.createBallElements = function () {
             for (var i = 0; i < 5; i++) {
-                var radius = 60;
+                var radius = 64;
                 var ballWeight = 1;
                 var ballElement = new Snowstorm.Ball(radius, 0, 0, ballWeight);
                 var newPosition = this.getRandomBallPosition(ballElement);
