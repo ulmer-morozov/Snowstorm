@@ -29,6 +29,14 @@ svg#drawingPlot {
         background-position: -2875px;
     }
 }
+@keyframes play-balet {
+    from {
+        background-position: 5px;
+    }
+    to {
+        background-position: -6000px;
+    }
+}
 .obstacle {
     position: fixed;
     background-color: blue;
@@ -44,4 +52,11 @@ svg#drawingPlot {
     background-color: transparent;;
     background-image: url("../images/mascots/pinkbird_120_120.png");
     animation: play 0.8s steps(24) infinite;
+}
+
+.ball.ball1 {
+    // border-radius: 0;
+    // background-color: transparent;;
+    background-image: url("../images/mascots/balet_120_120.png");
+    animation: play-balet 2s steps(50) infinite;
 }
