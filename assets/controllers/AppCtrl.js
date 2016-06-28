@@ -98,12 +98,9 @@ var Snowstorm;
                 var stripeHeight = 20;
                 var currentWidth = 0;
                 var currentPosition = stripeHeight / 2;
-                while (currentPosition < maxWidth) {
-                    var colider = new Snowstorm.Ball(currentWidth, screenCenterX - newOriginx, currentPosition - newOriginx, borderWeght);
-                    obstacles.push(colider);
-                    currentPosition += stripeHeight;
-                    currentWidth += wStep;
-                }
+                var centerColiderRadius = 150;
+                var centerColider = new Snowstorm.Ball(centerColiderRadius, screenCenterX, screenCenterY, borderWeght);
+                obstacles.push(centerColider);
                 var borderThikness = 0;
                 var borderRadius = 100000;
                 var leftBorder = new Snowstorm.Ball(borderRadius, -borderRadius + borderThikness - newOriginx, screenWidth / 2 - newOriginx, borderWeght);

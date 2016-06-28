@@ -187,14 +187,17 @@
             let currentWidth = 0;
             let currentPosition = stripeHeight / 2;
 
-            while (currentPosition < maxWidth) {
-                const colider = new Ball(currentWidth, screenCenterX - newOriginx, currentPosition - newOriginx, borderWeght);
-                obstacles.push(colider);
+            // while (currentPosition < maxWidth) {
+            //     const colider = new Ball(currentWidth, screenCenterX - newOriginx, currentPosition - newOriginx, borderWeght);
+            //     obstacles.push(colider);
+            //
+            //     currentPosition += stripeHeight;
+            //     currentWidth += wStep;
+            // }
 
-                currentPosition += stripeHeight;
-                currentWidth += wStep;
-            }
-
+            const centerColiderRadius = 150;
+            const centerColider = new Ball(centerColiderRadius, screenCenterX, screenCenterY, borderWeght);
+            obstacles.push(centerColider);
 
             const borderThikness = 0;
             const borderRadius = 100000;
