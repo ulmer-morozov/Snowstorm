@@ -45,6 +45,14 @@ svg#drawingPlot {
         background-position: -11542px;
     }
 }
+@keyframes play-pigeon {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -4680px;
+    }
+}
 .fan {
     position: fixed;
     left: 50%;
@@ -94,4 +102,10 @@ svg#drawingPlot {
     // background-color: transparent;;
     background-image: url("../images/mascots/balet_120_120.png");
     animation: play-balet 2s steps(50) infinite;
+}
+.ball.ball2 {
+    // border-radius: 0;
+    // background-color: transparent;;
+    background-image: url("../images/mascots/pigeon.png");
+    animation: play-pigeon 3s steps(39) infinite;
 }
