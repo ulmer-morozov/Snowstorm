@@ -1,8 +1,9 @@
 var Snowstorm;
 (function (Snowstorm) {
     var Ball = (function () {
-        function Ball(r, cx, cy, weight) {
+        function Ball(r, cx, cy, weight, isEnabled) {
             var _this = this;
+            if (isEnabled === void 0) { isEnabled = true; }
             this.dx = function (that) {
                 return _this.cx - that.cx;
             };
@@ -13,6 +14,8 @@ var Snowstorm;
                 return Math.sqrt(_this.dx(that) * _this.dx(that) + _this.dy(that) * _this.dy(that));
             };
             this.move = function () {
+                if (!_this.isEnabled)
+                    return;
                 _this.cx += _this.s2d(_this.v.xc);
                 _this.cy += _this.s2d(_this.v.yc);
             };
@@ -55,6 +58,8 @@ var Snowstorm;
             this.cy = cy;
             this.v = new Snowstorm.Vector(0, 0);
             this.weight = weight;
+            this.isEnabled = isEnabled;
+            this.isDragged = false;
         }
         Ball.prototype.s2d = function (s) {
             return (s / 1000) * 10;

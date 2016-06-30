@@ -164,6 +164,14 @@
             }
             this.initialize();
             this.createWall();
+
+            this.$scope.startInteraction = this.startInteraction;
+            this.$scope.stopInteraction = this.stopInteraction;
+
+            this.$scope.ballMouseDown = this.ballMouseDown;
+            this.$scope.ballMouseUp = this.ballMouseUp;
+            this.$scope.ballMouseMove = this.ballMouseMove;
+
             this.requestNewFrame();
         }
 
@@ -183,21 +191,26 @@
 
 
             var obstacles = this.$scope.obstacles;
-            const stripeHeight = 20;
-            let currentWidth = 0;
-            let currentPosition = stripeHeight / 2;
 
-            // while (currentPosition < maxWidth) {
-            //     const colider = new Ball(currentWidth, screenCenterX - newOriginx, currentPosition - newOriginx, borderWeght);
-            //     obstacles.push(colider);
-            //
-            //     currentPosition += stripeHeight;
-            //     currentWidth += wStep;
-            // }
 
-            const centerColiderRadius = 150;
-            const centerColider = new Ball(centerColiderRadius, screenCenterX, screenCenterY, borderWeght);
-            obstacles.push(centerColider);
+
+            const step = 60;
+            const lightSpotSize = 300;
+            const coliderRadius = lightSpotSize / 5;
+            const maxPositionX = screenCenterX + lightSpotSize / 2 - coliderRadius;
+
+            let currentPositionX = screenCenterX - lightSpotSize / 2 + coliderRadius;
+
+            while (currentPositionX <= maxPositionX) {
+                const colider = new Ball(coliderRadius, currentPositionX, screenCenterY, borderWeght);
+                obstacles.push(colider);
+
+                currentPositionX += step;
+            }
+
+            // const centerColiderRadius = 150;
+            // const centerColider = new Ball(centerColiderRadius, screenCenterX, screenCenterY, borderWeght);
+            // obstacles.push(centerColider);
 
             const borderThikness = 0;
             const borderRadius = 100000;
@@ -212,6 +225,31 @@
             obstacles.push(rightBorder);
             obstacles.push(topBorder);
             obstacles.push(bottomBorder);
+        }
+
+        startInteraction = (ball: Ball): void => {
+            ball.isEnabled = false;
+        }
+
+        stopInteraction = (ball: Ball): void => {
+            ball.isEnabled = true;
+        }
+
+        ballMouseDown = (ball: Ball): void => {
+            ball.isDragged = true;
+        }
+
+        ballMouseUp = (ball: Ball): void => {
+            ball.isDragged = false;
+            alert("ballMouseUp");
+        }
+
+        ballMouseMove = (ball: Ball, event: MouseEvent): void => {
+            if (!ball.isDragged)
+                return;
+
+            // ball.cx = event.clientX;
+            // ball.cy = event.clientY;
         }
 
     }

@@ -82,6 +82,11 @@ var Snowstorm;
                 }
                 _this.initialize();
                 _this.createWall();
+                _this.$scope.startInteraction = _this.startInteraction;
+                _this.$scope.stopInteraction = _this.stopInteraction;
+                _this.$scope.ballMouseDown = _this.ballMouseDown;
+                _this.$scope.ballMouseUp = _this.ballMouseUp;
+                _this.$scope.ballMouseMove = _this.ballMouseMove;
                 _this.requestNewFrame();
             };
             this.createWall = function () {
@@ -95,12 +100,16 @@ var Snowstorm;
                 var borderWeght = Number.MAX_VALUE;
                 var newOriginx = 0;
                 var obstacles = _this.$scope.obstacles;
-                var stripeHeight = 20;
-                var currentWidth = 0;
-                var currentPosition = stripeHeight / 2;
-                var centerColiderRadius = 150;
-                var centerColider = new Snowstorm.Ball(centerColiderRadius, screenCenterX, screenCenterY, borderWeght);
-                obstacles.push(centerColider);
+                var step = 60;
+                var lightSpotSize = 300;
+                var coliderRadius = lightSpotSize / 5;
+                var maxPositionX = screenCenterX + lightSpotSize / 2 - coliderRadius;
+                var currentPositionX = screenCenterX - lightSpotSize / 2 + coliderRadius;
+                while (currentPositionX <= maxPositionX) {
+                    var colider = new Snowstorm.Ball(coliderRadius, currentPositionX, screenCenterY, borderWeght);
+                    obstacles.push(colider);
+                    currentPositionX += step;
+                }
                 var borderThikness = 0;
                 var borderRadius = 100000;
                 var leftBorder = new Snowstorm.Ball(borderRadius, -borderRadius + borderThikness - newOriginx, screenWidth / 2 - newOriginx, borderWeght);
@@ -111,6 +120,23 @@ var Snowstorm;
                 obstacles.push(rightBorder);
                 obstacles.push(topBorder);
                 obstacles.push(bottomBorder);
+            };
+            this.startInteraction = function (ball) {
+                ball.isEnabled = false;
+            };
+            this.stopInteraction = function (ball) {
+                ball.isEnabled = true;
+            };
+            this.ballMouseDown = function (ball) {
+                ball.isDragged = true;
+            };
+            this.ballMouseUp = function (ball) {
+                ball.isDragged = false;
+                alert("ballMouseUp");
+            };
+            this.ballMouseMove = function (ball, event) {
+                if (!ball.isDragged)
+                    return;
             };
             $scope.balls = [];
             $scope.obstacles = [];

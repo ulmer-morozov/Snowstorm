@@ -6,8 +6,8 @@ module Snowstorm {
         //директивы
         // .directive("vimeoVideo", VimeoVideoDirective.factory())
 
-        //сервисы
-        // .service("videoRepository", VideoRepository)
+        // сервисы
+        .service("$guid", GuidService)
 
         //контроллеры
         .controller("AppCtrl", AppCtrl)

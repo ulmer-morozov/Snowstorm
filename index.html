@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -13,23 +12,24 @@
 
 <body ng-app="App" ng-controller="AppCtrl">
 
-    <div class="fan">
-      
-    </div>
+    <div class="fan"></div>
+
+    <div class="lightSpot"></div>
 
     <div id="drawingPlot">
-        <div ng-repeat="ball in balls"
-             ng-style="{left: ball.cx, top: ball.cy, width: 2*ball.r, height: 2*ball.r, 'margin-left': -ball.r, 'margin-top': - ball.r}"
-      ng-class="['ball'+$index]" class="ball" />
-        <div ng-repeat="obstacle in obstacles"
-
-        ng-style="{left: obstacle.cx, top: obstacle.cy, width: 2*obstacle.r, height: 2*obstacle.r, 'margin-left': -obstacle.r, 'margin-top': - obstacle.r}"
-      ng-class="['obstacle'+$index]"  class="obstacle" />
+        <div ng-repeat="ball in balls" ng-mouseover="startInteraction(ball)" ng-mouseleave="stopInteraction(ball)"
+            ng-mousedown="ballMouseDown(ball)" ng-mouseup="ballMouseUp(ball)" ng-mousemove="ballMouseMove(ball, $event)"
+            ng-style="{left: ball.cx, top: ball.cy, width: 2*ball.r, height: 2*ball.r, 'margin-left': -ball.r, 'margin-top': - ball.r}"
+            ng-class="['ball'+$index]" class="ball" />
+        <div ng-repeat="obstacle in obstacles" ng-style="{left: obstacle.cx, top: obstacle.cy, width: 2*obstacle.r, height: 2*obstacle.r, 'margin-left': -obstacle.r, 'margin-top': - obstacle.r}"
+            ng-class="['obstacle'+$index]" class="obstacle" />
     </div>
 
     <!-- скрипты -->
     <script src="assets/libs/jquery/jquery-2.2.2.min.js"></script>
     <script src="assets/libs/angular/angular.js"></script>
+    <!-- сервисы -->
+    <script src="assets/app/services/Guid.js"></script>
     <!-- функции рисования -->
     <script src="assets/app/drawing/Random.js"></script>
     <script src="assets/app/drawing/Point.js"></script>

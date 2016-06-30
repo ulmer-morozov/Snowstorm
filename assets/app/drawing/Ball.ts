@@ -8,13 +8,17 @@
         v: Vector;
         weight: number;
         color: string;
+        isEnabled: boolean;
+        isDragged: boolean
 
-        constructor(r: number, cx: number, cy: number, weight: number) {
+        constructor(r: number, cx: number, cy: number, weight: number, isEnabled: boolean = true) {
             this.r = r;
             this.cx = cx;
             this.cy = cy;
             this.v = new Vector(0, 0);
             this.weight = weight;
+            this.isEnabled = isEnabled;
+            this.isDragged = false;
         }
 
         /*
@@ -46,6 +50,9 @@
 
         /* Moves this ball across the screen based on the ball's velocity. */
         move = (): void => {
+            if (!this.isEnabled)
+                return;
+
             this.cx += this.s2d(this.v.xc); // Given the x-component of the ball's velocity vector, make the ball move in the x-direction.
             this.cy += this.s2d(this.v.yc); // Given the y-component of the ball's velocity vector, make the ball move in the y-direction.
         }
