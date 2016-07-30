@@ -11,34 +11,57 @@
 </head>
 
 <body ng-app="App" ng-controller="AppCtrl">
-
+    <!-- <div style="position:absolute">
+        {{mouseSpeed | json}}
+    </div> -->
     <div class="fan"></div>
+
+    <!-- <svg id="mouseSpeed" height="300" width="300">
+        <line x1="150" y1="150" ng-attr-x2="{{mouseSpeed.xc+150}}" ng-attr-y2="{{mouseSpeed.yc+150}}"
+            style="stroke:rgb(255,0,0);stroke-width:5" />
+    </svg> -->
 
     <div class="lightSpot"></div>
 
-    <div id="drawingPlot">
+    <div class="selected-artist-title">{{selectedBall.artist.fullname}}</div>
+
+    <div id="drawingPlot" ng-mousemove="ballMouseMove($event)">
         <div ng-repeat="ball in balls" ng-mouseover="startInteraction(ball)" ng-mouseleave="stopInteraction(ball)"
-            ng-mousedown="ballMouseDown(ball)" ng-mouseup="ballMouseUp(ball)" ng-mousemove="ballMouseMove(ball, $event)"
-            ng-style="{left: ball.cx, top: ball.cy, width: 2*ball.r, height: 2*ball.r, 'margin-left': -ball.r, 'margin-top': - ball.r}"
-            ng-class="['ball'+$index]" class="ball" />
-        <div ng-repeat="obstacle in obstacles" ng-style="{left: obstacle.cx, top: obstacle.cy, width: 2*obstacle.r, height: 2*obstacle.r, 'margin-left': -obstacle.r, 'margin-top': - obstacle.r}"
-            ng-class="['obstacle'+$index]" class="obstacle" />
-    </div>
+            ng-mousedown="startDrag(ball)" ng-mouseup="stopDrag(ball)" ng-style="{ transform: 'translate3d(' + ball.cx + 'px,' + ball.cy + 'px, 0)', width: 2*ball.r, height: 2*ball.r, 'margin-left': -ball.r, 'margin-top': - ball.r}"
+            ng-class="['ball'+$index, {dragged: ball.isDragged, selected: selectedBall == ball, enabled: ball.isEnabled}]"
+            class="ball">
+            <div class="bounds"> </div>
+        </div>
+        <!-- <div ng-repeat="obstacle in obstacles" ng-style="{left: obstacle.cx, top: obstacle.cy, width: 2*obstacle.r, height: 2*obstacle.r, 'margin-left': -obstacle.r, 'margin-top': - obstacle.r}"
+            ng-class="['obstacle'+$index]" class="obstacle" /> -->
 
-    <!-- скрипты -->
-    <script src="assets/libs/jquery/jquery-2.2.2.min.js"></script>
-    <script src="assets/libs/angular/angular.js"></script>
-    <!-- сервисы -->
-    <script src="assets/app/services/Guid.js"></script>
-    <!-- функции рисования -->
-    <script src="assets/app/drawing/Random.js"></script>
-    <script src="assets/app/drawing/Point.js"></script>
-    <script src="assets/app/drawing/Vector.js"></script>
-    <script src="assets/app/drawing/Ball.js"></script>
+        <div ng-repeat="light in lights" ng-style="{left: light.cx, top: light.cy, width: 2*light.r, height: 2*light.r, 'margin-left': -light.r, 'margin-top': - light.r}"
+            ng-class="['obstacle'+$index]" class="obstacle" </div>
 
-    <!-- само приложение -->
-    <script src="assets/controllers/AppCtrl.js"></script>
-    <script src="assets/app/App.js"></script>
+            <!-- скрипты -->
+            <script src="assets/libs/jquery/jquery-2.2.2.min.js"></script>
+            <script src="assets/libs/angular/angular.js"></script>
+            <script src="assets/libs/angular/angular-animate.js"></script>
+            <!-- сервисы -->
+            <script src="assets/app/services/Guid.js"></script>
+            <!-- Модели -->
+            <script src="assets/app/Artist.js"></script>
+            <!-- функции рисования -->
+            <script src="assets/app/drawing/Random.js"></script>
+            <script src="assets/app/drawing/Point.js"></script>
+            <script src="assets/app/drawing/Vector.js"></script>
+            <script src="assets/app/drawing/Colider.js"></script>
+            <script src="assets/app/drawing/Ball.js"></script>
+            <script src="assets/app/drawing/Wall.js"></script>
+            <script src="assets/app/drawing/LightSpot.js"></script>
+            <script src="assets/app/drawing/Mascot.js"></script>
+
+
+            <script src="assets/app/directives/draggable/Draggable.js"></script>
+
+            <!-- само приложение -->
+            <script src="assets/controllers/AppCtrl.js"></script>
+            <script src="assets/app/App.js"></script>
 </body>
 
 </html>

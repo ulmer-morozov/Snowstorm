@@ -24,7 +24,7 @@ module Snowstorm {
         link = (scope: ng.IScope, el: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
             console.log("linking draggable element");
 
-            angular.element(el).attr("draggable", "true");
+            angular.element(el).attr("in", "true");
 
             let id: string = (attrs as any).id;
             if (!id) {
@@ -34,12 +34,13 @@ module Snowstorm {
 
             el.bind("dragstart", (e: JQueryEventObject): void => {
                 let originalEvent: any = e.originalEvent;
-                debugger;
+                console.log("dragstart");
                 originalEvent.dataTransfer.setData('text', id);
                 this.$rootScope.$emit("DRAG-START");
             });
 
             el.bind("dragend", (e: JQueryEventObject): void => {
+                console.log("dragend");
                 this.$rootScope.$emit("DRAG-END");
             });
         }

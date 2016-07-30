@@ -2,7 +2,8 @@ var Snowstorm;
 (function (Snowstorm) {
     "use strict";
     angular
-        .module("App", [])
+        .module("App", ["ngAnimate"])
+        .directive("draggable", Snowstorm.Draggable.factory())
         .service("$guid", Snowstorm.GuidService)
         .controller("AppCtrl", Snowstorm.AppCtrl)
         .config(["$locationProvider", function ($locationProvider) {

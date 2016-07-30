@@ -1,10 +1,10 @@
 module Snowstorm {
     "use strict";
     angular
-        .module("App", [])
+        .module("App", ["ngAnimate"])
 
         //директивы
-        // .directive("vimeoVideo", VimeoVideoDirective.factory())
+        .directive("draggable", Draggable.factory())
 
         // сервисы
         .service("$guid", GuidService)

@@ -8,23 +8,40 @@
             "$scope", "$window", "$interval", "$timeout"
         ];
 
+        private mouseTrack: Vector;
+        private lastMousePos: Vector;
+        private mouseSpeedCounter: number;
+
+        private screenWidth: number;
+        private screenHeight: number;
+
+        private screenCenterX: number;
+        private screenCenterY: number;
+
         constructor(
             private $scope: IAppCtrlScope,
             private $window: angular.IWindowService,
             private $interval: angular.IIntervalService,
             private $timeout: angular.ITimeoutService
         ) {
+            // трекинг мыши
+            this.mouseSpeedCounter = 0;
+            this.mouseTrack = new Vector(0, 0);
+            this.lastMousePos = new Vector(0, 0);
+            //размер экрана
+            this.screenWidth = this.$window.innerWidth;
+            this.screenHeight = this.$window.innerHeight;
+            //центр экрана
+            this.screenCenterX = this.screenWidth / 2;
+            this.screenCenterY = this.screenHeight / 2;
+
             //AppCtrl start
             $scope.balls = [];
             $scope.obstacles = [];
-
+            $scope.lights = [];
+            $scope.mouseSpeed = new Vector(0, 0);
             this.initWindow();
         }
-
-        svgSupported = (): boolean => {
-            return true;
-        }
-
 
         getRandomSpeed = (): number => {
             return Random.getRandomReal(-200, 200);
@@ -34,7 +51,12 @@
 
             let haveCollision = false;
             let p: Point;
-            let allObjects = this.$scope.balls.concat(this.$scope.obstacles);
+            let allObjects: Colider[] = [];
+
+            allObjects.concat(this.$scope.balls);
+            allObjects.concat(this.$scope.obstacles);
+            allObjects.concat(this.$scope.lights);
+
             const screenWidth = this.$window.innerWidth;
             const screenHeight = this.$window.innerHeight;
             do {
@@ -74,6 +96,9 @@
             // Preserves the correct "this" pointer.
             this.$scope.requestAnimationFrameID = this.$window.requestAnimationFrame(() => { this.doAnim() });
             this.$scope.$apply();
+
+            this.mouseSpeedCounter++;
+            this.updateMouseSpeed();
         }
 
         processBallCollisions(ball: Ball) {
@@ -91,135 +116,171 @@
 
         processObstaclesCollisions(ball: Ball) {
             const obstacles = this.$scope.obstacles;
+
             for (let i = 0; i < obstacles.length; i++) {
                 const currentObstacle = obstacles[i];
 
-                if (ball.isOverlapping(currentObstacle))
+                if (ball.isOverlapping(currentObstacle)) {
                     ball.processCollision(currentObstacle); // These two balls have collided, change their velocity vectors appropriately.
+                    // достаточно отработки одного столкновения
+                    return;
+                }
+
+            }
+
+            if (ball.isDragged || this.isSelected(ball))
+                return;
+
+            // те мячи, что не передвигаются мышью должны сталкиваться со светом
+            const lights = this.$scope.lights;
+
+            for (let i = 0; i < lights.length; i++) {
+                const currentLight = lights[i];
+
+                if (ball.isOverlapping(currentLight)) {
+                    ball.processCollision(currentLight);
+                    return;
+                }
+
             }
         }
 
         createBallElements(): void {
-            for (let i = 0; i < 5; i++) {
+            const radius = 60; //this.getRandomBallRadius(); // The radius of the ball.
+            const ballWeight = 1;
 
-                const radius = 64; //this.getRandomBallRadius(); // The radius of the ball.
-                const ballWeight = 1;
 
-                const ballElement = new Ball(radius, 0, 0, ballWeight);
-                const newPosition = this.getRandomBallPosition(ballElement); // For this function, the radius of a ball is needed to make sure that the ball is contained within the arena.
+            var artists = [
+                new Artist("Птиц", "Розовый"),
+                new Artist("Марина", "Расплесецкая"),
+                new Artist("Пингвин", "Южноафриканский"),
+                new Artist("Jack", "Horse"),
+                new Artist("Шар", "Прост"),
+            ];
 
-                ballElement.cx = newPosition.x;
-                ballElement.cy = newPosition.y;
+            for (let i = 0; i < artists.length; i++) {
+                let artist = artists[i];
+
+                const maccot = new Mascot(artist, radius, 0, 0, ballWeight);
+                const newPosition = this.getRandomBallPosition(maccot); // For this function, the radius of a ball is needed to make sure that the ball is contained within the arena.
+
+                maccot.cx = newPosition.x;
+                maccot.cy = newPosition.y;
 
                 const vx = this.getRandomSpeed();
                 const vy = this.getRandomSpeed();
 
-                ballElement.v = new Vector(vx, vy); // Give the ball element a custom velocity vector object (whose x- and y-component are randomly chosen).
+                maccot.v = new Vector(vx, vy); // Give the ball element a custom velocity vector object (whose x- and y-component are randomly chosen).
+                maccot.color = Random.getRandomColor();
 
-                ballElement.color = Random.getRandomColor();
-
-                this.$scope.balls.push(ballElement);
+                this.$scope.balls.push(maccot);
             }
         }
 
         positionBallsInArena = (): void => {
-            var overlap: boolean; // Assume that none of the balls physically overlap.
-
             const balls = this.$scope.balls;
-            const length = balls.length;
 
-            do // Make sure that none of the balls physically overlap within the arena (using an inelegant brute force algorithm)
-            {
-                overlap = false; // Reset the value for each iteration of the loop.
-                for (let i = 0; (i < length) && !overlap; i++) {
-                    const ballA = balls[i];
-                    for (let j = 0; (j < length) && !overlap; j++) {
-                        if (i === j)
-                            continue; // Breaks the current loop and continues with the next j value.
+            for (let i = 0; i < balls.length; i++) {
+                const ballA = balls[i];
+                this.positionBallRandomlyInArena(ballA);
+            }
+        }
 
-                        if (ballA.isOverlapping(balls[j])) {
-                            const point = this.getRandomBallPosition(ballA); // Returns an object representing a 2D point.
-                            ballA.cx = point.x;
-                            ballA.cy = point.y;
-                            overlap = true;
-                        }
-                    } // Inner "j" FOR loop.
-                } // Outer "i" FOR loop.
-            } while (overlap);
+        positionBallRandomlyInArena = (ball: Ball): void => {
+            const balls: Colider[] = this.$scope.balls;
+            const obstacles: Colider[] = this.$scope.obstacles;
+            const lights: Colider[] = this.$scope.lights;
+
+            let allObjects = balls.concat(obstacles).concat(lights);
+
+            let overlap, point;
+            do {
+                overlap = false;
+
+                point = this.getRandomBallPosition(ball); // Returns an object representing a 2D point.
+                ball.cx = point.x;
+                ball.cy = point.y;
+
+                for (let j = 0; j < allObjects.length; j++) {
+                    let otherObject = allObjects[j];
+                    if (ball === otherObject)
+                        continue; // Breaks the current loop and continues with the next j value.
+
+                    if (ball.isOverlapping(otherObject)) {
+                        overlap = true;
+                        break;
+                    }
+                }
+            }
+            while (overlap)
+
+
         }
 
         requestNewFrame = (): void => {
-            this.$scope.requestAnimationFrameID = this.$window.requestAnimationFrame(this.doAnim);;
-        }
-
-        initialize = (): void => {
-            this.createBallElements(); // Create all ball elements and add custom properties to these elements as well.
-            this.positionBallsInArena(); // Position the balls in the circular arena such that none of them overlap.
+            this.$scope.requestAnimationFrameID = this.$window.requestAnimationFrame(this.doAnim);
         }
 
         initWindow = (): void => {
-            if (!this.svgSupported()) {
-                alert("Inline SVG in HTML5 is not supported. This document requires a browser that supports HTML5 and inline SVG.");
-                return;
-            }
-            this.initialize();
+            this.createBallElements(); // Create all ball elements and add custom properties to these elements as well.
             this.createWall();
+            this.createLightSpot();
+
+            this.positionBallsInArena(); // Position the balls in the circular arena such that none of them overlap.
 
             this.$scope.startInteraction = this.startInteraction;
             this.$scope.stopInteraction = this.stopInteraction;
+            this.$scope.stopDrag = this.stopDrag;
 
-            this.$scope.ballMouseDown = this.ballMouseDown;
+            this.$scope.startDrag = this.startDrag;
+
+
             this.$scope.ballMouseUp = this.ballMouseUp;
             this.$scope.ballMouseMove = this.ballMouseMove;
 
             this.requestNewFrame();
         }
 
+        createLightSpot = (): void => {
+            const wStep = this.screenHeight / 100;
+            const maxWidth = this.screenWidth / 3;
+            const maxHeight = this.screenHeight / 2;
 
-        createWall = (): void => {
-            const screenWidth = this.$window.innerWidth;
-            const screenHeight = this.$window.innerHeight;
-
-            const screenCenterX = screenWidth / 2;
-            const screenCenterY = screenHeight / 2;
-
-            const wStep = screenHeight / 100;
-            const maxWidth = screenWidth / 3;
-            const maxHeight = screenHeight / 2;
-            const borderWeght = Number.MAX_VALUE;
-            const newOriginx = 0;
-
-
-            var obstacles = this.$scope.obstacles;
-
-
-
+            const lightWeight = Number.MAX_VALUE;
             const step = 60;
             const lightSpotSize = 300;
             const coliderRadius = lightSpotSize / 5;
-            const maxPositionX = screenCenterX + lightSpotSize / 2 - coliderRadius;
+            const maxPositionX = this.screenCenterX + lightSpotSize / 2 - coliderRadius;
 
-            let currentPositionX = screenCenterX - lightSpotSize / 2 + coliderRadius;
+            let currentPositionX = this.screenCenterX - lightSpotSize / 2 + coliderRadius;
+            let lights: LightSpot[] = [];
 
             while (currentPositionX <= maxPositionX) {
-                const colider = new Ball(coliderRadius, currentPositionX, screenCenterY, borderWeght);
-                obstacles.push(colider);
+                const lightSpot = new LightSpot(coliderRadius, currentPositionX, this.screenCenterY, lightWeight);
+                lights.push(lightSpot);
 
                 currentPositionX += step;
             }
 
-            // const centerColiderRadius = 150;
-            // const centerColider = new Ball(centerColiderRadius, screenCenterX, screenCenterY, borderWeght);
-            // obstacles.push(centerColider);
+            const centralSpot = new LightSpot(1.2 * coliderRadius, this.screenCenterX, this.screenCenterY, lightWeight);
+            lights.push(centralSpot);
+
+            this.$scope.lights = lights;
+        }
+
+        createWall = (): void => {
+            const newOriginx = 0;
+            const borderWeght = Number.MAX_VALUE;
+
+            let obstacles = this.$scope.obstacles;
 
             const borderThikness = 0;
             const borderRadius = 100000;
 
-
-            const leftBorder = new Ball(borderRadius, -borderRadius + borderThikness - newOriginx, screenWidth / 2 - newOriginx, borderWeght);
-            const rightBorder = new Ball(borderRadius, screenWidth + borderRadius - borderThikness - newOriginx, screenWidth / 2 - newOriginx, borderWeght);
-            const topBorder = new Ball(borderRadius, screenWidth / 2 - newOriginx, -borderRadius + borderThikness - newOriginx, borderWeght);
-            const bottomBorder = new Ball(borderRadius, screenWidth / 2 - newOriginx, screenHeight + borderRadius - borderThikness - newOriginx, borderWeght);
+            const leftBorder = new Wall(borderRadius, -borderRadius + borderThikness - newOriginx, this.screenWidth / 2 - newOriginx, borderWeght);
+            const rightBorder = new Wall(borderRadius, this.screenWidth + borderRadius - borderThikness - newOriginx, this.screenWidth / 2 - newOriginx, borderWeght);
+            const topBorder = new Wall(borderRadius, this.screenWidth / 2 - newOriginx, -borderRadius + borderThikness - newOriginx, borderWeght);
+            const bottomBorder = new Wall(borderRadius, this.screenWidth / 2 - newOriginx, this.screenHeight + borderRadius - borderThikness - newOriginx, borderWeght);
 
             obstacles.push(leftBorder);
             obstacles.push(rightBorder);
@@ -227,29 +288,116 @@
             obstacles.push(bottomBorder);
         }
 
+        ballPlacedInTheLight = (ball: Ball): boolean => {
+            const lights = this.$scope.lights;
+            for (let i = 0; i < lights.length; i++) {
+                let light = lights[i];
+                if (ball.isOverlapping(light))
+                    return true;
+            }
+            return false;
+        }
+
+        isSelected = (ball: Ball): boolean => {
+            let result = this.$scope.selectedBall == ball;
+            return result;
+        }
+
         startInteraction = (ball: Ball): void => {
-            ball.isEnabled = false;
+            ball.movingEnabled = false;
         }
 
         stopInteraction = (ball: Ball): void => {
-            ball.isEnabled = true;
+            if (ball.isDragged || this.isSelected(ball))
+                return;
+
+            ball.movingEnabled = true;
         }
 
-        ballMouseDown = (ball: Ball): void => {
+        stopDrag = (ball: Ball): void => {
+            ball.isDragged = false;
+
+            if (this.ballPlacedInTheLight(ball)) {
+                let oldSelectedBall = this.$scope.selectedBall;
+                let oldSelectedBallExist = oldSelectedBall != undefined && oldSelectedBall != ball;
+
+                if (oldSelectedBallExist) {
+                    this.positionBallRandomlyInArena(oldSelectedBall);
+                    oldSelectedBall.movingEnabled = true;
+                }
+
+                this.$scope.selectedBall = ball;
+                ball.movingEnabled = false;
+
+                // перенесем на центр экрана мяч
+
+                this.$timeout(() => {
+                    ball.cx = this.screenCenterX;
+                    ball.cy = this.screenCenterY;
+                }, 50)
+
+
+                // angular.element(".ball.selected").animate({
+                //     top: 100,
+                //     left: 100
+                // });
+
+            } else {
+                ball.v = this.$scope.mouseSpeed;
+                ball.isEnabled = true;
+                ball.movingEnabled = true;
+
+                if (this.isSelected(ball)) {
+                    //больше не выбранный мяч
+                    this.$scope.selectedBall = undefined;
+                }
+            }
+
+        }
+
+        startDrag = (ball: Ball): void => {
             ball.isDragged = true;
+
+            this.$scope.currentBall = ball;
         }
 
         ballMouseUp = (ball: Ball): void => {
             ball.isDragged = false;
-            alert("ballMouseUp");
+            ball.movingEnabled = false;
         }
 
-        ballMouseMove = (ball: Ball, event: MouseEvent): void => {
-            if (!ball.isDragged)
+        updateMouseSpeed = (): void => {
+            this.mouseSpeedCounter = this.mouseSpeedCounter % 3;
+            if (this.mouseSpeedCounter != 0)
                 return;
 
-            // ball.cx = event.clientX;
-            // ball.cy = event.clientY;
+            let newSpeed = this.mouseTrack.multi(30).mathRound();
+
+            const maxSpeed = 1000;
+            if (newSpeed.getLength() > maxSpeed) {
+                newSpeed = newSpeed.normalize().multi(maxSpeed);
+            }
+
+            this.$scope.mouseSpeed = newSpeed;
+
+            this.mouseTrack = new Vector(0, 0);
+            this.$scope.$apply();
+        }
+
+        ballMouseMove = (event: MouseEvent): void => {
+            let ball = this.$scope.currentBall;
+            let mousePos = new Vector(event.pageX, event.pageY);
+
+            if (ball == undefined || !ball.isDragged)
+                return;
+
+            ball.cx = mousePos.xc;
+            ball.cy = mousePos.yc;
+
+            let diffPos = mousePos.diff(this.lastMousePos);
+
+            this.lastMousePos = mousePos;
+            this.mouseTrack = this.mouseTrack.add(diffPos);
         }
 
     }

@@ -39,5 +39,29 @@
             return this.xc * other.xc + this.yc * other.yc;
         }
 
+        mathRound = (): Vector => {
+            let result = new Vector(Math.round(this.xc), Math.round(this.yc));
+            return result;
+        }
+
+        getLength = (): number => {
+            const length = Math.sqrt(Math.pow(this.xc, 2) + Math.pow(this.yc, 2));
+            return length;
+        }
+
+        normalize = (): Vector => {
+            const length = this.getLength();
+            if (length == 0)
+                return new Vector(0, 0);
+
+            const result = this.multi(1 / length);
+            return result;
+        }
+
+        isEmpty = (): boolean => {
+            const length = this.getLength();
+            return length == 0;
+        }
+
     }
 }

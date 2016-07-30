@@ -16,7 +16,7 @@ var Snowstorm;
             };
             this.link = function (scope, el, attrs) {
                 console.log("linking draggable element");
-                angular.element(el).attr("draggable", "true");
+                angular.element(el).attr("in", "true");
                 var id = attrs.id;
                 if (!id) {
                     id = _this.$guid.new();
@@ -24,11 +24,12 @@ var Snowstorm;
                 }
                 el.bind("dragstart", function (e) {
                     var originalEvent = e.originalEvent;
-                    debugger;
+                    console.log("dragstart");
                     originalEvent.dataTransfer.setData('text', id);
                     _this.$rootScope.$emit("DRAG-START");
                 });
                 el.bind("dragend", function (e) {
+                    console.log("dragend");
                     _this.$rootScope.$emit("DRAG-END");
                 });
             };

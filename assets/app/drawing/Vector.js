@@ -26,6 +26,25 @@ var Snowstorm;
             this.dot = function (other) {
                 return _this.xc * other.xc + _this.yc * other.yc;
             };
+            this.mathRound = function () {
+                var result = new Vector(Math.round(_this.xc), Math.round(_this.yc));
+                return result;
+            };
+            this.getLength = function () {
+                var length = Math.sqrt(Math.pow(_this.xc, 2) + Math.pow(_this.yc, 2));
+                return length;
+            };
+            this.normalize = function () {
+                var length = _this.getLength();
+                if (length == 0)
+                    return new Vector(0, 0);
+                var result = _this.multi(1 / length);
+                return result;
+            };
+            this.isEmpty = function () {
+                var length = _this.getLength();
+                return length == 0;
+            };
         }
         return Vector;
     }());
