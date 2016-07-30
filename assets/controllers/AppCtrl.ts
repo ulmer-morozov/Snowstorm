@@ -373,7 +373,7 @@
 
             let newSpeed = this.mouseTrack.multi(30).mathRound();
 
-            const maxSpeed = 1000;
+            const maxSpeed = 2000;
             if (newSpeed.getLength() > maxSpeed) {
                 newSpeed = newSpeed.normalize().multi(maxSpeed);
             }

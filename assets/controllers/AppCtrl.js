@@ -187,7 +187,7 @@ var Snowstorm;
                 if (_this.mouseSpeedCounter != 0)
                     return;
                 var newSpeed = _this.mouseTrack.multi(30).mathRound();
-                var maxSpeed = 1000;
+                var maxSpeed = 2000;
                 if (newSpeed.getLength() > maxSpeed) {
                     newSpeed = newSpeed.normalize().multi(maxSpeed);
                 }
