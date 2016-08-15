@@ -28,7 +28,7 @@
             // каждый шаг будет уменьшать скорость
             // если она очень большая
             if (speed > 100) {
-                this.v = this.v.multi(0.999);
+                this.v = this.v.multi(0.99);
             }
         }
 
@@ -83,7 +83,7 @@
 
             while (this.isOverlapping(that)) {
                 i++;
-                if (i > 100) {
+                if (i > 500) {
                     debugger;
                     break;
                 }
@@ -97,7 +97,9 @@
                 let distanceAfterSteps = this.d(that);
                 if (distanceAfterSteps < distanceBeforeOverlaping && !reverseActivated) {
                     reverseActivated = true;
-                    this.v = this.v.multi(-1 / 2);
+                    this.v = this.v.multi(-1);
+                    if (this.v.getLength() < 10)
+                        this.v = this.v.normalize().multi(10);
                 }
             }
         }

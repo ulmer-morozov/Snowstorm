@@ -19,7 +19,7 @@ var Snowstorm;
                 _this.cy += _this.s2d(_this.v.yc);
                 var speed = _this.v.getLength();
                 if (speed > 100) {
-                    _this.v = _this.v.multi(0.999);
+                    _this.v = _this.v.multi(0.99);
                 }
             };
             this.processCollision = function (that) {
@@ -53,7 +53,7 @@ var Snowstorm;
                 var reverseActivated = false;
                 while (_this.isOverlapping(that)) {
                     i++;
-                    if (i > 100) {
+                    if (i > 500) {
                         debugger;
                         break;
                     }
@@ -63,7 +63,9 @@ var Snowstorm;
                     var distanceAfterSteps = _this.d(that);
                     if (distanceAfterSteps < distanceBeforeOverlaping && !reverseActivated) {
                         reverseActivated = true;
-                        _this.v = _this.v.multi(-1 / 2);
+                        _this.v = _this.v.multi(-1);
+                        if (_this.v.getLength() < 10)
+                            _this.v = _this.v.normalize().multi(10);
                     }
                 }
             };
