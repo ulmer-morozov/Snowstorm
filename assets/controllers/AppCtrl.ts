@@ -151,11 +151,12 @@
 
 
             var artists = [
-                new Artist("Птиц", "Розовый"),
-                new Artist("Марина", "Расплесецкая"),
-                new Artist("Пингвин", "Южноафриканский"),
-                new Artist("Jack", "Horse"),
-                new Artist("Шар", "Прост"),
+                new Artist("Птиц", "Розовый", "pinkbird"),
+                new Artist("Марина", "Расплесецкая", "balet"),
+                new Artist("Пингвин", "Южноафриканский", "pigeon"),
+                new Artist("Jack", "Horse", "horse"),
+                new Artist("Шар", "Прост", "livingBall"),
+                new Artist("Домик", "Дымоходов", "house"),
             ];
 
             for (let i = 0; i < artists.length; i++) {
@@ -237,6 +238,8 @@
 
             this.$scope.ballMouseUp = this.ballMouseUp;
             this.$scope.ballMouseMove = this.ballMouseMove;
+
+            this.$scope.getMascotImg = this.getMascotImg;
 
             this.requestNewFrame();
         }
@@ -400,5 +403,9 @@
             this.mouseTrack = this.mouseTrack.add(diffPos);
         }
 
+        getMascotImg = (mascot: Mascot): string => {
+            const imgUrl = `../images/mascots/${mascot.artist.mascotName}.png`;
+            return imgUrl;
+        }
     }
 }

@@ -91,6 +91,7 @@ var Snowstorm;
                 _this.$scope.startDrag = _this.startDrag;
                 _this.$scope.ballMouseUp = _this.ballMouseUp;
                 _this.$scope.ballMouseMove = _this.ballMouseMove;
+                _this.$scope.getMascotImg = _this.getMascotImg;
                 _this.requestNewFrame();
             };
             this.createLightSpot = function () {
@@ -206,6 +207,10 @@ var Snowstorm;
                 _this.lastMousePos = mousePos;
                 _this.mouseTrack = _this.mouseTrack.add(diffPos);
             };
+            this.getMascotImg = function (mascot) {
+                var imgUrl = "../images/mascots/" + mascot.artist.mascotName + ".png";
+                return imgUrl;
+            };
             this.mouseSpeedCounter = 0;
             this.mouseTrack = new Snowstorm.Vector(0, 0);
             this.lastMousePos = new Snowstorm.Vector(0, 0);
@@ -253,11 +258,12 @@ var Snowstorm;
             var radius = 60;
             var ballWeight = 1;
             var artists = [
-                new Snowstorm.Artist("Птиц", "Розовый"),
-                new Snowstorm.Artist("Марина", "Расплесецкая"),
-                new Snowstorm.Artist("Пингвин", "Южноафриканский"),
-                new Snowstorm.Artist("Jack", "Horse"),
-                new Snowstorm.Artist("Шар", "Прост"),
+                new Snowstorm.Artist("Птиц", "Розовый", "pinkbird"),
+                new Snowstorm.Artist("Марина", "Расплесецкая", "balet"),
+                new Snowstorm.Artist("Пингвин", "Южноафриканский", "pigeon"),
+                new Snowstorm.Artist("Jack", "Horse", "horse"),
+                new Snowstorm.Artist("Шар", "Прост", "livingBall"),
+                new Snowstorm.Artist("Домик", "Дымоходов", "house"),
             ];
             for (var i = 0; i < artists.length; i++) {
                 var artist = artists[i];

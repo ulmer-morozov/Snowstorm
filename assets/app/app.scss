@@ -61,6 +61,22 @@ html {
         background-position: -3600px;
     }
 }
+@keyframes play-ball {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -4440px;
+    }
+}
+@keyframes play-house {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -1710px;
+    }
+}
 .selected-artist-title {
     position: fixed;
     left: 50%;
@@ -136,29 +152,29 @@ html {
 .ball.selected .bounds {
     border: none;
 }
-.ball.ball0 {
-    // border-radius: 0;
-    // background-color: transparent;;
+.ball.pinkbird {
     background-image: url("../images/mascots/pinkbird_120_120.png");
     animation: play 0.8s steps(24) infinite;
 }
-.ball.ball1 {
-    // border-radius: 0;
-    // background-color: transparent;;
+.ball.balet {
     background-image: url("../images/mascots/balet_120_120.png");
     animation: play-balet 2s steps(50) infinite;
 }
-.ball.ball2 {
-    // border-radius: 0;
-    // background-color: transparent;;
+.ball.pigeon {
     background-image: url("../images/mascots/pigeon.png");
     animation: play-pigeon 3s steps(39) infinite;
 }
-.ball.ball3 {
-    // border-radius: 0;
-    // background-color: transparent;;
+.ball.horse {
     background-image: url("../images/mascots/horse_120x120.png");
     animation: play-horse 1.2s steps(30) infinite;
+}
+.ball.livingBall {
+    background-image: url("../images/mascots/ball_120x120.png");
+    animation: play-ball 1s steps(37) infinite;
+}
+.ball.house {
+    background-image: url("../images/mascots/house_90х90.png");
+    animation: play-house 1s steps(19) infinite;
 }
 #mouseSpeed {
     position: fixed;

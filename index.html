@@ -28,7 +28,7 @@
     <div id="drawingPlot" ng-mousemove="ballMouseMove($event)">
         <div ng-repeat="ball in balls" ng-mouseover="startInteraction(ball)" ng-mouseleave="stopInteraction(ball)"
             ng-mousedown="startDrag(ball)" ng-mouseup="stopDrag(ball)" ng-style="{ transform: 'translate3d(' + ball.cx + 'px,' + ball.cy + 'px, 0)', width: 2*ball.r, height: 2*ball.r, 'margin-left': -ball.r, 'margin-top': - ball.r}"
-            ng-class="['ball'+$index, {dragged: ball.isDragged, selected: selectedBall == ball, enabled: ball.isEnabled}]"
+            ng-class="[{dragged: ball.isDragged, selected: selectedBall == ball, enabled: ball.isEnabled}, ball.artist.mascotName]"
             class="ball">
             <div class="bounds"> </div>
         </div>

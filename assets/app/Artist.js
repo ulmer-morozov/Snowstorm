@@ -1,9 +1,10 @@
 var Snowstorm;
 (function (Snowstorm) {
     var Artist = (function () {
-        function Artist(firstname, lastname) {
+        function Artist(firstname, lastname, mascotName) {
             this.firstname = firstname;
             this.lastname = lastname;
+            this.mascotName = mascotName;
         }
         Object.defineProperty(Artist.prototype, "fullname", {
             get: function () {

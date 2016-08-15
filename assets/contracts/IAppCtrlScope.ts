@@ -21,5 +21,7 @@ module Snowstorm {
         ballMouseUp(ball: Ball): void;
 
         ballMouseMove(event: MouseEvent);
+
+        getMascotImg(mascot: Mascot);
     }
 }
