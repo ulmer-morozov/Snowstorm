@@ -1,0 +1,51 @@
+﻿@using SnowstormWeb.Core.Models
+
+@model IList<Author>
+@{
+    ViewData["Title"] = "Authors";
+}
+<h1>Authors</h1>
+<div class="row">
+    <div class="col-xs-20 col-xs-offset-2">
+        <div class="author-names">
+            @foreach (var author in Model)
+            {
+                <div class="author-name">@author.Name.Full</div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="author-promos">
+
+    @foreach (var author in Model.Take(4))
+    {
+        <div class="author-promo row">
+            <div class="author-promo-name col-xs-20 col-xs-offset-2">@author.Name.Full</div>
+        </div>
+
+        <div class="author-promo-container row">
+
+            <div class="col-md-6  col-sm-offset-2
+                        col-sm-9  col-sm-offset-2
+                        col-xs-20 col-xs-offset-2">
+
+                <div class="author-promo-content">
+                    <div class="author-promo-about-header">About</div>
+                    <div class="author-promo-about">@author.About</div>
+                    <a href="#" class="link">All Works</a>
+                </div>
+            </div>
+
+            @foreach (var image in author.Images.Take(3))
+                {
+                <div class="col-md-offset-1 col-md-6
+                                col-sm-offset-2 col-sm-9
+                                col-xs-offset-2 col-xs-20
+                                author-promo-work-container" style="height: 100%;">
+                    <div class="author-promo-work" style="background-image: url(@image.Url)"></div>
+                </div>
+            }
+        </div>
+    }
+</div>

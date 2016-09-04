@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>@ViewData["Title"] - SnowstormWeb</title>
+
+	<environment names="Development">
+        <link rel="stylesheet" href="~/css/grid24.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+	</environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/grid24.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    </environment>
+</head>
+<body>
+
+<div>
+
+	<div class="menu-container">
+		<div class="menu-item">Home</div>
+		<div class="menu-item">About</div>
+		<div class="menu-item">Illustrators</div>
+		<div class="menu-item">Illustrated news</div>
+	</div>
+
+	@RenderBody()
+</div>
+
+<environment names="Development">
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+</environment>
+
+<environment names="Staging,Production">
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+	        asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+	        asp-fallback-test="window.jQuery">
+
+
+
+	</script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+</environment>
+
+@RenderSection("scripts", required: false)
+</body>
+</html>
