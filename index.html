@@ -6,62 +6,54 @@
     <title>Snowstorm</title>
     <!-- <meta name="description" content="The HTML5 Herald"> -->
     <meta name="author" content="Ulmer-Morozov for Interactopus">
-    <link href="assets/app/app.min.css" rel="stylesheet">
-    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
-</head>
+    <link href="assets/styles/grid24.css" rel="stylesheet">
+    <link href="assets/styles/app.min.css" rel="stylesheet">
+    <link href="assets/styles/authors.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"></head>
 
-<body ng-app="App" ng-controller="AppCtrl">
-    <!-- <div style="position:absolute">
-        {{mouseSpeed | json}}
-    </div> -->
-    <div class="fan"></div>
+<body ng-app="App">
 
-    <!-- <svg id="mouseSpeed" height="300" width="300">
-        <line x1="150" y1="150" ng-attr-x2="{{mouseSpeed.xc+150}}" ng-attr-y2="{{mouseSpeed.yc+150}}"
-            style="stroke:rgb(255,0,0);stroke-width:5" />
-    </svg> -->
+    <!-- Menu -->
+    <div class="menu-container">
+        <a href="#" class="menu-item">Home</a>
+        <a href="#" class="menu-item">About</a>
+        <a href="#" class="menu-item">Illustrators</a>
+        <a href="#" class="menu-item">Illustrated news</a>
+    </div>
 
-    <div class="lightSpot">KJYHFHVLUVLIUYBG</div>
+    <div ng-view></div>
 
-    <div class="selected-artist-title">{{selectedBall.artist.fullname}}</div>
+    <footer class="row">
+        <div class="col-xs-4 col-sm-offset-2 col-xs-offset-1">© Вьюга</div>
+        <div class="col-sm-8 col-xs-14">mail@vjuga.com&emsp;+7 (999) 977-77-77</div>
+        <div class="col-xs-4 col-sm-offset-6 col-xs-offset-1">Соц. сети</div>
+    </footer>
 
-    <div id="drawingPlot" ng-mousemove="ballMouseMove($event)">
-        <div ng-repeat="ball in balls" ng-mouseover="startInteraction(ball)" ng-mouseleave="stopInteraction(ball)"
-            ng-mousedown="startDrag(ball)" ng-mouseup="stopDrag(ball)" ng-style="{ transform: 'translate3d(' + ball.cx + 'px,' + ball.cy + 'px, 0)', width: 2*ball.r, height: 2*ball.r, 'margin-left': -ball.r, 'margin-top': - ball.r}"
-            ng-class="[{dragged: ball.isDragged, selected: selectedBall == ball, enabled: ball.isEnabled}, ball.artist.mascotName]"
-            class="ball">
-            <div class="bounds"> </div>
-        </div>
-        <!-- <div ng-repeat="obstacle in obstacles" ng-style="{left: obstacle.cx, top: obstacle.cy, width: 2*obstacle.r, height: 2*obstacle.r, 'margin-left': -obstacle.r, 'margin-top': - obstacle.r}"
-            ng-class="['obstacle'+$index]" class="obstacle" /> -->
+    <!-- скрипты -->
+    <script src="assets/libs/jquery/jquery-2.2.2.min.js"></script>
+    <script src="assets/libs/angular/angular.js"></script>
+    <script src="assets/libs/angular/angular-animate.js"></script>
+    <script src="assets/libs/angular/angular-route.js"></script>
+    <!-- сервисы -->
+    <script src="assets/app/services/Guid.js"></script>
+    <!-- Модели -->
+    <script src="assets/app/Artist.js"></script>
+    <!-- функции рисования -->
+    <script src="assets/app/drawing/Random.js"></script>
+    <script src="assets/app/drawing/Point.js"></script>
+    <script src="assets/app/drawing/Vector.js"></script>
+    <script src="assets/app/drawing/Colider.js"></script>
+    <script src="assets/app/drawing/Ball.js"></script>
+    <script src="assets/app/drawing/Wall.js"></script>
+    <script src="assets/app/drawing/LightSpot.js"></script>
+    <script src="assets/app/drawing/Mascot.js"></script>
 
-        <div ng-repeat="light in lights" ng-style="{left: light.cx, top: light.cy, width: 2*light.r, height: 2*light.r, 'margin-left': -light.r, 'margin-top': - light.r}"
-            ng-class="['obstacle'+$index]" class="obstacle"> </div>
+    <script src="assets/app/directives/draggable/Draggable.js"></script>
 
-        <!-- скрипты -->
-        <script src="assets/libs/jquery/jquery-2.2.2.min.js"></script>
-        <script src="assets/libs/angular/angular.js"></script>
-        <script src="assets/libs/angular/angular-animate.js"></script>
-        <!-- сервисы -->
-        <script src="assets/app/services/Guid.js"></script>
-        <!-- Модели -->
-        <script src="assets/app/Artist.js"></script>
-        <!-- функции рисования -->
-        <script src="assets/app/drawing/Random.js"></script>
-        <script src="assets/app/drawing/Point.js"></script>
-        <script src="assets/app/drawing/Vector.js"></script>
-        <script src="assets/app/drawing/Colider.js"></script>
-        <script src="assets/app/drawing/Ball.js"></script>
-        <script src="assets/app/drawing/Wall.js"></script>
-        <script src="assets/app/drawing/LightSpot.js"></script>
-        <script src="assets/app/drawing/Mascot.js"></script>
-
-
-        <script src="assets/app/directives/draggable/Draggable.js"></script>
-
-        <!-- само приложение -->
-        <script src="assets/controllers/AppCtrl.js"></script>
-        <script src="assets/app/App.js"></script>
+    <!-- само приложение -->
+    <script src="assets/controllers/GameCtrl.js"></script>
+    <script src="assets/controllers/AuthorsCtrl.js"></script>
+    <script src="assets/app/App.js"></script>
 </body>
 
 </html>
