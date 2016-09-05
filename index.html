@@ -8,16 +8,20 @@
     <meta name="author" content="Ulmer-Morozov for Interactopus">
     <link href="assets/styles/grid24.css" rel="stylesheet">
     <link href="assets/styles/app.min.css" rel="stylesheet">
+    <link href="assets/styles/author.min.css" rel="stylesheet">
     <link href="assets/styles/authors.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
 
 <body ng-app="App">
+
+    <img id="logo" src="assets/images/logo.png" alt="Вьюга" />
 
     <!-- Menu -->
     <div class="menu-container">
         <a href="#" class="menu-item">Home</a>
         <a href="#" class="menu-item">About</a>
-        <a href="#" class="menu-item">Illustrators</a>
+        <a href="#/Authors" class="menu-item">Illustrators</a>
         <a href="#" class="menu-item">Illustrated news</a>
     </div>
 
@@ -36,6 +40,7 @@
     <script src="assets/libs/angular/angular-route.js"></script>
     <!-- сервисы -->
     <script src="assets/app/services/Guid.js"></script>
+    <script src="assets/app/DataRepository.js"></script>
     <!-- Модели -->
     <script src="assets/app/Artist.js"></script>
     <!-- функции рисования -->
@@ -52,6 +57,7 @@
 
     <!-- само приложение -->
     <script src="assets/controllers/GameCtrl.js"></script>
+    <script src="assets/controllers/AuthorCtrl.js"></script>
     <script src="assets/controllers/AuthorsCtrl.js"></script>
     <script src="assets/app/App.js"></script>
 </body>

@@ -16,6 +16,10 @@ html {
     padding: 0;
     // overflow: hidden;
 }
+body {
+    background-image: url('../images/back.svg');
+    background-position-y: -200pt;
+}
 #drawingPlot {
     position: fixed;
     width: 100%;

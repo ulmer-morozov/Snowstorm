@@ -11,6 +11,7 @@ module Snowstorm {
 
         //контроллеры
         .controller("GameCtrl", GameCtrl)
+        .controller("AuthorCtrl", AuthorCtrl)
         .controller("AuthorsCtrl", AuthorsCtrl)
 
         //сервисы
@@ -29,6 +30,10 @@ module Snowstorm {
                 .when("/Authors", {
                     templateUrl: "assets/templates/authors.html",
                     controller: "AuthorsCtrl"
+                })
+                .when("/Author/:authorId", {
+                    templateUrl: "assets/templates/author.html",
+                    controller: "AuthorCtrl"
                 })
                 .otherwise("/Authors");
         }]);

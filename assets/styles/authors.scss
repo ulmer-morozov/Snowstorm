@@ -3,6 +3,7 @@ $primary-color: #00b0ec;
 $gray-color: #1d1d1d;
 $background-gap: 11.25pt;
 $gridPadding: 7.5px; //размеры экранов
+$screen-md-max: 480px;
 $screen-md-min: 992px;
 $screen-sm-max: 768px; //
 @mixin highlight-debug() {
@@ -10,7 +11,6 @@ $screen-sm-max: 768px; //
     border: 1pt solid whitesmoke;
 }
 @mixin highlighted-container() {
-    position: absolute;
     display: block;
     content: "";
     background-color: $primary-color;
@@ -18,11 +18,23 @@ $screen-sm-max: 768px; //
     left: $gridPadding + $background-gap;
     right: -$gridPadding;
     height: 100%;
+    position: absolute;
     z-index: -1;
 }
 body {
     padding-top: 27pt;
     background-color: white;
+}
+#logo {
+    top: 40pt;
+    left: 8.33333333%;
+    position: absolute;
+}
+@media (max-width: $screen-xs-max) {
+  #logo {
+    top: 20pt;
+      width: 80pt;
+  }
 }
 footer {
     height: 56.25pt;
@@ -59,8 +71,7 @@ footer {
         margin-left: 16pt;
     }
     @media (max-width: $screen-sm-max) {
-        left: 8.33333333%;
-        right: auto;
+        right: 8.33333333%;;
         .menu-item {
             display: block;
         }
