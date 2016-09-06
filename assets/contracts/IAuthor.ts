@@ -7,5 +7,6 @@ module Snowstorm {
         about: string;
         mascotUrl: string;
         promoImages: string[];
+        works: IWork[];
     }
 }
