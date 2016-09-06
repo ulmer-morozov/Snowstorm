@@ -3,5 +3,6 @@ module Snowstorm {
 
     export interface IIllustratedNewsScope extends ng.IScope {
         posts: INewsPost[];
+        mainPost: INewsPost;
     }
 }

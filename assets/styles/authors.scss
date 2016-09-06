@@ -5,7 +5,7 @@ $gray-color: #1d1d1d;
 $background-gap: 11.25pt;
 $gridPadding: 7.5px; //размеры экранов
 $screen-xs-max: 360pt;
-$screen-sm-max: 576pt; 
+$screen-sm-max: 576pt;
 $screen-md-min: 744pt;
 @mixin highlight-debug() {
     box-sizing: border-box;
@@ -102,6 +102,7 @@ textarea.form-input {
     color: $primary-color;
     background-color: white;
     border: solid 1.5pt $primary-color;
+    border-radius: 0;
     padding: 10pt;
     margin-bottom: 30pt;
     font-size: 11.25pt;
@@ -365,27 +366,43 @@ $promo-content-margin: 40pt;
         line-height: 1.2;
         text-align: center;
     }
+    .main-post{
+      margin-bottom: 52.5pt;
+    }
+    @media (max-width: 600pt) {
+        // скрываем на маленьких экранах главный пост
+        .main-post {
+            display: none;
+        }
+    }
+    @media (min-width: 600pt) {
+        // скрываем на больших экранах первый пост
+        .post:first-child {
+            display: none;
+        }
+    }
+    img.main-post-cover,
+    img.post-image {
+        width: 100%;
+    }
+    .post-date {
+        margin-top: 22.5pt;
+        margin-bottom: 11.25pt;
+        font-family: $news-primary-font;
+        font-size: 22.5pt;
+    }
+    .post-author,
+    .post-title {
+        font-family: $news-primary-font;
+        font-size: 11.25pt;
+        color: #1d1d1d;
+    }
     .posts {
         column-width: 200pt;
         column-gap: 45pt;
         .post {
             break-inside: avoid-column;
             margin-bottom: 33.75pt;
-            img.post-image {
-                width: 100%;
-            }
-            .post-date {
-                margin-top: 22.5pt;
-                margin-bottom: 11.25pt;
-                font-family: $news-primary-font;
-                font-size: 22.5pt;
-            }
-            .post-author,
-            .post-title {
-                font-family: $news-primary-font;
-                font-size: 11.25pt;
-                color: #1d1d1d;
-            }
         }
     }
 }

@@ -23,6 +23,7 @@ var Snowstorm;
                     { id: 11, releaseDate: new Date(2016, 2, 11), author: "Hubert Jafar", title: "Tortoise Of The Mountain", cover: "assets/images/illustratedNews/cover2.png" },
                     { id: 12, releaseDate: new Date(2016, 1, 12), author: "Carlito Mìcheal", title: "Creator Of Eternity", cover: "assets/images/illustratedNews/cover3.png" },
                 ];
+                _this.$scope.mainPost = _this.$scope.posts[0];
             };
             this.setDefaultNews();
         }
