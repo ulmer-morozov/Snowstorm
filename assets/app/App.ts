@@ -1,3 +1,4 @@
+
 module Snowstorm {
     "use strict";
     angular
@@ -14,6 +15,7 @@ module Snowstorm {
         .controller("GameCtrl", GameCtrl)
         .controller("AuthorCtrl", AuthorCtrl)
         .controller("AuthorsCtrl", AuthorsCtrl)
+        .controller("IllustratedNewsCtrl", IllustratedNewsCtrl)
 
         //сервисы
         // .service("videoRepository", VideoRepository)
@@ -39,6 +41,10 @@ module Snowstorm {
                 .when("/Author/:authorId", {
                     templateUrl: "assets/templates/author.html",
                     controller: "AuthorCtrl"
+                })
+                .when("/IllustratedNews", {
+                    templateUrl: "assets/templates/illustratedNews.html",
+                    controller: "IllustratedNewsCtrl"
                 })
                 .otherwise("/Authors");
         }]);

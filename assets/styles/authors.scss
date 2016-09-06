@@ -1,11 +1,12 @@
 $primary-font: 'Lato';
+$news-primary-font: 'Josefin Slab';
 $primary-color: #00b0ec;
 $gray-color: #1d1d1d;
 $background-gap: 11.25pt;
 $gridPadding: 7.5px; //размеры экранов
-$screen-xs-max: 480px;
-$screen-md-min: 992px;
-$screen-sm-max: 768px; //
+$screen-xs-max: 360pt;
+$screen-sm-max: 576pt; 
+$screen-md-min: 744pt;
 @mixin highlight-debug() {
     box-sizing: border-box;
     border: 1pt solid whitesmoke;
@@ -279,6 +280,7 @@ $promo-content-margin: 40pt;
     }
     .works {
         column-width: 250pt;
+        column-gap: 45pt;
         .work {
             break-inside: avoid-column;
             img.work-image {
@@ -348,5 +350,42 @@ $promo-content-margin: 40pt;
         letter-spacing: 2.25pt;
         color: #1d1d1d;
         text-align: center;
+    }
+}
+// Illustrated News page
+.illustrated-news-page {
+    .news-description {
+        margin-bottom: 90pt;
+    }
+    .news-description,
+    .news-description p {
+        font-size: 22.5pt;
+        font-family: $news-primary-font;
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: center;
+    }
+    .posts {
+        column-width: 200pt;
+        column-gap: 45pt;
+        .post {
+            break-inside: avoid-column;
+            margin-bottom: 33.75pt;
+            img.post-image {
+                width: 100%;
+            }
+            .post-date {
+                margin-top: 22.5pt;
+                margin-bottom: 11.25pt;
+                font-family: $news-primary-font;
+                font-size: 22.5pt;
+            }
+            .post-author,
+            .post-title {
+                font-family: $news-primary-font;
+                font-size: 11.25pt;
+                color: #1d1d1d;
+            }
+        }
     }
 }

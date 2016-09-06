@@ -8,7 +8,7 @@
             <div class="works">
                 <!-- Работа -->
                 <div ng-repeat="work in author.works" class="work">
-                    <img src="{{work.url}}" class="work-image">
+                    <img ng-src="{{work.url}}" class="work-image">
                     <div class="work-title">{{work.title}}</div>
                     <div class="work-description">{{work.description}}</div>
                 </div>

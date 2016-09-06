@@ -6,11 +6,13 @@
     <title>Snowstorm</title>
     <!-- <meta name="description" content="The HTML5 Herald"> -->
     <meta name="author" content="Ulmer-Morozov for Interactopus">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link href="assets/styles/grid24.css" rel="stylesheet">
     <link href="assets/styles/app.min.css" rel="stylesheet">
     <link href="assets/styles/author.min.css" rel="stylesheet">
     <link href="assets/styles/authors.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
 </head>
 
 <body ng-app="App">
@@ -19,10 +21,10 @@
 
     <!-- Menu -->
     <div class="menu-container">
-        <a href="#" class="menu-item">Home</a>
+        <a href="#/" class="menu-item">Home</a>
         <a href="#/About" class="menu-item">About</a>
         <a href="#/Authors" class="menu-item">Illustrators</a>
-        <a href="#" class="menu-item">Illustrated news</a>
+        <a href="#/IllustratedNews" class="menu-item">Illustrated news</a>
     </div>
 
     <div ng-view></div>
@@ -60,6 +62,7 @@
     <script src="assets/controllers/GameCtrl.js"></script>
     <script src="assets/controllers/AuthorCtrl.js"></script>
     <script src="assets/controllers/AuthorsCtrl.js"></script>
+    <script src="assets/controllers/IllustratedNewsCtrl.js"></script>
     <script src="assets/app/App.js"></script>
 </body>
 

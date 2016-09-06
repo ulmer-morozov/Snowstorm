@@ -9,6 +9,7 @@ var Snowstorm;
         .controller("GameCtrl", Snowstorm.GameCtrl)
         .controller("AuthorCtrl", Snowstorm.AuthorCtrl)
         .controller("AuthorsCtrl", Snowstorm.AuthorsCtrl)
+        .controller("IllustratedNewsCtrl", Snowstorm.IllustratedNewsCtrl)
         .config(["$locationProvider", "$routeProvider", function ($locationProvider, $routeProvider) {
             $locationProvider.html5Mode(false);
             $routeProvider
@@ -27,6 +28,10 @@ var Snowstorm;
                 .when("/Author/:authorId", {
                 templateUrl: "assets/templates/author.html",
                 controller: "AuthorCtrl"
+            })
+                .when("/IllustratedNews", {
+                templateUrl: "assets/templates/illustratedNews.html",
+                controller: "IllustratedNewsCtrl"
             })
                 .otherwise("/Authors");
         }]);
