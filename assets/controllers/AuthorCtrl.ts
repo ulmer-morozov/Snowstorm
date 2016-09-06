@@ -17,9 +17,5 @@ module Snowstorm {
             this.$scope.author = DataRepository.authors.filter(x => x.id == $routeParams['authorId'])[0];
         }
 
-        private setDefaultAuthors = (): void => {
-            // this.$scope.authors = DataRepository.authors;
-        }
-
     }
 }

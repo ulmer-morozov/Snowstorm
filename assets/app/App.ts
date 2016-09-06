@@ -10,6 +10,7 @@ module Snowstorm {
         .service("$guid", GuidService)
 
         //контроллеры
+        .controller("AboutCtrl", AboutCtrl)
         .controller("GameCtrl", GameCtrl)
         .controller("AuthorCtrl", AuthorCtrl)
         .controller("AuthorsCtrl", AuthorsCtrl)
@@ -26,6 +27,10 @@ module Snowstorm {
                 .when("/Game", {
                     templateUrl: "assets/templates/game.html",
                     controller: "GameCtrl"
+                })
+                .when("/About", {
+                    templateUrl: "assets/templates/about.html",
+                    controller: "AboutCtrl"
                 })
                 .when("/Authors", {
                     templateUrl: "assets/templates/authors.html",

@@ -7,8 +7,6 @@ var Snowstorm;
             this.$interval = $interval;
             this.$timeout = $timeout;
             this.$routeParams = $routeParams;
-            this.setDefaultAuthors = function () {
-            };
             this.$scope.author = Snowstorm.DataRepository.authors.filter(function (x) { return x.id == $routeParams['authorId']; })[0];
         }
         AuthorCtrl.$inject = [
