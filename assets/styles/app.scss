@@ -14,13 +14,14 @@ body,
 html {
     margin: 0;
     padding: 0;
-     overflow-x: hidden;
+    overflow-x: hidden;
 }
 body {
     background-image: url('../images/back.svg');
     background-position-y: -200pt;
 }
 #drawingPlot {
+    pointer-events: none;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -46,7 +47,7 @@ body {
         background-position: 0;
     }
     to {
-        background-position: -11542px;
+        background-position: -4800px;
     }
 }
 @keyframes play-pigeon {
@@ -78,13 +79,13 @@ body {
         background-position: 0;
     }
     to {
-        background-position: -1710px;
+        background-position: -3600px;
     }
 }
 .selected-artist-title {
     position: fixed;
     left: 50%;
-    top: 20pt;
+    top: 70%;
     font-size: 30pt;
     text-align: center;
     width: 400pt;
@@ -94,13 +95,13 @@ body {
     position: fixed;
     left: 50%;
     top: 20px;
-    width: 398px;
-    height: 281px;
+    width: 400px;
+    height: 300px;
     margin-left: -199px;
     background-image: url("../images/fan.png");
-    animation: fan-animation 1s steps(29) infinite;
+    animation: fan-animation 1s steps(12) infinite;
     pointer-events: none;
-    z-index: 1;
+    // z-index: 1;
 }
 .lightSpot {
     position: fixed;
@@ -123,6 +124,7 @@ body {
     pointer-events: none;
 }
 .ball {
+    pointer-events: all;
     position: fixed;
     // background-color: red;
     // border-radius: 50%;
@@ -177,8 +179,8 @@ body {
     animation: play-ball 1s steps(37) infinite;
 }
 .ball.house {
-    background-image: url("../images/mascots/house_90х90.png");
-    animation: play-house 1s steps(19) infinite;
+    background-image: url("../images/mascots/house_120х120.png");
+    animation: play-house 1s steps(30) infinite;
 }
 #mouseSpeed {
     position: fixed;

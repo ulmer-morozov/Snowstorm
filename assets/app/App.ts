@@ -47,7 +47,7 @@ module Snowstorm {
                     templateUrl: "assets/templates/illustratedNews.html",
                     controller: "IllustratedNewsCtrl"
                 })
-                .otherwise("/Authors");
+                .otherwise("/Game");
         }]);
 
 }

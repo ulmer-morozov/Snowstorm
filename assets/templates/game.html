@@ -1,3 +1,12 @@
+<style>
+    footer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+</style>
 <div>
     <!-- <div style="position:absolute">
       {{mouseSpeed | json}}
@@ -13,8 +22,8 @@
 
     <div class="selected-artist-title">{{selectedBall.artist.fullname}}</div>
 
-    <div id="drawingPlot" ng-mousemove="ballMouseMove($event)">
-        <div ng-repeat="ball in balls" ng-mouseover="startInteraction(ball)" ng-mouseleave="stopInteraction(ball)"
+    <div id="drawingPlot" >
+        <div ng-repeat="ball in balls" ng-mousemove="ballMouseMove($event)" ng-mouseover="startInteraction(ball)" ng-mouseleave="stopInteraction(ball)"
             ng-mousedown="startDrag(ball)" ng-mouseup="stopDrag(ball)" ng-style="{ transform: 'translate3d(' + ball.cx + 'px,' + ball.cy + 'px, 0)', width: 2*ball.r, height: 2*ball.r, 'margin-left': -ball.r, 'margin-top': - ball.r}"
             ng-class="[{dragged: ball.isDragged, selected: selectedBall == ball, enabled: ball.isEnabled}, ball.artist.mascotName]"
             class="ball">

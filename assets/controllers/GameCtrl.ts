@@ -307,7 +307,7 @@
         }
 
         startInteraction = (ball: Ball): void => {
-            ball.movingEnabled = false;
+            // ball.movingEnabled = false;
         }
 
         stopInteraction = (ball: Ball): void => {

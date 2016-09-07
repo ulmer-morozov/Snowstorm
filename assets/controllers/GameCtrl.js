@@ -143,7 +143,6 @@ var Snowstorm;
                 return result;
             };
             this.startInteraction = function (ball) {
-                ball.movingEnabled = false;
             };
             this.stopInteraction = function (ball) {
                 if (ball.isDragged || _this.isSelected(ball))

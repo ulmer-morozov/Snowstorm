@@ -22,8 +22,10 @@ $screen-md-min: 744pt;
     position: absolute;
     z-index: -1;
 }
+.mainView {
+    // padding-top: 27pt;
+}
 body {
-    padding-top: 27pt;
     background-color: white;
 }
 #logo {
@@ -54,7 +56,7 @@ footer {
     text-transform: uppercase;
     letter-spacing: 0.75pt;
     color: #1d1d1d;
-    margin-top: 31.5pt;
+    margin-top: 31.5pt + 27pt;
     .menu-item {
         display: inline-block;
     }
