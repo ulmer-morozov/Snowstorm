@@ -493,6 +493,8 @@ $preview-vertical-margin: -60pt;
     .image-information {
         position: fixed;
         top: 80vh;
+        left: 0;
+        right: 0;
         padding-top: 20pt;
         margin-top: $preview-vertical-margin;
         font-family: $primary-font;
