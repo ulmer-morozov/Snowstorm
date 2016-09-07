@@ -506,5 +506,13 @@ $preview-vertical-margin: -60pt;
             line-height: 1.4;
             text-align: center;
         }
+        @media (max-width: $screen-xs-max) {
+            .image-title {
+                font-size: 12pt;
+            }
+            .image-description {
+                font-size: 8pt;
+            }
+        }
     }
 }
