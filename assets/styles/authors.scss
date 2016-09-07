@@ -241,6 +241,7 @@ $promo-content-margin: 40pt;
     color: $primary-color;
 }
 .author-promo-work {
+    cursor: pointer;
     width: 100%;
     height: $promo-content-height;
     background-size: cover;
@@ -449,6 +450,25 @@ $preview-vertical-margin: -60pt;
             top: 20pt;
             right: 20pt;
             margin-top: 0;
+        }
+        @media (max-width: $screen-xs-max) {
+            &.back,
+            &.close,
+            &.next {
+                transform: scale(0.5);
+            }
+            &.back {
+                left: 5pt;
+                top: 50%;
+            }
+            &.next {
+                right: 5pt;
+                top: 50%;
+            }
+            &.close {
+                top: 5pt;
+                right: 5pt;
+            }
         }
     }
     .image-container {

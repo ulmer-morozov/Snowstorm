@@ -3,6 +3,9 @@ module Snowstorm {
 
     export interface IAuthorsCtrlScope extends ng.IScope {
         authors: IAuthor[];
-        gotoAuthor: (author: IAuthor) => void;
+        showPromo: (author: IAuthor, index: number) => void;
+        authorWorks: IWork[];
+        currentWorkIndex: number;
+        converter: (sourceObject: any) => IImage;
     }
 }

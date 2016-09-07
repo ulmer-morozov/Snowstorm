@@ -9,8 +9,10 @@ var Snowstorm;
             this.$timeout = $timeout;
             this.setDefaultAuthors = function () {
                 _this.$scope.authors = Snowstorm.DataRepository.authors;
-                _this.$scope.gotoAuthor = function (author) {
-                    _this.$location.url("/Author/" + author.id);
+                _this.$scope.converter = Snowstorm.ImagePreview.convertWorkToImage;
+                _this.$scope.showPromo = function (author, index) {
+                    _this.$scope.authorWorks = author.works.slice(0, 3);
+                    _this.$scope.currentWorkIndex = index;
                 };
             };
             this.setDefaultAuthors();

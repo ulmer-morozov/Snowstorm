@@ -19,8 +19,10 @@ module Snowstorm {
 
         private setDefaultAuthors = (): void => {
             this.$scope.authors = DataRepository.authors;
-            this.$scope.gotoAuthor = (author: IAuthor): void => {
-                this.$location.url(`/Author/${author.id}`);
+            this.$scope.converter = ImagePreview.convertWorkToImage;
+            this.$scope.showPromo = (author: IAuthor, index: number): void => {
+                this.$scope.authorWorks = author.works.slice(0, 3);
+                this.$scope.currentWorkIndex = index;
             }
         }
 
