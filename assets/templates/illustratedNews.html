@@ -35,7 +35,7 @@
             <!-- Новости -->
             <div class="posts">
                 <!-- Новость -->
-                <div ng-repeat="post in posts" class="post">
+                <div ng-repeat="post in posts" ng-click="selectPost($index)" class="post">
                     <img ng-src="{{post.cover}}" class="post-image">
                     <div class="post-date">{{post.releaseDate | date: 'MM.dd.yyyy'}}</div>
                     <div class="post-title">{{post.title}}</div>
@@ -46,4 +46,5 @@
         </div>
     </div>
 
+    <image-preview current-index="currentPostIndex" source="posts" converter="converter"></image-preview>
 </div>

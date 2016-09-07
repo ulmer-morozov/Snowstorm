@@ -2,18 +2,21 @@ var Snowstorm;
 (function (Snowstorm) {
     "use strict";
     var AuthorsCtrl = (function () {
-        function AuthorsCtrl($scope, $interval, $timeout) {
+        function AuthorsCtrl($scope, $location, $timeout) {
             var _this = this;
             this.$scope = $scope;
-            this.$interval = $interval;
+            this.$location = $location;
             this.$timeout = $timeout;
             this.setDefaultAuthors = function () {
                 _this.$scope.authors = Snowstorm.DataRepository.authors;
+                _this.$scope.gotoAuthor = function (author) {
+                    _this.$location.url("/Author/" + author.id);
+                };
             };
             this.setDefaultAuthors();
         }
         AuthorsCtrl.$inject = [
-            "$scope", "$interval", "$timeout",
+            "$scope", "$location", "$timeout",
         ];
         return AuthorsCtrl;
     }());

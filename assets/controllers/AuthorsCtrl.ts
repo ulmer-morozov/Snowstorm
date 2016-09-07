@@ -5,12 +5,12 @@ module Snowstorm {
 
         //DI
         static $inject = [
-            "$scope", "$interval", "$timeout",
+            "$scope", "$location", "$timeout",
         ];
 
         constructor(
             private $scope: IAuthorsCtrlScope,
-            private $interval: angular.IIntervalService,
+            private $location: angular.ILocationService,
             private $timeout: angular.ITimeoutService
         ) {
             this.setDefaultAuthors();
@@ -19,6 +19,9 @@ module Snowstorm {
 
         private setDefaultAuthors = (): void => {
             this.$scope.authors = DataRepository.authors;
+            this.$scope.gotoAuthor = (author: IAuthor): void => {
+                this.$location.url(`/Author/${author.id}`);
+            }
         }
 
     }

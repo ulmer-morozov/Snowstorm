@@ -3,5 +3,6 @@ module Snowstorm {
 
     export interface IAuthorsCtrlScope extends ng.IScope {
         authors: IAuthor[];
+        gotoAuthor: (author: IAuthor) => void;
     }
 }

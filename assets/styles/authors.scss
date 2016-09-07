@@ -252,6 +252,7 @@ $promo-content-margin: 40pt;
         height: auto;
     }
     .author-promo-work {
+        cursor: pointer;
         margin-top: 50pt;
         margin-bottom: 0;
     }
@@ -402,6 +403,7 @@ $promo-content-margin: 40pt;
         column-width: 200pt;
         column-gap: 45pt;
         .post {
+            cursor: pointer;
             break-inside: avoid-column;
             margin-bottom: 33.75pt;
         }

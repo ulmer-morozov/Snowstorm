@@ -8,6 +8,9 @@ var Snowstorm;
             this.$interval = $interval;
             this.$timeout = $timeout;
             this.$routeParams = $routeParams;
+            this.selectPost = function (index) {
+                _this.$scope.currentPostIndex = index;
+            };
             this.setDefaultNews = function () {
                 _this.$scope.posts = [
                     { id: 1, releaseDate: new Date(2016, 12, 1), author: "Berezina Lyuba", title: "Emperor With Honor", cover: "assets/images/illustratedNews/cover1.png" },
@@ -24,6 +27,8 @@ var Snowstorm;
                     { id: 12, releaseDate: new Date(2016, 1, 12), author: "Carlito Mìcheal", title: "Creator Of Eternity", cover: "assets/images/illustratedNews/cover3.png" },
                 ];
                 _this.$scope.mainPost = _this.$scope.posts[0];
+                _this.$scope.converter = Snowstorm.ImagePreview.convertNewsPostToImage;
+                _this.$scope.selectPost = _this.selectPost;
             };
             this.setDefaultNews();
         }

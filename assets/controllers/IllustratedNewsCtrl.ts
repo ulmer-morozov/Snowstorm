@@ -17,6 +17,10 @@ module Snowstorm {
             this.setDefaultNews();
         }
 
+        private selectPost = (index: number): void => {
+            this.$scope.currentPostIndex = index;
+        }
+
         public setDefaultNews = (): void => {
             this.$scope.posts = [
                 { id: 1, releaseDate: new Date(2016, 12, 1), author: "Berezina Lyuba", title: "Emperor With Honor", cover: "assets/images/illustratedNews/cover1.png" },
@@ -33,6 +37,8 @@ module Snowstorm {
                 { id: 12, releaseDate: new Date(2016, 1, 12), author: "Carlito Mìcheal", title: "Creator Of Eternity", cover: "assets/images/illustratedNews/cover3.png" },
             ];
             this.$scope.mainPost = this.$scope.posts[0];
+            this.$scope.converter = ImagePreview.convertNewsPostToImage;
+            this.$scope.selectPost = this.selectPost;
         }
 
     }
