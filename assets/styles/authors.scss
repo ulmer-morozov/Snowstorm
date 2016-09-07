@@ -444,9 +444,11 @@ $preview-vertical-margin: -60pt;
         }
         &.back {
             right: 80vw;
+            top: 50%;
         }
         &.next {
             left: 80vw;
+            top: 50%;
         }
         &.close {
             top: 20pt;
