@@ -8,6 +8,10 @@ module Snowstorm {
             "$scope", "$interval", "$timeout", "$routeParams"
         ];
 
+        private selectWork = (index: number): void => {
+            this.$scope.selectedWorkIndex = index;
+        }
+
         constructor(
             private $scope: IAuthorCtrlScope,
             private $interval: angular.IIntervalService,
@@ -15,6 +19,8 @@ module Snowstorm {
             private $routeParams: angular.route.IRouteParamsService
         ) {
             this.$scope.author = DataRepository.authors.filter(x => x.id == $routeParams['authorId'])[0];
+            this.$scope.selectWork = this.selectWork;
+            this.$scope.converter = ImagePreview.convertWorkToImage;
         }
 
     }

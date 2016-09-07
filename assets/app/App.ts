@@ -6,6 +6,7 @@ module Snowstorm {
 
         //директивы
         .directive("draggable", Draggable.factory())
+        .directive("imagePreview", ImagePreview.factory())
 
         // сервисы
         .service("$guid", GuidService)

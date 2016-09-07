@@ -1,0 +1,35 @@
+<div class="image-preview" ng-show="currentImage">
+
+    <a ng-click="prev()" ng-hide="currentIndex==0" class="preview-control back">
+        <svg width="90" height="90">
+            <path d="M45 5 L5 45 L45 85" />
+        </svg>
+    </a>
+
+    <div class="image-container">
+        <img width="400" height="400" ng-src="{{currentImage.imageUrl}}" class="main" />
+    </div>
+
+    <a ng-click="next()" ng-hide="currentIndex==source.length-1" class="preview-control next">
+        <svg width="90" height="90">
+            <path d="M5 5 L45 45 L5 85" />
+        </svg>
+    </a>
+
+    <a ng-click="close()" class="preview-control close">
+        <svg width="90" height="90">
+            <path d="M5 5 L85 85" />
+            <path d="M85 5 L5 85" />
+        </svg>
+    </a>
+
+    <div class="image-information">
+        <div class="row">
+            <div class="col-sm-12 col-sm-offset-6">
+                <div class="image-title">{{currentImage.title}}</div>
+                <div class="image-description">{{currentImage.description}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>

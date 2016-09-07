@@ -3,8 +3,8 @@ module Snowstorm {
 
     export interface INewsPost {
         id: number;
-        releaseDate: Date;
         title: string;
+        releaseDate: Date;
         author: string;
         cover: string;
     }

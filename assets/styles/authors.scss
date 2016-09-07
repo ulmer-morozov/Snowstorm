@@ -284,6 +284,7 @@ $promo-content-margin: 40pt;
         column-gap: 45pt;
         .work {
             break-inside: avoid-column;
+            cursor: pointer;
             img.work-image {
                 width: 100%;
             }
@@ -366,8 +367,8 @@ $promo-content-margin: 40pt;
         line-height: 1.2;
         text-align: center;
     }
-    .main-post{
-      margin-bottom: 52.5pt;
+    .main-post {
+        margin-bottom: 52.5pt;
     }
     @media (max-width: 600pt) {
         // скрываем на маленьких экранах главный пост
@@ -403,6 +404,85 @@ $promo-content-margin: 40pt;
         .post {
             break-inside: avoid-column;
             margin-bottom: 33.75pt;
+        }
+    }
+}
+// директива просмотра изображений
+$preview-vertical-margin: -60pt;
+.image-preview {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.9);
+    z-index: 10;
+    a.preview-control {
+        margin-top: $preview-vertical-margin;
+        user-select: none;
+        position: fixed;
+        cursor: pointer;
+        svg path {
+            fill: none;
+            stroke: $primary-color;
+            stroke-width: 3pt;
+        }
+        &:hover svg path {
+            stroke-width: 4pt;
+        }
+        &:active svg path {
+            stroke-width: 3pt;
+        }
+        &.back {
+            right: 80vw;
+        }
+        &.next {
+            left: 80vw;
+        }
+        &.close {
+            top: 20pt;
+            right: 20pt;
+            margin-top: 0;
+        }
+    }
+    .image-container {
+        display: inline-block;
+        position: relative;
+        margin-top: $preview-vertical-margin;
+        img.main {
+            -webkit-user-select: none;
+            max-width: 50vw;
+            max-height: 50vh;
+            width: auto;
+            height: auto;
+            display: block;
+        }
+        &:after {
+            @include highlighted-container();
+            top: $background-gap;
+            left: $background-gap;
+            right: -$background-gap;
+        }
+    }
+    .image-information {
+        position: fixed;
+        top: 80vh;
+        padding-top: 20pt;
+        margin-top: $preview-vertical-margin;
+        font-family: $primary-font;
+        text-align: center;
+        .image-title {
+            font-size: 22.5pt;
+            margin-bottom: 11.25pt;
+        }
+        .image-description {
+            font-size: 11.25pt;
+            line-height: 1.4;
+            text-align: center;
         }
     }
 }

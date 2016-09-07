@@ -1,5 +1,5 @@
 <div class="author-page">
-    <div class="author-mascot" style="background-image: url({{author.mascotUrl}})"></div>
+    <div class="author-mascot" ng-style="{'background-image': 'url('+author.mascotUrl+')'}"></div>
     <h1>{{author.name.last}} {{author.name.first}}</h1>
 
     <div class="row">
@@ -7,8 +7,8 @@
             <!-- Работы -->
             <div class="works">
                 <!-- Работа -->
-                <div ng-repeat="work in author.works" class="work">
-                    <img ng-src="{{work.url}}" class="work-image">
+                <div ng-repeat="work in author.works" ng-click="selectWork($index)" class="work">
+                    <img ng-src="{{work.imageUrl}}" class="work-image">
                     <div class="work-title">{{work.title}}</div>
                     <div class="work-description">{{work.description}}</div>
                 </div>
@@ -16,4 +16,6 @@
 
         </div>
     </div>
+
+    <image-preview current-index="selectedWorkIndex" source="author.works" converter="converter"></image-preview>
 </div>

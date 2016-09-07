@@ -3,8 +3,8 @@ module Snowstorm {
 
     export interface IWork {
         id: number;
+        imageUrl: string;
         title: string;
         description: string;
-        url: string;
     }
 }
