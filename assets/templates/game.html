@@ -11,19 +11,19 @@
     <!-- <div style="position:absolute">
       {{mouseSpeed | json}}
   </div> -->
-    <div class="fan"></div>
+    <!-- <div class="fan"></div> -->
 
     <!-- <svg id="mouseSpeed" height="300" width="300">
       <line x1="150" y1="150" ng-attr-x2="{{mouseSpeed.xc+150}}" ng-attr-y2="{{mouseSpeed.yc+150}}"
           style="stroke:rgb(255,0,0);stroke-width:5" />
   </svg> -->
 
-    <div class="lightSpot"></div>
+    <!-- <div class="lightSpot"></div> -->
 
     <div class="selected-artist-title">{{selectedBall.artist.fullname}}</div>
 
-    <div id="drawingPlot" >
-        <div ng-repeat="ball in balls" ng-mousemove="ballMouseMove($event)" ng-mouseover="startInteraction(ball)" ng-mouseleave="stopInteraction(ball)"
+    <div id="drawingPlot" ng-mousemove="ballMouseMove($event)">
+        <div ng-repeat="ball in balls"  ng-mouseover="startInteraction(ball)" ng-mouseleave="stopInteraction(ball)"
             ng-mousedown="startDrag(ball)" ng-mouseup="stopDrag(ball)" ng-style="{ transform: 'translate3d(' + ball.cx + 'px,' + ball.cy + 'px, 0)', width: 2*ball.r, height: 2*ball.r, 'margin-left': -ball.r, 'margin-top': - ball.r}"
             ng-class="[{dragged: ball.isDragged, selected: selectedBall == ball, enabled: ball.isEnabled}, ball.artist.mascotName]"
             class="ball">

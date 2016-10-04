@@ -83,7 +83,6 @@ var Snowstorm;
             this.initWindow = function () {
                 _this.createBallElements();
                 _this.createWall();
-                _this.createLightSpot();
                 _this.positionBallsInArena();
                 _this.$scope.startInteraction = _this.startInteraction;
                 _this.$scope.stopInteraction = _this.stopInteraction;
@@ -257,6 +256,12 @@ var Snowstorm;
             var radius = 60;
             var ballWeight = 1;
             var artists = [
+                new Snowstorm.Artist("Птиц", "Розовый", "pinkbird"),
+                new Snowstorm.Artist("Марина", "Расплесецкая", "balet"),
+                new Snowstorm.Artist("Пингвин", "Южноафриканский", "pigeon"),
+                new Snowstorm.Artist("Jack", "Horse", "horse"),
+                new Snowstorm.Artist("Шар", "Прост", "livingBall"),
+                new Snowstorm.Artist("Домик", "Дымоходов", "house"),
                 new Snowstorm.Artist("Птиц", "Розовый", "pinkbird"),
                 new Snowstorm.Artist("Марина", "Расплесецкая", "balet"),
                 new Snowstorm.Artist("Пингвин", "Южноафриканский", "pigeon"),

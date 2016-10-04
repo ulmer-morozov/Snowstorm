@@ -5,6 +5,7 @@ var Snowstorm;
         .module("App", ["ngAnimate", "ngRoute"])
         .directive("draggable", Snowstorm.Draggable.factory())
         .directive("imagePreview", Snowstorm.ImagePreview.factory())
+        .directive("shuffleElements", Snowstorm.ShuffleElements.factory())
         .service("$guid", Snowstorm.GuidService)
         .controller("AboutCtrl", Snowstorm.AboutCtrl)
         .controller("GameCtrl", Snowstorm.GameCtrl)

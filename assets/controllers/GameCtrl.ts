@@ -93,6 +93,7 @@
                 this.processObstaclesCollisions(ball);
 
             }
+
             // Preserves the correct "this" pointer.
             this.$scope.requestAnimationFrameID = this.$window.requestAnimationFrame(() => { this.doAnim() });
             this.$scope.$apply();
@@ -151,6 +152,13 @@
 
 
             var artists = [
+                new Artist("Птиц", "Розовый", "pinkbird"),
+                new Artist("Марина", "Расплесецкая", "balet"),
+                new Artist("Пингвин", "Южноафриканский", "pigeon"),
+                new Artist("Jack", "Horse", "horse"),
+                new Artist("Шар", "Прост", "livingBall"),
+                new Artist("Домик", "Дымоходов", "house"),
+
                 new Artist("Птиц", "Розовый", "pinkbird"),
                 new Artist("Марина", "Расплесецкая", "balet"),
                 new Artist("Пингвин", "Южноафриканский", "pigeon"),
@@ -225,7 +233,7 @@
         initWindow = (): void => {
             this.createBallElements(); // Create all ball elements and add custom properties to these elements as well.
             this.createWall();
-            this.createLightSpot();
+            // this.createLightSpot();
 
             this.positionBallsInArena(); // Position the balls in the circular arena such that none of them overlap.
 

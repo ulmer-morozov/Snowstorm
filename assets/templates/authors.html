@@ -9,28 +9,41 @@
 
 <div class="author-promos">
 
-    <div ng-repeat="author in authors | limitTo: 3" class="author-promo row">
+    <div ng-repeat="author in authors | limitTo: 3" class="author-promo">
         <!-- Big Name -->
-        <div class="author-promo-name col-xs-20 col-xs-offset-2">{{author.name.last}} {{author.name.first}}</div>
+        <div class="row">
+            <div class="author-promo-name col-xs-20 col-xs-offset-2">{{author.name.last}} {{author.name.first}}</div>
+        </div>
 
-        <!-- About -->
-        <div class="col-md-6  col-sm-offset-2
-                  col-sm-9  col-sm-offset-2
-                  col-xs-20 col-xs-offset-2">
-            <div class="author-promo-content">
-                <div class="author-promo-about-header">About</div>
-                <div class="author-promo-about">{{author.about}}</div>
-                <a href="#/Author/{{author.id}}" class="link">All Works</a>
+        <div class="row">
+            <div class="col-md-offset-1 col-sm-offset-0 col-xs-offset-0  col-xs-24">
+
+                <div class="row" shuffle-elements>
+                    <!-- About -->
+                    <div class="col-md-6 col-md-offset-1
+                col-sm-9 col-sm-offset-2
+                col-xs-20 col-xs-offset-2 author-promo-container">
+                        <div class="author-promo-content">
+                            <div class="author-promo-about-header">About</div>
+                            <div class="author-promo-about">{{author.about}}</div>
+                            <a href="#/Author/{{author.id}}" class="link">All Works</a>
+                        </div>
+                    </div>
+
+                    <!-- Promo Images -->
+                    <div ng-repeat="imageUrl in author.promoImages" ng-click="showPromo(author, $index)"
+                        class="col-md-6 col-md-offset-1
+                        col-sm-9 col-sm-offset-2
+                        col-xs-20 col-xs-offset-2
+                        author-promo-work-container">
+                        <div class="author-promo-work" style="background-image: url({{imageUrl}})"></div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
-        <!-- Promo Images -->
-        <div ng-repeat="imageUrl in author.promoImages" ng-click="showPromo(author, $index)" class="col-md-offset-1 col-md-6
-                          col-sm-offset-2 col-sm-9
-                          col-xs-offset-2 col-xs-20
-                          author-promo-work-container">
-            <div class="author-promo-work" style="background-image: url({{imageUrl}})"></div>
-        </div>
+
     </div>
 
 </div>

@@ -1,191 +1,622 @@
-@mixin box-sizing($box-model) {
-    -webkit-box-sizing: $box-model; // Safari <= 5
-    -moz-box-sizing: $box-model; // Firefox <= 19
-    box-sizing: $box-model;
+$primary-font: 'Lato';
+$news-primary-font: 'Josefin Slab';
+$primary-color: #00b0ec;
+$gray-color: #1d1d1d;
+$background-gap: 11.25pt;
+$gridPadding: 7.5px; //размеры экранов
+$screen-xs-max: 360pt;
+$screen-sm-max: 576pt;
+$screen-md-min: 744pt;
+@mixin highlight-debug() {
+    box-sizing: border-box;
+    border: 1pt solid whitesmoke;
 }
-@mixin flexbox {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
+@mixin highlighted-container() {
+    display: block;
+    content: "";
+    background-color: $primary-color;
+    top: $background-gap;
+    left: $gridPadding + $background-gap;
+    right: -$gridPadding;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
 }
+
+.mainView {
+    // padding-top: 27pt;
+}
+
 body,
 html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
+
 body {
     background-image: url('../images/back.svg');
     background-position-y: -200pt;
+    background-attachment: fixed;
 }
-#drawingPlot {
-    pointer-events: none;
-    position: fixed;
+// формы
+
+input.form-input,
+textarea.form-input {
+    display: block;
     width: 100%;
-    height: 100%;
+    background-color: var(--white-three);
+    border: solid 2px #00b0ec;
 }
-@keyframes play {
-    from {
-        background-position: 5px;
-    }
-    to {
-        background-position: -2875px;
-    }
+
+#logo {
+    top: 40pt;
+    left: 8.33333333%;
+    position: absolute;
 }
-@keyframes play-balet {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: -6000px;
+@media (max-width: $screen-xs-max) {
+    #logo {
+        top: 20pt;
+        width: 80pt;
     }
 }
-@keyframes fan-animation {
-    from {
-        background-position: 0;
+
+footer {
+    height: 56.25pt;
+    margin-top: 90pt;
+    padding-top: 18pt;
+    padding-bottom: 18pt;
+    color: white;
+    background-color: #1d1d1d;
+    font-family: $primary-font;
+}
+
+.menu-container {
+    position: absolute;
+    top: 10pt;
+    right: 8.33333333%;
+    font-family: $primary-font;
+    font-size: 11.25pt;
+    text-transform: uppercase;
+    letter-spacing: 0.75pt;
+    color: #1d1d1d;
+    margin-top: 31.5pt + 27pt;
+
+    .menu-item {
+        display: inline-block;
     }
-    to {
-        background-position: -4800px;
+
+    a.menu-item {
+        color: $gray-color;
+        text-decoration: none;
+        border-bottom: 1pt solid;
+        border-color: transparent;
+
+        &:hover {
+            color: $primary-color;
+            border-color: $primary-color;
+        }
+    }
+
+    .menu-item + .menu-item {
+        margin-left: 16pt;
+    }
+    @media (max-width: $screen-sm-max) {
+        right: 8.33333333%;
+
+        .menu-item {
+            display: block;
+        }
+
+        .menu-item + .menu-item {
+            margin-left: 0;
+        }
     }
 }
-@keyframes play-pigeon {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: -4680px;
-    }
-}
-@keyframes play-horse {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: -3600px;
-    }
-}
-@keyframes play-ball {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: -4440px;
-    }
-}
-@keyframes play-house {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: -3600px;
-    }
-}
-.selected-artist-title {
-    position: fixed;
-    left: 50%;
-    top: 70%;
-    font-size: 30pt;
+
+h1 {
+    object-fit: contain;
+    font-family: $primary-font;
+    font-size: 22.5pt;
+    line-height: 1.4;
+    letter-spacing: 2.25pt;
     text-align: center;
-    width: 400pt;
-    margin-left: -200pt;
+    color: #1d1d1d;
+    margin-top: 156.75pt;
+    padding-bottom: 33.75pt;
+    text-transform: uppercase;
 }
-.fan {
-    position: fixed;
-    left: 50%;
-    top: 20px;
-    width: 400px;
-    height: 300px;
-    margin-left: -199px;
-    background-image: url("../images/fan.png");
-    animation: fan-animation 1s steps(12) infinite;
-    pointer-events: none;
-    // z-index: 1;
-}
-.lightSpot {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 300px;
-    height: 300px;
-    margin-left: -150px;
-    margin-top: -150px;
-    border-radius: 50%;
-    transform: scale(1, 0.5);
-    background-color: yellow;
-    pointer-events: none;
-    z-index: 0;
-}
-.obstacle {
-    position: fixed;
-    // border: 1px solid orange;
-    border-radius: 50%;
-    pointer-events: none;
-}
-.ball {
-    pointer-events: all;
-    position: fixed;
-    // background-color: red;
-    // border-radius: 50%;
-    background-repeat: no-repeat;
-    // border: 2pt solid transparent;
-}
-.ball .bounds {
-    border-radius: 50%;
+//формы
+
+input.form-input,
+textarea.form-input {
+    display: block;
+    outline: none;
     width: 100%;
-    height: 100%;
-    // border: 1px solid red;
-    z-index: -1;
-    box-sizing: border-box;
+    color: $primary-color;
+    background-color: white;
+    border: solid 1.5pt $primary-color;
+    border-radius: 0;
+    padding: 10pt;
+    margin-bottom: 30pt;
+    font-size: 11.25pt;
+
+    &:focus {
+        position: relative;
+        top: 2.5pt;
+        left: 2.5pt;
+    }
 }
-.ball.enabled {
-    // border: 2pt solid black;
+
+textarea.form-input {
+    resize: none;
+    min-height: 150pt;
 }
-.ball.dragged {
-    z-index: 9999;
+
+.form-group {
+    position: relative;
+
+    button {
+        outline: none;
+        width: 100%;
+        padding: 10pt;
+        color: $primary-color;
+        background-color: white;
+        font-size: 11.25pt;
+        border: solid 1.5pt $primary-color;
+
+        &:active {
+            position: relative;
+            top: 2.5pt;
+            left: 2.5pt;
+        }
+    }
 }
-.ball.dragged .bounds {
-    // border-color: blue;
+
+.form-group:after {
+    @include highlighted-container();
+    top: $background-gap/2;
+    left: $background-gap/2;
+    right: -$background-gap/2;
 }
-.ball.selected {
-    z-index: 9998;
-    transition: 0.6s ease-in-out;
+//
+//
+//
+$author-names-vertical-gap: 33.75pt;
+$author-names-horizontal-gap: 59.25pt;
+$space-between-rows: 11.25pt;
+
+.author-names {
+    background-color: white;
+    border: solid 1.5pt $primary-color;
+    /*columns: $author-name-width;*/
+    padding: $author-names-vertical-gap $author-names-horizontal-gap $author-names-vertical-gap - $space-between-rows;
 }
-.ball.selected.dragged {
-    transition: none;
+
+.author-name {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    break-inside: avoid;
+    margin-bottom: $space-between-rows;
+    white-space: nowrap;
+    font-family: $primary-font;
+    font-size: 11.25pt;
 }
-.ball.selected .bounds {
-    border: none;
+
+a.author-name {
+    color: #5b5b5b;
+    text-decoration: none;
+
+    &:hover {
+        color: $primary-color;
+    }
 }
-.ball.pinkbird {
-    background-image: url("../images/mascots/pinkbird_120_120.png");
-    animation: play 0.8s steps(24) infinite;
+
+.author-names:after {
+    @include highlighted-container();
 }
-.ball.balet {
-    background-image: url("../images/mascots/balet_120_120.png");
-    animation: play-balet 2s steps(50) infinite;
+$author-name-width: 130pt;
+$currentWidth: 3*$author-name-width;
+$widthForCount: ('45%', '32.6%','24.4%', '19.5%','13.9%');
+$lastWidthElement: nth($widthForCount,length($widthForCount));
+@each $width in $widthForCount {
+     @media (min-width: $currentWidth ) and (max-width: $currentWidth + $author-name-width){
+        .author-name {
+            width: unquote($width);
+            text-align: left;
+        }
+    }
+    $currentWidth: $currentWidth+$author-name-width;
 }
-.ball.pigeon {
-    background-image: url("../images/mascots/pigeon.png");
-    animation: play-pigeon 3s steps(39) infinite;
+@media (min-width: $currentWidth+1) {
+    .author-name {
+        width: unquote($lastWidthElement);
+        text-align: left;
+    }
 }
-.ball.horse {
-    background-image: url("../images/mascots/horse_120x120.png");
-    animation: play-horse 1.2s steps(30) infinite;
+
+.author-promos {
+    /*margin-top: 50pt;*/
 }
-.ball.livingBall {
-    background-image: url("../images/mascots/ball_120x120.png");
-    animation: play-ball 1s steps(37) infinite;
+
+.author-promo {
+    margin-top: 90pt;
+    // border: solid green 1pt;
 }
-.ball.house {
-    background-image: url("../images/mascots/house_120х120.png");
-    animation: play-house 1s steps(30) infinite;
+
+.author-promo-name {
+    font-family: $primary-font;
+    text-transform: uppercase;
+    font-size: 33.75pt;
+    line-height: 0.9;
+    letter-spacing: 5.25pt;
+    color: #1d1d1d;
+    margin-bottom: 33.75pt;
 }
-#mouseSpeed {
+$promo-content-height: 327pt;
+$promo-content-margin: 40pt;
+
+.author-promo-content {
+    height: $promo-content-height;
+    padding-left: 22.5pt;
+    padding-right: 22.5pt;
+    padding-bottom: 25.5pt;
+    background-color: white;
+    font-family: $primary-font;
+    border: 2pt solid $primary-color;
+}
+
+.author-promo-content:after {
+    @include highlighted-container();
+}
+
+.author-promo-about-header {
+    margin-top: 45pt;
+    margin-bottom: 11.25pt;
+    text-transform: uppercase;
+    font-size: 11.25pt;
+    line-height: 1.7;
+    letter-spacing: 2.25pt;
+    text-align: center;
+    color: #231d1f;
+}
+
+.author-promo-about {
+    margin-bottom: 11.25pt;
+}
+
+.author-promo-content a.link {
+    display: block;
+    font-size: 11.25pt;
+    line-height: 1.7;
+    text-align: center;
+    color: $primary-color;
+}
+
+.author-promo-container {
+    margin-bottom: $promo-content-margin;
+}
+
+.author-promo-work {
+    cursor: pointer;
+    width: 100%;
+    height: $promo-content-height;
+    background-size: cover;
+    margin-bottom: $promo-content-margin;
+}
+@media (max-width: $screen-sm-max) {
+    /*��������� ������, ��������� ���� �� �����*/
+    .author-promo-content {
+        height: auto;
+    }
+
+    .author-promo-work {
+        cursor: pointer;
+        margin-top: 50pt;
+        margin-bottom: 0;
+    }
+}
+@media (min-width: $screen-md-min) {
+    // На больших экранах скрываем 3 картинку
+    .author-promo-work-container:last-child {
+        display: none;
+    }
+    /*������� ����� ����� ����������*/
+    .author-promo-work {
+        margin-bottom: 0;
+    }
+}
+// Страница автора
+
+.author-page {
+    margin-top: 135pt;
+
+    .author-mascot {
+        width: 100%;
+        height: 165pt;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    h1 {
+        margin-top: 33.75pt;
+    }
+
+    .works {
+        column-width: 250pt;
+        column-gap: 45pt;
+
+        .work {
+            break-inside: avoid-column;
+            cursor: pointer;
+
+            img.work-image {
+                width: 100%;
+            }
+
+            .work-title {
+                margin-top: 22.5pt;
+                margin-bottom: 11.25pt;
+                font-family: $primary-font;
+                font-size: 22.5pt;
+                text-align: center;
+                color: #1d1d1d;
+            }
+
+            .work-description {
+                margin-bottom: 34.5pt;
+                font-family: $primary-font;
+                font-size: 11.25pt;
+                line-height: 1.5;
+                text-align: center;
+                color: #5b5b5b;
+            }
+        }
+    }
+}
+// Страница о нас
+
+.about-page {
+    .about-text {
+        margin-bottom: 52.5pt;
+        font-family: $primary-font;
+        font-size: 22.5pt;
+        text-align: center;
+        color: #1d1d1d;
+    }
+    @media (max-width: $screen-xs-max) {
+        .about-text {
+            font-size: 16pt;
+        }
+    }
+
+    .contact-form {
+        margin-top: 33.75pt;
+    }
+
+    .employee {
+        text-align: center;
+        margin-bottom: 30pt;
+
+        .employee-avatar {
+            display: inline-block;
+            width: 112.5pt;
+            height: 112.5pt;
+            margin-bottom: 11.25pt;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+        }
+
+        .employee-description {
+            font-family: $primary-font;
+            font-size: 11.25pt;
+            line-height: 1.7;
+            text-align: center;
+            color: #5b5b5b;
+        }
+    }
+
+    h2 {
+        font-family: $primary-font;
+        text-transform: uppercase;
+        font-size: 22.5pt;
+        letter-spacing: 2.25pt;
+        color: #1d1d1d;
+        text-align: center;
+    }
+}
+// Illustrated News page
+
+.illustrated-news-page {
+    .news-description {
+        margin-bottom: 90pt;
+    }
+
+    .news-description,
+    .news-description p {
+        font-size: 22.5pt;
+        font-family: $news-primary-font;
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .main-post {
+        margin-bottom: 52.5pt;
+    }
+    @media (max-width: 600pt) {
+        // скрываем на маленьких экранах главный пост
+        .main-post {
+            display: none;
+        }
+    }
+    @media (min-width: 600pt) {
+        // скрываем на больших экранах первый пост
+        .post:first-child {
+            display: none;
+        }
+    }
+
+    img.main-post-cover,
+    img.post-image {
+        width: 100%;
+    }
+
+    .post-date {
+        margin-top: 22.5pt;
+        margin-bottom: 11.25pt;
+        font-family: $news-primary-font;
+        font-size: 22.5pt;
+    }
+
+    .post-author,
+    .post-title {
+        font-family: $news-primary-font;
+        font-size: 11.25pt;
+        color: #1d1d1d;
+    }
+
+    .posts {
+        column-width: 200pt;
+        column-gap: 45pt;
+
+        .post {
+            cursor: pointer;
+            break-inside: avoid-column;
+            margin-bottom: 33.75pt;
+        }
+    }
+}
+// директива просмотра изображений
+$preview-vertical-margin: -60pt;
+
+.image-preview {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     position: fixed;
-    left: 50%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -150px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.9);
+    z-index: 10;
+
+    a.preview-control {
+        margin-top: $preview-vertical-margin;
+        user-select: none;
+        position: fixed;
+        cursor: pointer;
+
+        svg path {
+            fill: none;
+            stroke: $primary-color;
+            stroke-width: 3pt;
+        }
+
+        &:hover svg path {
+            stroke-width: 4pt;
+        }
+
+        &:active svg path {
+            stroke-width: 3pt;
+        }
+
+        &.back {
+            right: 80vw;
+            top: 50%;
+        }
+
+        &.next {
+            left: 80vw;
+            top: 50%;
+        }
+
+        &.close {
+            top: 20pt;
+            right: 20pt;
+            margin-top: 0;
+        }
+        @media (max-width: $screen-xs-max) {
+            &.back,
+            &.close,
+            &.next {
+                transform: scale(0.5);
+            }
+
+            &.back {
+                left: 5pt;
+                top: 50%;
+            }
+
+            &.next {
+                right: 5pt;
+                top: 50%;
+            }
+
+            &.close {
+                top: 5pt;
+                right: 5pt;
+            }
+        }
+    }
+
+    .image-container {
+        display: inline-block;
+        position: relative;
+        margin-top: $preview-vertical-margin;
+
+        img.main {
+            -webkit-user-select: none;
+            max-width: 50vw;
+            max-height: 50vh;
+            width: auto;
+            height: auto;
+            display: block;
+        }
+
+        &:after {
+            @include highlighted-container();
+            top: $background-gap;
+            left: $background-gap;
+            right: -$background-gap;
+        }
+    }
+
+    .image-information {
+        position: fixed;
+        top: 80vh;
+        left: 0;
+        right: 0;
+        padding-top: 20pt;
+        margin-top: $preview-vertical-margin;
+        font-family: $primary-font;
+        text-align: center;
+
+        .image-title {
+            font-size: 22.5pt;
+            margin-bottom: 11.25pt;
+        }
+
+        .image-description {
+            font-size: 11.25pt;
+            line-height: 1.4;
+            text-align: center;
+        }
+        @media (max-width: $screen-xs-max) {
+            .image-title {
+                font-size: 12pt;
+            }
+
+            .image-description {
+                font-size: 8pt;
+                padding: 4pt;
+            }
+        }
+    }
 }
