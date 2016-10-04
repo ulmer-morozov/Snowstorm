@@ -11,7 +11,7 @@ var Snowstorm;
                 _this.$scope.authors = Snowstorm.DataRepository.authors;
                 _this.$scope.converter = Snowstorm.ImagePreview.convertWorkToImage;
                 _this.$scope.showPromo = function (author, index) {
-                    _this.$scope.authorWorks = author.works.slice(0, 3);
+                    _this.$scope.authorWorks = author.works;
                     _this.$scope.currentWorkIndex = index;
                 };
             };

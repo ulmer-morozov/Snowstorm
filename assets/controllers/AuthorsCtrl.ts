@@ -21,7 +21,7 @@ module Snowstorm {
             this.$scope.authors = DataRepository.authors;
             this.$scope.converter = ImagePreview.convertWorkToImage;
             this.$scope.showPromo = (author: IAuthor, index: number): void => {
-                this.$scope.authorWorks = author.works.slice(0, 3);
+                this.$scope.authorWorks = author.works;
                 this.$scope.currentWorkIndex = index;
             }
         }

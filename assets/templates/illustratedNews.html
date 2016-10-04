@@ -1,3 +1,27 @@
+<style>
+    body {
+        background-color: #08c;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    .illustrated-news-page .post-author,
+    .illustrated-news-page .post-title,
+    .menu-container a.menu-item {
+        color: white;
+    }
+
+    .menu-container a.menu-item:hover {
+        color: black;
+        border-color: black;
+    }
+</style>
 <div class="illustrated-news-page">
     <h1>Illustrated News</h1>
 
@@ -35,7 +59,7 @@
             <!-- Новости -->
             <div class="posts">
                 <!-- Новость -->
-                <div ng-repeat="post in posts" ng-click="selectPost($index)" class="post">
+                <div ng-repeat="post in posts" class="post">
                     <img ng-src="{{post.cover}}" class="post-image">
                     <div class="post-date">{{post.releaseDate | date: 'MM.dd.yyyy'}}</div>
                     <div class="post-title">{{post.title}}</div>

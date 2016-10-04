@@ -1,4 +1,4 @@
-$primary-font: 'Lato';
+$primary-font: 'proxima-nova';
 $news-primary-font: 'Josefin Slab';
 $primary-color: #00b0ec;
 $gray-color: #1d1d1d;
@@ -485,7 +485,7 @@ $promo-content-margin: 40pt;
         column-gap: 45pt;
 
         .post {
-            cursor: pointer;
+            // cursor: pointer;
             break-inside: avoid-column;
             margin-bottom: 33.75pt;
         }
