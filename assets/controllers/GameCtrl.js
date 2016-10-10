@@ -157,6 +157,7 @@ var Snowstorm;
             };
             this.stopDrag = function (ball) {
                 ball.isDragged = false;
+                ball.activated = false;
                 if (_this.ballPlacedInTheLight(ball)) {
                     var oldSelectedBall = _this.$scope.selectedBall;
                     var oldSelectedBallExist = oldSelectedBall != undefined && oldSelectedBall != ball;

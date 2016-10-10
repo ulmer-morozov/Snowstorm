@@ -334,8 +334,9 @@
             mascot.movingEnabled = true;
         }
 
-        stopDrag = (ball: Ball): void => {
+        stopDrag = (ball: Mascot): void => {
             ball.isDragged = false;
+            ball.activated = false;
 
             if (this.ballPlacedInTheLight(ball)) {
                 let oldSelectedBall = this.$scope.selectedBall;
