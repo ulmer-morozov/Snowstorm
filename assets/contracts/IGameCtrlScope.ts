@@ -1,7 +1,7 @@
 module Snowstorm {
     "use strict";
 
-    export interface IAppCtrlScope extends ng.IScope {
+    export interface IGameCtrlScope extends ng.IScope {
         currentBall: Ball;
         selectedBall: Ball;
 
@@ -12,10 +12,10 @@ module Snowstorm {
         requestAnimationFrameID: number;
         mouseSpeed: Vector;
 
-        startInteraction(ball: Ball): void;
-        stopInteraction(ball: Ball): void;
+        startInteraction(mascot: Mascot): void;
+        stopInteraction(mascot: Mascot): void;
 
-        startDrag(ball: Ball): void;
+        startDrag(mascot: Mascot): void;
         stopDrag(ball: Ball): void;
 
         ballMouseUp(ball: Ball): void;
@@ -23,5 +23,7 @@ module Snowstorm {
         ballMouseMove(event: MouseEvent);
 
         getMascotImg(mascot: Mascot);
+
+        goToAuthor(mascot: Mascot): void;
     }
 }

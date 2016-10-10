@@ -1,6 +1,7 @@
 
 module Snowstorm {
     "use strict";
+
     angular
         .module("App", ["ngAnimate", "ngRoute"])
 
@@ -8,6 +9,7 @@ module Snowstorm {
         .directive("draggable", Draggable.factory())
         .directive("imagePreview", ImagePreview.factory())
         .directive("shuffleElements", ShuffleElements.factory())
+        .directive("circleIndicator", CircleIndicator.factory())
 
         // сервисы
         .service("$guid", GuidService)

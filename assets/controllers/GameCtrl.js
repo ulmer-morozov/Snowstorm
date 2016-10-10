@@ -2,12 +2,16 @@ var Snowstorm;
 (function (Snowstorm) {
     "use strict";
     var GameCtrl = (function () {
-        function GameCtrl($scope, $window, $interval, $timeout) {
+        function GameCtrl($scope, $window, $interval, $timeout, $location) {
             var _this = this;
             this.$scope = $scope;
             this.$window = $window;
             this.$interval = $interval;
             this.$timeout = $timeout;
+            this.$location = $location;
+            this.goToAuthor = function (mascot) {
+                _this.$location.url("/Author/" + mascot.artist.id);
+            };
             this.getRandomSpeed = function () {
                 return Snowstorm.Random.getRandomReal(-200, 200);
             };
@@ -91,6 +95,7 @@ var Snowstorm;
                 _this.$scope.ballMouseUp = _this.ballMouseUp;
                 _this.$scope.ballMouseMove = _this.ballMouseMove;
                 _this.$scope.getMascotImg = _this.getMascotImg;
+                _this.$scope.goToAuthor = _this.goToAuthor;
                 _this.requestNewFrame();
             };
             this.createLightSpot = function () {
@@ -141,12 +146,14 @@ var Snowstorm;
                 var result = _this.$scope.selectedBall == ball;
                 return result;
             };
-            this.startInteraction = function (ball) {
+            this.startInteraction = function (mascot) {
+                mascot.activated = true;
             };
-            this.stopInteraction = function (ball) {
-                if (ball.isDragged || _this.isSelected(ball))
+            this.stopInteraction = function (mascot) {
+                mascot.activated = false;
+                if (mascot.isDragged || _this.isSelected(mascot))
                     return;
-                ball.movingEnabled = true;
+                mascot.movingEnabled = true;
             };
             this.stopDrag = function (ball) {
                 ball.isDragged = false;
@@ -173,9 +180,10 @@ var Snowstorm;
                     }
                 }
             };
-            this.startDrag = function (ball) {
-                ball.isDragged = true;
-                _this.$scope.currentBall = ball;
+            this.startDrag = function (mascot) {
+                mascot.activated = false;
+                mascot.isDragged = true;
+                _this.$scope.currentBall = mascot;
             };
             this.ballMouseUp = function (ball) {
                 ball.isDragged = false;
@@ -256,18 +264,16 @@ var Snowstorm;
             var radius = 60;
             var ballWeight = 1;
             var artists = [
-                new Snowstorm.Artist("Птиц", "Розовый", "pinkbird"),
-                new Snowstorm.Artist("Марина", "Расплесецкая", "balet"),
-                new Snowstorm.Artist("Пингвин", "Южноафриканский", "pigeon"),
-                new Snowstorm.Artist("Jack", "Horse", "horse"),
-                new Snowstorm.Artist("Шар", "Прост", "livingBall"),
-                new Snowstorm.Artist("Домик", "Дымоходов", "house"),
-                new Snowstorm.Artist("Птиц", "Розовый", "pinkbird"),
-                new Snowstorm.Artist("Марина", "Расплесецкая", "balet"),
-                new Snowstorm.Artist("Пингвин", "Южноафриканский", "pigeon"),
-                new Snowstorm.Artist("Jack", "Horse", "horse"),
-                new Snowstorm.Artist("Шар", "Прост", "livingBall"),
-                new Snowstorm.Artist("Домик", "Дымоходов", "house"),
+                new Snowstorm.Artist(1, "Евгения", "Баринова", "balet"),
+                new Snowstorm.Artist(2, "Хадия", "...", "pigeon"),
+                new Snowstorm.Artist(3, "Березина", "...", "pinkbird"),
+                new Snowstorm.Artist(4, "Арина", "Шабанова", "heart"),
+                new Snowstorm.Artist(5, "Тимур", "Зима", "livingBall"),
+                new Snowstorm.Artist(6, "Алексей", "Сухов", "rat"),
+                new Snowstorm.Artist(7, "Саша", "Киселёва", "house"),
+                new Snowstorm.Artist(8, "Ольга", "Чикина", "horse"),
+                new Snowstorm.Artist(9, "Катя", "Дорохина", "pizza"),
+                new Snowstorm.Artist(10, "Воронина", "...", "fox")
             ];
             for (var i = 0; i < artists.length; i++) {
                 var artist = artists[i];
@@ -283,7 +289,7 @@ var Snowstorm;
             }
         };
         GameCtrl.$inject = [
-            "$scope", "$window", "$interval", "$timeout"
+            "$scope", "$window", "$interval", "$timeout", "$location"
         ];
         return GameCtrl;
     }());

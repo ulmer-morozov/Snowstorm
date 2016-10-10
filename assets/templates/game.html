@@ -23,11 +23,13 @@
     <div class="selected-artist-title">{{selectedBall.artist.fullname}}</div>
 
     <div id="drawingPlot" ng-mousemove="ballMouseMove($event)">
-        <div ng-repeat="ball in balls"  ng-mouseover="startInteraction(ball)" ng-mouseleave="stopInteraction(ball)"
+        <div ng-repeat="ball in balls" ng-mouseover="startInteraction(ball)" ng-mouseleave="stopInteraction(ball)"
             ng-mousedown="startDrag(ball)" ng-mouseup="stopDrag(ball)" ng-style="{ transform: 'translate3d(' + ball.cx + 'px,' + ball.cy + 'px, 0)', width: 2*ball.r, height: 2*ball.r, 'margin-left': -ball.r, 'margin-top': - ball.r}"
             ng-class="[{dragged: ball.isDragged, selected: selectedBall == ball, enabled: ball.isEnabled}, ball.artist.mascotName]"
             class="ball">
             <div class="bounds"> </div>
+
+            <circle-Indicator ng-show="ball.activated" title="{{ball.artist.firstname}}" activated="ball.activated" after-complete="goToAuthor" data="ball"></circle-Indicator>
         </div>
         <!-- <div ng-repeat="obstacle in obstacles" ng-style="{left: obstacle.cx, top: obstacle.cy, width: 2*obstacle.r, height: 2*obstacle.r, 'margin-left': -obstacle.r, 'margin-top': - obstacle.r}"
           ng-class="['obstacle'+$index]" class="obstacle" /> -->

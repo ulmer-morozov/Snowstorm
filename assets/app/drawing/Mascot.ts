@@ -5,5 +5,6 @@ module Snowstorm {
             super(r, cx, cy, weight, isEnabled, movingEnabled);
         }
 
+        public activated: boolean;
     }
 }

@@ -6,6 +6,7 @@ var Snowstorm;
         .directive("draggable", Snowstorm.Draggable.factory())
         .directive("imagePreview", Snowstorm.ImagePreview.factory())
         .directive("shuffleElements", Snowstorm.ShuffleElements.factory())
+        .directive("circleIndicator", Snowstorm.CircleIndicator.factory())
         .service("$guid", Snowstorm.GuidService)
         .controller("AboutCtrl", Snowstorm.AboutCtrl)
         .controller("GameCtrl", Snowstorm.GameCtrl)

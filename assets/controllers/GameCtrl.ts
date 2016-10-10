@@ -5,7 +5,7 @@
 
         //DI
         static $inject = [
-            "$scope", "$window", "$interval", "$timeout"
+            "$scope", "$window", "$interval", "$timeout", "$location"
         ];
 
         private mouseTrack: Vector;
@@ -19,10 +19,11 @@
         private screenCenterY: number;
 
         constructor(
-            private $scope: IAppCtrlScope,
-            private $window: angular.IWindowService,
-            private $interval: angular.IIntervalService,
-            private $timeout: angular.ITimeoutService
+            private $scope: IGameCtrlScope,
+            private $window: ng.IWindowService,
+            private $interval: ng.IIntervalService,
+            private $timeout: ng.ITimeoutService,
+            private $location: ng.ILocationService
         ) {
             // трекинг мыши
             this.mouseSpeedCounter = 0;
@@ -42,6 +43,11 @@
             $scope.mouseSpeed = new Vector(0, 0);
             this.initWindow();
         }
+
+        goToAuthor = (mascot: Mascot): void => {
+            this.$location.url(`/Author/${mascot.artist.id}`);
+        }
+
 
         getRandomSpeed = (): number => {
             return Random.getRandomReal(-200, 200);
@@ -152,19 +158,19 @@
 
 
             var artists = [
-                new Artist("Птиц", "Розовый", "pinkbird"),
-                new Artist("Марина", "Расплесецкая", "balet"),
-                new Artist("Пингвин", "Южноафриканский", "pigeon"),
-                new Artist("Jack", "Horse", "horse"),
-                new Artist("Шар", "Прост", "livingBall"),
-                new Artist("Домик", "Дымоходов", "house"),
+                new Artist(1, "Евгения", "Баринова", "balet"),
+                new Artist(2, "Хадия", "...", "pigeon"),
+                new Artist(3, "Березина", "...", "pinkbird"),
 
-                new Artist("Птиц", "Розовый", "pinkbird"),
-                new Artist("Марина", "Расплесецкая", "balet"),
-                new Artist("Пингвин", "Южноафриканский", "pigeon"),
-                new Artist("Jack", "Horse", "horse"),
-                new Artist("Шар", "Прост", "livingBall"),
-                new Artist("Домик", "Дымоходов", "house"),
+                new Artist(4, "Арина", "Шабанова", "heart"),
+                new Artist(5, "Тимур", "Зима", "livingBall"),
+                new Artist(6, "Алексей", "Сухов", "rat"),
+
+                new Artist(7, "Саша", "Киселёва", "house"),
+                new Artist(8, "Ольга", "Чикина", "horse"),
+                new Artist(9, "Катя", "Дорохина", "pizza"),
+
+                new Artist(10, "Воронина", "...", "fox")
             ];
 
             for (let i = 0; i < artists.length; i++) {
@@ -248,6 +254,7 @@
             this.$scope.ballMouseMove = this.ballMouseMove;
 
             this.$scope.getMascotImg = this.getMascotImg;
+            this.$scope.goToAuthor = this.goToAuthor;
 
             this.requestNewFrame();
         }
@@ -314,15 +321,17 @@
             return result;
         }
 
-        startInteraction = (ball: Ball): void => {
+        startInteraction = (mascot: Mascot): void => {
+            mascot.activated = true;
             // ball.movingEnabled = false;
         }
 
-        stopInteraction = (ball: Ball): void => {
-            if (ball.isDragged || this.isSelected(ball))
+        stopInteraction = (mascot: Mascot): void => {
+            mascot.activated = false;
+            if (mascot.isDragged || this.isSelected(mascot))
                 return;
 
-            ball.movingEnabled = true;
+            mascot.movingEnabled = true;
         }
 
         stopDrag = (ball: Ball): void => {
@@ -366,10 +375,11 @@
 
         }
 
-        startDrag = (ball: Ball): void => {
-            ball.isDragged = true;
+        startDrag = (mascot: Mascot): void => {
+            mascot.activated = false;
+            mascot.isDragged = true;
 
-            this.$scope.currentBall = ball;
+            this.$scope.currentBall = mascot;
         }
 
         ballMouseUp = (ball: Ball): void => {

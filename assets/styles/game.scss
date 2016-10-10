@@ -72,6 +72,38 @@
         background-position: -3600px;
     }
 }
+@keyframes play-heart {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -960px;
+    }
+}
+@keyframes play-rat {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -2880px;
+    }
+}
+@keyframes play-pizza {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -4560px;
+    }
+}
+@keyframes play-fox {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -4440px;
+    }
+}
 .selected-artist-title {
     position: fixed;
     left: 50%;
@@ -171,6 +203,22 @@
 .ball.house {
     background-image: url("../images/mascots/house_120х120.png");
     animation: play-house 1s steps(30) infinite;
+}
+.ball.heart {
+    background-image: url("../images/mascots/heart_120x120.png");
+    animation: play-heart 1s steps(8) infinite;
+}
+.ball.rat {
+    background-image: url("../images/mascots/rat_120x120.png");
+    animation: play-rat 1s steps(24) infinite;
+}
+.ball.pizza {
+    background-image: url("../images/mascots/pizza_120x120.png");
+    animation: play-pizza 2s steps(38) infinite;
+}
+.ball.fox {
+    background-image: url("../images/mascots/fox_120x120.png");
+    animation: play-fox 2s steps(37) infinite;
 }
 #mouseSpeed {
     position: fixed;

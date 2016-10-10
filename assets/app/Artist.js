@@ -1,7 +1,8 @@
 var Snowstorm;
 (function (Snowstorm) {
     var Artist = (function () {
-        function Artist(firstname, lastname, mascotName) {
+        function Artist(id, firstname, lastname, mascotName) {
+            this.id = id;
             this.firstname = firstname;
             this.lastname = lastname;
             this.mascotName = mascotName;
