@@ -159,8 +159,8 @@
 
             var artists = [
                 new Artist(1, "Евгения", "Баринова", "balet"),
-                new Artist(2, "Хадия", "...", "pigeon"),
-                new Artist(3, "Березина", "...", "pinkbird"),
+                new Artist(2, "Хадия", "Улумбекова", "pigeon"),
+                new Artist(3, "Люба", "Березина", "pinkbird"),
 
                 new Artist(4, "Арина", "Шабанова", "heart"),
                 new Artist(5, "Тимур", "Зима", "livingBall"),
@@ -170,7 +170,7 @@
                 new Artist(8, "Ольга", "Чикина", "horse"),
                 new Artist(9, "Катя", "Дорохина", "pizza"),
 
-                new Artist(10, "Воронина", "...", "fox")
+                new Artist(10, "Екатерина", "Воронина", "fox")
             ];
 
             for (let i = 0; i < artists.length; i++) {

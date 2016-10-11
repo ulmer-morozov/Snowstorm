@@ -266,15 +266,15 @@ var Snowstorm;
             var ballWeight = 1;
             var artists = [
                 new Snowstorm.Artist(1, "Евгения", "Баринова", "balet"),
-                new Snowstorm.Artist(2, "Хадия", "...", "pigeon"),
-                new Snowstorm.Artist(3, "Березина", "...", "pinkbird"),
+                new Snowstorm.Artist(2, "Хадия", "Улумбекова", "pigeon"),
+                new Snowstorm.Artist(3, "Люба", "Березина", "pinkbird"),
                 new Snowstorm.Artist(4, "Арина", "Шабанова", "heart"),
                 new Snowstorm.Artist(5, "Тимур", "Зима", "livingBall"),
                 new Snowstorm.Artist(6, "Алексей", "Сухов", "rat"),
                 new Snowstorm.Artist(7, "Саша", "Киселёва", "house"),
                 new Snowstorm.Artist(8, "Ольга", "Чикина", "horse"),
                 new Snowstorm.Artist(9, "Катя", "Дорохина", "pizza"),
-                new Snowstorm.Artist(10, "Воронина", "...", "fox")
+                new Snowstorm.Artist(10, "Екатерина", "Воронина", "fox")
             ];
             for (var i = 0; i < artists.length; i++) {
                 var artist = artists[i];
