@@ -69,7 +69,6 @@ textarea.form-input {
 }
 
 footer {
-    height: 56.25pt;
     margin-top: 90pt;
     padding-top: 18pt;
     padding-bottom: 18pt;
@@ -80,6 +79,10 @@ footer {
     a {
         color: white;
         z-index: 100;
+    }
+
+    .footer-line {
+        padding-bottom: 10pt;
     }
 }
 
@@ -192,12 +195,33 @@ textarea.form-input {
     right: -$background-gap/2;
 }
 
-a.social-links svg {
-    height: 16pt;
-    fill: white;
+a.social-links {
+    text-decoration: none;
+    margin-top: -5px;
+    display: inline-block;
+
+    svg {
+        height: 16pt;
+        fill: white;
+        position: relative;
+        top: 4px;
+    }
 
     &:hover {
-        fill: gray;
+        color: gray;
+
+        svg {
+            fill: gray;
+        }
+    }
+}
+
+.social-icons {
+    svg {
+        height: 16pt;
+        fill: white;
+        position: relative;
+        top: 4px;
     }
 }
 //
@@ -239,7 +263,7 @@ a.author-name {
 }
 $author-name-width: 130pt;
 $currentWidth: 3*$author-name-width;
-$widthForCount: ('45%', '32.6%','24.4%', '19.5%','13.9%');
+$widthForCount: ('45%', '32.6%','24.4%', '19.5%');
 $lastWidthElement: nth($widthForCount,length($widthForCount));
 @each $width in $widthForCount {
      @media (min-width: $currentWidth ) and (max-width: $currentWidth + $author-name-width){

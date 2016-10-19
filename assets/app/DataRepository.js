@@ -65,7 +65,7 @@ var Snowstorm;
             { id: 2, title: "", imageUrl: "assets/images/portfolio/evgenia_barinova/evgenia_barinova_2.jpeg", description: "" },
             { id: 3, title: "", imageUrl: "assets/images/portfolio/evgenia_barinova/evgenia_barinova_3.jpeg", description: "" },
             { id: 4, title: "", imageUrl: "assets/images/portfolio/evgenia_barinova/evgenia_barinova_4.jpeg", description: "" },
-            { id: 5, title: "", imageUrl: "assets/images/portfolio/evgenia_barinova/evgenia_barinova_5.jpeg", description: "" },
+            { id: 5, title: "", imageUrl: "assets/images/portfolio/evgenia_barinova/evgenia_barinova_5.jpg", description: "" },
             { id: 6, title: "", imageUrl: "assets/images/portfolio/evgenia_barinova/evgenia_barinova_6.jpeg", description: "" },
             { id: 7, title: "", imageUrl: "assets/images/portfolio/evgenia_barinova/evgenia_barinova_7.jpeg", description: "" },
             { id: 8, title: "", imageUrl: "assets/images/portfolio/evgenia_barinova/evgenia_barinova_8.jpeg", description: "" },
@@ -113,8 +113,7 @@ var Snowstorm;
             { id: 13, title: "", imageUrl: "assets/images/portfolio/katya_dorokhina/katya_dorokhina_13.jpeg", description: "" },
             { id: 14, title: "", imageUrl: "assets/images/portfolio/katya_dorokhina/katya_dorokhina_14.jpeg", description: "" },
             { id: 15, title: "", imageUrl: "assets/images/portfolio/katya_dorokhina/katya_dorokhina_15.jpeg", description: "" },
-            { id: 16, title: "", imageUrl: "assets/images/portfolio/katya_dorokhina/katya_dorokhina_16.jpeg", description: "" },
-            { id: 17, title: "", imageUrl: "assets/images/portfolio/katya_dorokhina/katya_dorokhina_17.jpeg", description: "" },
+            { id: 16, title: "", imageUrl: "assets/images/portfolio/katya_dorokhina/katya_dorokhina_16.jpeg", description: "" }
         ];
     };
     DataRepository.getKatyaVoroninaWorks = function () {
