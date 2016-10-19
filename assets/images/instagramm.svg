@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 76 76" style="enable-background:new 0 0 76 76;" xml:space="preserve">
+<g>
+	<g id="XMLID_1_">
+		<path id="XMLID_4_" class="st0" d="M53,1H23C10.9,1,1,10.9,1,23v30c0,12.2,9.9,22,22,22h30c12.2,0,22-9.9,22-22V23
+			C75,10.9,65.1,1,53,1z M67.6,53c0,8-6.6,14.6-14.6,14.6H23C15,67.6,8.4,61,8.4,53V23C8.4,15,15,8.4,23,8.4h30
+			c8,0,14.6,6.6,14.6,14.6V53L67.6,53z"/>
+		<path id="XMLID_3_" class="st0" d="M38,18.9c-10.6,0-19.1,8.6-19.1,19.1S27.4,57.1,38,57.1S57.1,48.6,57.1,38S48.6,18.9,38,18.9z
+			 M38,49.7c-6.5,0-11.7-5.2-11.7-11.7S31.5,26.3,38,26.3S49.7,31.5,49.7,38S44.5,49.7,38,49.7z"/>
+		<circle id="XMLID_2_" class="st0" cx="57.2" cy="19" r="4.6"/>
+	</g>
+</g>
+</svg>

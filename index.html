@@ -9,7 +9,13 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
     <script src="https://use.typekit.net/thf1axi.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+    </script>
 
     <link href="assets/styles/grid24.css" rel="stylesheet">
     <link href="assets/styles/app.min.css" rel="stylesheet">
@@ -36,7 +42,12 @@
     <footer class="row">
         <div class="col-xs-4 col-sm-offset-2 col-xs-offset-1">© Вьюга</div>
         <div class="col-sm-8 col-xs-14">viugabureau@gmail.com&emsp;+7 (917) 595-39-95</div>
-        <div class="col-xs-4 col-sm-offset-6 col-xs-offset-1">Соц. сети</div>
+        <div class="col-xs-4 col-sm-offset-6 col-xs-offset-1">
+            <a ng-include="'assets/images/instagramm.svg'" href="https://www.instagram.com/viuga_bureau/"
+                class="social-links"></a>
+            <a ng-include="'assets/images/facebook.svg'" href="https://www.facebook.com/viugabureau/"
+                class="social-links"></a>
+        </div>
     </footer>
 
     <!-- скрипты -->

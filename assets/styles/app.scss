@@ -185,6 +185,15 @@ textarea.form-input {
     left: $background-gap/2;
     right: -$background-gap/2;
 }
+
+a.social-links svg {
+    height: 16pt;
+    fill: white;
+
+    &:hover {
+        fill: gray;
+    }
+}
 //
 //
 //
@@ -349,7 +358,6 @@ $promo-content-margin: 40pt;
     h1 {
         margin-top: 33.75pt;
     }
-
     // .author-about {
     //     margin-bottom: 70pt;
     //     font-family: $primary-font;
@@ -357,7 +365,6 @@ $promo-content-margin: 40pt;
     //     text-align: center;
     //     color: #1d1d1d;
     // }
-
     .author-promo-content {
         position: relative;
         margin-bottom: 40pt;
