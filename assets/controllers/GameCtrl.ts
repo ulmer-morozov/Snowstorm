@@ -153,30 +153,29 @@
         }
 
         createBallElements(): void {
-            const radius = 60; //this.getRandomBallRadius(); // The radius of the ball.
             const ballWeight = 1;
 
 
             var artists = [
-                new Artist(1, "Евгения", "Баринова", "balet"),
-                new Artist(2, "Хадия", "Улумбекова", "pigeon"),
-                new Artist(3, "Любовь", "Березина", "pinkbird"),
+                new Artist(1, "Евгения", "Баринова", "balet", 90),
+                new Artist(2, "Хадия", "Улумбекова", "pigeon", 60),
+                new Artist(3, "Любовь", "Березина", "pinkbird", 60),
 
-                new Artist(4, "Арина", "Шабанова", "heart"),
-                new Artist(5, "Тимур", "Зима", "livingBall"),
-                new Artist(6, "Алексей", "Сухов", "rat"),
+                new Artist(4, "Арина", "Шабанова", "heart", 60),
+                new Artist(5, "Тимур", "Зима", "livingBall", 60),
+                new Artist(6, "Алексей", "Сухов", "rat", 60),
 
-                new Artist(7, "Александра", "Киселёва", "house"),
-                new Artist(8, "Ольга", "Чикина", "horse"),
-                new Artist(9, "Екатерина", "Дорохина", "pizza"),
+                new Artist(7, "Александра", "Киселёва", "house", 60),
+                new Artist(8, "Ольга", "Чикина", "horse", 60),
+                new Artist(9, "Екатерина", "Дорохина", "pizza", 60),
 
-                new Artist(10, "Екатерина", "Воронина", "fox")
+                new Artist(10, "Екатерина", "Воронина", "fox", 60)
             ];
 
             for (let i = 0; i < artists.length; i++) {
                 let artist = artists[i];
 
-                const maccot = new Mascot(artist, radius, 0, 0, ballWeight);
+                const maccot = new Mascot(artist, artist.radius, 0, 0, ballWeight);
                 const newPosition = this.getRandomBallPosition(maccot); // For this function, the radius of a ball is needed to make sure that the ball is contained within the arena.
 
                 maccot.cx = newPosition.x;

@@ -32,7 +32,7 @@
     }
 
     to {
-        background-position: -11995px;
+        background-position: -9000px;
     }
 }
 @keyframes fan-animation {
@@ -178,6 +178,7 @@
     // border: 1px solid red;
     z-index: -1;
     box-sizing: border-box;
+    position: absolute;
 }
 
 .ball.enabled {
@@ -211,8 +212,8 @@
 }
 
 .ball.balet {
-    background-image: url("../images/mascots/balet_120_120.png");
-    background-size: cover;
+    background-image: url("../images/mascots/balet_120x120.png");
+    // background-size:  auto 120px;
     animation: play-balet 2s steps(50) infinite;
 }
 

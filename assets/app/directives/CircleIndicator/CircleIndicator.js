@@ -12,6 +12,7 @@ var Snowstorm;
                 title: "@",
                 activated: "=",
                 afterComplete: "&",
+                width: "@",
                 data: "="
             };
             this.link = function (scope, el, attrs) {
@@ -21,7 +22,7 @@ var Snowstorm;
                     $scope.getProgressWidth = function () {
                         if ($scope.percentage == undefined)
                             return 0;
-                        var amount = 120 * $scope.percentage / 100;
+                        var amount = $scope.width * $scope.percentage / 100;
                         return amount;
                     };
                     $scope.getClipText = function () {

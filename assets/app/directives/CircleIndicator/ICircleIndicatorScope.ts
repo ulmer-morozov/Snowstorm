@@ -5,6 +5,7 @@ module Snowstorm {
         title: string;
         activated: boolean;
         percentage: number;
+        width: number;
         timerPromise: ng.IPromise<any>;
 
         getClipText(): string;

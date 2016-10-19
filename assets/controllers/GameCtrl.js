@@ -262,23 +262,22 @@ var Snowstorm;
             }
         };
         GameCtrl.prototype.createBallElements = function () {
-            var radius = 60;
             var ballWeight = 1;
             var artists = [
-                new Snowstorm.Artist(1, "Евгения", "Баринова", "balet"),
-                new Snowstorm.Artist(2, "Хадия", "Улумбекова", "pigeon"),
-                new Snowstorm.Artist(3, "Любовь", "Березина", "pinkbird"),
-                new Snowstorm.Artist(4, "Арина", "Шабанова", "heart"),
-                new Snowstorm.Artist(5, "Тимур", "Зима", "livingBall"),
-                new Snowstorm.Artist(6, "Алексей", "Сухов", "rat"),
-                new Snowstorm.Artist(7, "Александра", "Киселёва", "house"),
-                new Snowstorm.Artist(8, "Ольга", "Чикина", "horse"),
-                new Snowstorm.Artist(9, "Екатерина", "Дорохина", "pizza"),
-                new Snowstorm.Artist(10, "Екатерина", "Воронина", "fox")
+                new Snowstorm.Artist(1, "Евгения", "Баринова", "balet", 90),
+                new Snowstorm.Artist(2, "Хадия", "Улумбекова", "pigeon", 60),
+                new Snowstorm.Artist(3, "Любовь", "Березина", "pinkbird", 60),
+                new Snowstorm.Artist(4, "Арина", "Шабанова", "heart", 60),
+                new Snowstorm.Artist(5, "Тимур", "Зима", "livingBall", 60),
+                new Snowstorm.Artist(6, "Алексей", "Сухов", "rat", 60),
+                new Snowstorm.Artist(7, "Александра", "Киселёва", "house", 60),
+                new Snowstorm.Artist(8, "Ольга", "Чикина", "horse", 60),
+                new Snowstorm.Artist(9, "Екатерина", "Дорохина", "pizza", 60),
+                new Snowstorm.Artist(10, "Екатерина", "Воронина", "fox", 60)
             ];
             for (var i = 0; i < artists.length; i++) {
                 var artist = artists[i];
-                var maccot = new Snowstorm.Mascot(artist, radius, 0, 0, ballWeight);
+                var maccot = new Snowstorm.Mascot(artist, artist.radius, 0, 0, ballWeight);
                 var newPosition = this.getRandomBallPosition(maccot);
                 maccot.cx = newPosition.x;
                 maccot.cy = newPosition.y;

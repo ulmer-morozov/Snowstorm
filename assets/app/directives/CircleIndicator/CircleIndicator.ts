@@ -10,6 +10,7 @@ module Snowstorm {
             title: "@",
             activated: "=",
             afterComplete: "&",
+            width: "@",
             data: "="
         }
 
@@ -31,7 +32,7 @@ module Snowstorm {
             $scope.getProgressWidth = (): number => {
                 if ($scope.percentage == undefined)
                     return 0;
-                let amount = 120 * $scope.percentage / 100;
+                let amount = $scope.width * $scope.percentage / 100;
                 return amount;
             }
 

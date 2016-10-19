@@ -29,7 +29,7 @@
             class="ball">
             <div class="bounds"> </div>
 
-            <circle-Indicator ng-show="ball.activated" title="{{ball.artist.firstname}}" activated="ball.activated" after-complete="goToAuthor" data="ball"></circle-Indicator>
+            <circle-Indicator ng-show="ball.activated" title="{{ball.artist.firstname}}" activated="ball.activated" width="{{2*ball.r}}" after-complete="goToAuthor" data="ball"></circle-Indicator>
         </div>
         <!-- <div ng-repeat="obstacle in obstacles" ng-style="{left: obstacle.cx, top: obstacle.cy, width: 2*obstacle.r, height: 2*obstacle.r, 'margin-left': -obstacle.r, 'margin-top': - obstacle.r}"
           ng-class="['obstacle'+$index]" class="obstacle" /> -->

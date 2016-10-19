@@ -75,6 +75,11 @@ footer {
     color: white;
     background-color: #1d1d1d;
     font-family: $primary-font;
+
+    a {
+        color: white;
+        z-index: 100;
+    }
 }
 
 .menu-container {
@@ -411,6 +416,7 @@ $promo-content-margin: 40pt;
 
 .about-page {
     .about-text {
+        max-width: 65em;
         margin-bottom: 52.5pt;
         font-family: $primary-font;
         font-weight: 100;
@@ -466,6 +472,7 @@ $promo-content-margin: 40pt;
 .illustrated-news-page {
     .news-description {
         margin-bottom: 90pt;
+        max-width: 65em;
     }
 
     .news-description,
