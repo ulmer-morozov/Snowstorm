@@ -195,11 +195,14 @@ textarea.form-input {
     right: -$background-gap/2;
 }
 
+.social-text {
+    margin-top: 6px;
+}
+
 a.social-links {
     text-decoration: none;
-    margin-top: -5px;
-    display: inline-block;
-
+    // margin-top: -5px;
+    // display: inline-block;
     svg {
         height: 16pt;
         fill: white;

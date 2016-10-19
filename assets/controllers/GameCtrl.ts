@@ -169,7 +169,8 @@
                 new Artist(8, "Ольга", "Чикина", "horse", 60),
                 new Artist(9, "Екатерина", "Дорохина", "pizza", 60),
 
-                new Artist(10, "Екатерина", "Воронина", "fox", 60)
+                new Artist(10, "Екатерина", "Воронина", "fox", 60),
+                new Artist(11, "Никита", "Кибирев", "nik", 60)
             ];
 
             for (let i = 0; i < artists.length; i++) {
