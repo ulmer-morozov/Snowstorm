@@ -32,10 +32,10 @@ var Snowstorm;
             };
             this.setDefaultNews();
         }
-        IllustratedNewsCtrl.$inject = [
-            "$scope", "$interval", "$timeout", "$routeParams"
-        ];
         return IllustratedNewsCtrl;
     }());
+    IllustratedNewsCtrl.$inject = [
+        "$scope", "$interval", "$timeout", "$routeParams"
+    ];
     Snowstorm.IllustratedNewsCtrl = IllustratedNewsCtrl;
 })(Snowstorm || (Snowstorm = {}));

@@ -10,20 +10,20 @@ var Snowstorm;
                 return result;
             };
         }
-        GuidService.s4 = function () {
-            var randNumber = Math.floor((1 + Math.random()) * 0x10000);
-            var result = randNumber.toString(16).substring(1);
-            return result;
-        };
-        GuidService.s8 = function () {
-            var result = GuidService.s4() + GuidService.s4();
-            return result;
-        };
-        GuidService.s12 = function () {
-            var result = GuidService.s8() + GuidService.s4();
-            return result;
-        };
         return GuidService;
     }());
+    GuidService.s4 = function () {
+        var randNumber = Math.floor((1 + Math.random()) * 0x10000);
+        var result = randNumber.toString(16).substring(1);
+        return result;
+    };
+    GuidService.s8 = function () {
+        var result = GuidService.s4() + GuidService.s4();
+        return result;
+    };
+    GuidService.s12 = function () {
+        var result = GuidService.s8() + GuidService.s4();
+        return result;
+    };
     Snowstorm.GuidService = GuidService;
 })(Snowstorm || (Snowstorm = {}));

@@ -8,7 +8,7 @@ var Snowstorm;
     var LightSpot = (function (_super) {
         __extends(LightSpot, _super);
         function LightSpot(r, cx, cy, weight) {
-            _super.call(this, r, cx, cy, weight);
+            return _super.call(this, r, cx, cy, weight) || this;
         }
         return LightSpot;
     }(Snowstorm.Colider));

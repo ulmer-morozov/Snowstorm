@@ -8,11 +8,10 @@ var Snowstorm;
     var Ball = (function (_super) {
         __extends(Ball, _super);
         function Ball(r, cx, cy, weight, isEnabled, movingEnabled) {
-            var _this = this;
             if (isEnabled === void 0) { isEnabled = true; }
             if (movingEnabled === void 0) { movingEnabled = true; }
-            _super.call(this, r, cx, cy, weight, isEnabled);
-            this.move = function () {
+            var _this = _super.call(this, r, cx, cy, weight, isEnabled) || this;
+            _this.move = function () {
                 if (!_this.movingEnabled)
                     return;
                 _this.cx += _this.s2d(_this.v.xc);
@@ -22,7 +21,7 @@ var Snowstorm;
                     _this.v = _this.v.multi(0.99);
                 }
             };
-            this.processCollision = function (that) {
+            _this.processCollision = function (that) {
                 if (!_this.isEnabled || _this.isDragged || !that.isEnabled)
                     return;
                 var otherObjectIsWall = that instanceof Snowstorm.Wall;
@@ -69,10 +68,11 @@ var Snowstorm;
                     }
                 }
             };
-            this.v = new Snowstorm.Vector(0, 0);
-            this.isEnabled = isEnabled;
-            this.isDragged = false;
-            this.movingEnabled = movingEnabled;
+            _this.v = new Snowstorm.Vector(0, 0);
+            _this.isEnabled = isEnabled;
+            _this.isDragged = false;
+            _this.movingEnabled = movingEnabled;
+            return _this;
         }
         return Ball;
     }(Snowstorm.Colider));

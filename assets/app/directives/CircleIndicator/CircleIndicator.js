@@ -44,7 +44,7 @@ var Snowstorm;
                 _this.cancelTimer($scope);
             };
             this.timeUpdate = function ($scope) {
-                $scope.percentage += 3;
+                $scope.percentage += 1.5;
                 if ($scope.percentage > 100) {
                     $scope.percentage = 100;
                     _this.cancelTimer($scope);

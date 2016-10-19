@@ -2,8 +2,8 @@ var Snowstorm;
 (function (Snowstorm) {
     var Colider = (function () {
         function Colider(r, cx, cy, weight, isEnabled) {
-            var _this = this;
             if (isEnabled === void 0) { isEnabled = true; }
+            var _this = this;
             this.dx = function (that) {
                 return _this.cx - that.cx;
             };

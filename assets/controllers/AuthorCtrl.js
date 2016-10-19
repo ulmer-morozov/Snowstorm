@@ -15,10 +15,10 @@ var Snowstorm;
             this.$scope.selectWork = this.selectWork;
             this.$scope.converter = Snowstorm.ImagePreview.convertWorkToImage;
         }
-        AuthorCtrl.$inject = [
-            "$scope", "$interval", "$timeout", "$routeParams"
-        ];
         return AuthorCtrl;
     }());
+    AuthorCtrl.$inject = [
+        "$scope", "$interval", "$timeout", "$routeParams"
+    ];
     Snowstorm.AuthorCtrl = AuthorCtrl;
 })(Snowstorm || (Snowstorm = {}));

@@ -267,13 +267,13 @@ var Snowstorm;
             var artists = [
                 new Snowstorm.Artist(1, "Евгения", "Баринова", "balet"),
                 new Snowstorm.Artist(2, "Хадия", "Улумбекова", "pigeon"),
-                new Snowstorm.Artist(3, "Люба", "Березина", "pinkbird"),
+                new Snowstorm.Artist(3, "Любовь", "Березина", "pinkbird"),
                 new Snowstorm.Artist(4, "Арина", "Шабанова", "heart"),
                 new Snowstorm.Artist(5, "Тимур", "Зима", "livingBall"),
                 new Snowstorm.Artist(6, "Алексей", "Сухов", "rat"),
-                new Snowstorm.Artist(7, "Саша", "Киселёва", "house"),
+                new Snowstorm.Artist(7, "Александра", "Киселёва", "house"),
                 new Snowstorm.Artist(8, "Ольга", "Чикина", "horse"),
-                new Snowstorm.Artist(9, "Катя", "Дорохина", "pizza"),
+                new Snowstorm.Artist(9, "Екатерина", "Дорохина", "pizza"),
                 new Snowstorm.Artist(10, "Екатерина", "Воронина", "fox")
             ];
             for (var i = 0; i < artists.length; i++) {
@@ -289,10 +289,10 @@ var Snowstorm;
                 this.$scope.balls.push(maccot);
             }
         };
-        GameCtrl.$inject = [
-            "$scope", "$window", "$interval", "$timeout", "$location"
-        ];
         return GameCtrl;
     }());
+    GameCtrl.$inject = [
+        "$scope", "$window", "$interval", "$timeout", "$location"
+    ];
     Snowstorm.GameCtrl = GameCtrl;
 })(Snowstorm || (Snowstorm = {}));

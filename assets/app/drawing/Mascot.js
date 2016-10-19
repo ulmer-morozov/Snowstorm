@@ -10,8 +10,9 @@ var Snowstorm;
         function Mascot(artist, r, cx, cy, weight, isEnabled, movingEnabled) {
             if (isEnabled === void 0) { isEnabled = true; }
             if (movingEnabled === void 0) { movingEnabled = true; }
-            _super.call(this, r, cx, cy, weight, isEnabled, movingEnabled);
-            this.artist = artist;
+            var _this = _super.call(this, r, cx, cy, weight, isEnabled, movingEnabled) || this;
+            _this.artist = artist;
+            return _this;
         }
         return Mascot;
     }(Snowstorm.Ball));

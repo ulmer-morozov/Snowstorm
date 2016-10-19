@@ -8,7 +8,7 @@ var Snowstorm;
     var Wall = (function (_super) {
         __extends(Wall, _super);
         function Wall(r, cx, cy, weight) {
-            _super.call(this, r, cx, cy, weight);
+            return _super.call(this, r, cx, cy, weight) || this;
         }
         return Wall;
     }(Snowstorm.Colider));

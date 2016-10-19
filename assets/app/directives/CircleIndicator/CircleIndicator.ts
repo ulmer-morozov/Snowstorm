@@ -58,7 +58,7 @@ module Snowstorm {
         }
 
         private timeUpdate = ($scope: ICircleIndicatorScope): void => {
-            $scope.percentage += 3;
+            $scope.percentage += 1.5;
             if ($scope.percentage > 100) {
                 $scope.percentage = 100;
                 this.cancelTimer($scope);

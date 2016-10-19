@@ -17,10 +17,10 @@ var Snowstorm;
             };
             this.setDefaultAuthors();
         }
-        AuthorsCtrl.$inject = [
-            "$scope", "$location", "$timeout",
-        ];
         return AuthorsCtrl;
     }());
+    AuthorsCtrl.$inject = [
+        "$scope", "$location", "$timeout",
+    ];
     Snowstorm.AuthorsCtrl = AuthorsCtrl;
 })(Snowstorm || (Snowstorm = {}));
