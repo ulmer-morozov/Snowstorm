@@ -1,21 +1,27 @@
-@mixin box-sizing($box-model) {
-    -webkit-box-sizing: $box-model; // Safari <= 5
-    -moz-box-sizing: $box-model; // Firefox <= 19
+@mixin box-sizing($box-model) { /* Safari <= 5*/ /* Firefox <= 19*/
     box-sizing: $box-model;
 }
 @mixin flexbox {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
 }
 
 #drawingPlot {
-    // pointer-events: none;
+    /* pointer-events: none;*/
     position: fixed;
     width: 100%;
     height: 100%;
+}
+@-webkit-keyframes play {
+    from {
+        background-position: 5px;
+    }
+
+    to {
+        background-position: -2875px;
+    }
 }
 @keyframes play {
     from {
@@ -24,6 +30,15 @@
 
     to {
         background-position: -2875px;
+    }
+}
+@-webkit-keyframes play-balet {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -9000px;
     }
 }
 @keyframes play-balet {
@@ -35,6 +50,15 @@
         background-position: -9000px;
     }
 }
+@-webkit-keyframes fan-animation {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -4800px;
+    }
+}
 @keyframes fan-animation {
     from {
         background-position: 0;
@@ -42,6 +66,15 @@
 
     to {
         background-position: -4800px;
+    }
+}
+@-webkit-keyframes play-pigeon {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -4680px;
     }
 }
 @keyframes play-pigeon {
@@ -53,6 +86,15 @@
         background-position: -4680px;
     }
 }
+@-webkit-keyframes play-horse {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -3600px;
+    }
+}
 @keyframes play-horse {
     from {
         background-position: 0;
@@ -60,6 +102,15 @@
 
     to {
         background-position: -3600px;
+    }
+}
+@-webkit-keyframes play-ball {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -4440px;
     }
 }
 @keyframes play-ball {
@@ -71,6 +122,15 @@
         background-position: -4440px;
     }
 }
+@-webkit-keyframes play-house {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -3600px;
+    }
+}
 @keyframes play-house {
     from {
         background-position: 0;
@@ -78,6 +138,15 @@
 
     to {
         background-position: -3600px;
+    }
+}
+@-webkit-keyframes play-heart {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -960px;
     }
 }
 @keyframes play-heart {
@@ -89,6 +158,15 @@
         background-position: -960px;
     }
 }
+@-webkit-keyframes play-rat {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -2880px;
+    }
+}
 @keyframes play-rat {
     from {
         background-position: 0;
@@ -96,6 +174,15 @@
 
     to {
         background-position: -2880px;
+    }
+}
+@-webkit-keyframes play-pizza {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -4560px;
     }
 }
 @keyframes play-pizza {
@@ -107,6 +194,15 @@
         background-position: -4560px;
     }
 }
+@-webkit-keyframes play-fox {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -4440px;
+    }
+}
 @keyframes play-fox {
     from {
         background-position: 0;
@@ -114,6 +210,15 @@
 
     to {
         background-position: -4440px;
+    }
+}
+@-webkit-keyframes play-nik {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -960px;
     }
 }
 @keyframes play-nik {
@@ -125,6 +230,15 @@
         background-position: -960px;
     }
 }
+@-webkit-keyframes play-cat {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -720px;
+    }
+}
 @keyframes play-cat {
     from {
         background-position: 0;
@@ -132,6 +246,15 @@
 
     to {
         background-position: -720px;
+    }
+}
+@keyframes play-flower {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -1801px;
     }
 }
 .selected-artist-title {
@@ -152,9 +275,10 @@
     height: 300px;
     margin-left: -199px;
     background-image: url("../images/fan.png");
-    animation: fan-animation 1s steps(12) infinite;
+    -webkit-animation: fan-animation 1s steps(12) infinite;
+            animation: fan-animation 1s steps(12) infinite;
     pointer-events: none;
-    // z-index: 1;
+    /* z-index: 1;*/
 }
 
 .lightSpot {
@@ -166,7 +290,8 @@
     margin-left: -150px;
     margin-top: -150px;
     border-radius: 50%;
-    transform: scale(1, 0.5);
+    -webkit-transform: scale(1, 0.5);
+            transform: scale(1, 0.5);
     background-color: yellow;
     pointer-events: none;
     z-index: 0;
@@ -174,7 +299,7 @@
 
 .obstacle {
     position: fixed;
-    // border: 1px solid orange;
+    /* border: 1px solid orange;*/
     border-radius: 50%;
     pointer-events: none;
 }
@@ -182,24 +307,24 @@
 .ball {
     pointer-events: all;
     position: fixed;
-    // background-color: red;
-    // border-radius: 50%;
+    /* background-color: red;*/
+    /* border-radius: 50%;*/
     background-repeat: no-repeat;
-    // border: 2pt solid transparent;
+    /* border: 2pt solid transparent;*/
 }
 
 .ball .bounds {
     border-radius: 50%;
     width: 100%;
     height: 100%;
-    // border: 1px solid red;
+    /* border: 1px solid red;*/
     z-index: -1;
     box-sizing: border-box;
     position: absolute;
 }
 
 .ball.enabled {
-    // border: 2pt solid black;
+    /* border: 2pt solid black;*/
 }
 
 .ball.dragged {
@@ -207,15 +332,17 @@
 }
 
 .ball.dragged .bounds {
-    // border-color: blue;
+    /* border-color: blue;*/
 }
 
 .ball.selected {
     z-index: 9998;
+    -webkit-transition: 0.6s ease-in-out;
     transition: 0.6s ease-in-out;
 }
 
 .ball.selected.dragged {
+    -webkit-transition: none;
     transition: none;
 }
 
@@ -225,63 +352,81 @@
 
 .ball.pinkbird {
     background-image: url("../images/mascots/pinkbird_120_120.png");
-    animation: play 0.8s steps(24) infinite;
+    -webkit-animation: play 0.8s steps(24) infinite;
+            animation: play 0.8s steps(24) infinite;
 }
 
 .ball.balet {
     background-image: url("../images/mascots/balet_120x120.png");
-    // background-size:  auto 120px;
-    animation: play-balet 2s steps(50) infinite;
+    /* background-size:  auto 120px;*/
+    -webkit-animation: play-balet 2s steps(50) infinite;
+            animation: play-balet 2s steps(50) infinite;
 }
 
 .ball.pigeon {
     background-image: url("../images/mascots/pigeon.png");
-    animation: play-pigeon 3s steps(39) infinite;
+    -webkit-animation: play-pigeon 3s steps(39) infinite;
+            animation: play-pigeon 3s steps(39) infinite;
 }
 
 .ball.horse {
     background-image: url("../images/mascots/horse_120x120.png");
-    animation: play-horse 1.2s steps(30) infinite;
+    -webkit-animation: play-horse 1.2s steps(30) infinite;
+            animation: play-horse 1.2s steps(30) infinite;
 }
 
 .ball.livingBall {
     background-image: url("../images/mascots/ball_120x120.png");
-    animation: play-ball 1s steps(37) infinite;
+    -webkit-animation: play-ball 1s steps(37) infinite;
+            animation: play-ball 1s steps(37) infinite;
 }
 
 .ball.house {
     background-image: url("../images/mascots/house_120х120.png");
-    animation: play-house 1s steps(30) infinite;
+    -webkit-animation: play-house 1s steps(30) infinite;
+            animation: play-house 1s steps(30) infinite;
 }
 
 .ball.heart {
     background-image: url("../images/mascots/heart_120x120.png");
-    animation: play-heart 1s steps(8) infinite;
+    -webkit-animation: play-heart 1s steps(8) infinite;
+            animation: play-heart 1s steps(8) infinite;
 }
 
 .ball.rat {
     background-image: url("../images/mascots/rat_120x120.png");
-    animation: play-rat 1s steps(24) infinite;
+    -webkit-animation: play-rat 1s steps(24) infinite;
+            animation: play-rat 1s steps(24) infinite;
 }
 
 .ball.pizza {
     background-image: url("../images/mascots/pizza_120x120.png");
-    animation: play-pizza 2s steps(38) infinite;
+    -webkit-animation: play-pizza 2s steps(38) infinite;
+            animation: play-pizza 2s steps(38) infinite;
 }
 
 .ball.fox {
     background-image: url("../images/mascots/fox_120x120.png");
-    animation: play-fox 2s steps(37) infinite;
+    -webkit-animation: play-fox 2s steps(37) infinite;
+            animation: play-fox 2s steps(37) infinite;
 }
 
 .ball.nik {
     background-image: url("../images/mascots/nik_120x120.png");
-    animation: play-nik 2s steps(8) infinite;
+    -webkit-animation: play-nik 2s steps(8) infinite;
+            animation: play-nik 2s steps(8) infinite;
 }
 
 .ball.cat {
     background-image: url("../images/mascots/cat_120x120.png");
-    animation: play-cat 2s steps(6) infinite;
+    -webkit-animation: play-cat 2s steps(6) infinite;
+            animation: play-cat 2s steps(6) infinite;
+}
+
+.ball.flower {
+    background-image: url("../images/mascots/flower_120x120.png");
+    -webkit-animation: play-flower 2s steps(15) infinite;
+            animation: play-flower 2s steps(15) infinite;
 }
 
 #mouseSpeed {

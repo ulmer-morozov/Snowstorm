@@ -15,9 +15,9 @@ module Snowstorm {
             private $routeParams: angular.route.IRouteParamsService
         ) {
             this.$scope.employees = [
-                { avatar: "assets/images/employees/avatar1.jpg", description: "Картинки" },
-                { avatar: "assets/images/employees/avatar2.png", description: "Пространства" },
-                { avatar: "assets/images/employees/avatar3.png", description: "Объекты" }
+                { avatar: "assets/images/eye.svg", description: "Мы делаем иллюстрации на все случаи жизни от журнальных и текстильных до витринных и фасадных." },
+                { avatar: "assets/images/hand.svg", description: "Мы делаем художественные объекты для интерьеров, выставок и фестивалей." },
+                { avatar: "assets/images/heart.svg", description: "Мы занимаемся художественным оформлением пространств от шоурумов до парков." }
             ];
         }
 

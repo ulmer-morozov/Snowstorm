@@ -44,7 +44,7 @@ module Snowstorm {
         }];
 
         private start = ($scope: ICircleIndicatorScope): void => {
-            console.log("start");
+            // console.log("start");
             $scope.percentage++;
             $scope.percentage = 0;
             var self = this;
@@ -54,7 +54,7 @@ module Snowstorm {
         }
 
         private stop = ($scope: ICircleIndicatorScope): void => {
-            console.log("stop");
+            // console.log("stop");
             this.cancelTimer($scope);
         }
 
@@ -70,8 +70,7 @@ module Snowstorm {
                 }
 
             }
-
-            console.log("percentage " + $scope.percentage);
+            // console.log("percentage " + $scope.percentage);
         }
 
         private cancelTimer = ($scope: ICircleIndicatorScope): void => {

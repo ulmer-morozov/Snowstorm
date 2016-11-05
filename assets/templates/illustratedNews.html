@@ -1,6 +1,6 @@
 <style>
     body {
-        background-color: #08c;
+      background-image: url('../assets/images/back2.svg');
     }
 
     body,
@@ -30,12 +30,13 @@
             <!-- Описание топика -->
             <div class="news-description">
                 <p>
-                    Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy. Me in resolution
-                    pianoforte continuing we. Most my no spot felt by no. He he in
-                    forfeited furniture sweetness he arranging. Me tedious so to
-                    behaved written account ferrars moments. Too objection for elsewhere
-                    her preferred allowance her. Marianne shutters mr steepest to
-                    me.
+                    Мы ведем новостной блог – шутливая и остроумная реакция на то, что происходит в мире.
+                    Любой желающий иллюстратор может нарисовать актуальную новость
+                    и отправить нам на почту <a href="mailto:hello@viuga.me">hello@viuga.me</a> с пометкой illustrated
+                    news в теме письма и ссылкой на источник информации. Самое лучшее
+                    мы опубликуем здесь и в социальных сетях. Авторам, регулярно
+                    радующим своими работами нас и наших подписчиков, мы предложим
+                    сотрудничество в различных проектах.
                 </p>
             </div>
             <!-- Конец описания -->
@@ -47,7 +48,7 @@
             <img ng-src="{{mainPost.cover}}" alt="{{mainPost.cover}}" class="main-post-cover"
             />
         </div>
-        <div class="col-xs-12 col-xs-offset-1">
+        <div class="col-lg-8 col-xs-12 col-xs-offset-1">
             <div class="post-date">{{mainPost.releaseDate | date: 'MM.dd.yyyy'}}</div>
             <div class="post-title">{{mainPost.title}}</div>
             <div class="post-author">{{mainPost.author}}</div>

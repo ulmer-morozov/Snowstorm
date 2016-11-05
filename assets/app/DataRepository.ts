@@ -305,61 +305,32 @@ module Snowstorm {
                 { id: 16, title: "", imageUrl: "assets/images/portfolio/timur_zima/timur_zima_16.jpeg", description: "" },
             ];
         }
-
-
-        // private static getArinaShabanovaWorks = (): IWork[] => {
-        //     return [
-        //         { id: 1,  title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_1.jpeg", description: "" },
-        //         { id: 2,  title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_2.jpeg", description: "" },
-        //         { id: 3,  title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_3.jpeg", description: "" },
-        //         { id: 4,  title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_4.jpeg", description: "" },
-        //         { id: 5,  title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_5.jpeg", description: "" },
-        //         { id: 6,  title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_6.jpeg", description: "" },
-        //         { id: 7,  title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_7.jpeg", description: "" },
-        //         { id: 8,  title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_8.jpeg", description: "" },
-        //         { id: 9,  title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_9.jpeg", description: "" },
-        //         { id: 10, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_10.jpeg", description: "" },
-        //         { id: 11, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_11.jpeg", description: "" },
-        //         { id: 12, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_12.jpeg", description: "" },
-        //         { id: 13, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_13.jpeg", description: "" },
-        //         { id: 14, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_14.jpeg", description: "" },
-        //         { id: 15, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_15.jpeg", description: "" },
-        //         { id: 16, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_16.jpeg", description: "" },
-        //         { id: 17, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_17.jpeg", description: "" },
-        //         { id: 18, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_18.jpeg", description: "" },
-        //         { id: 19, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_19.jpeg", description: "" },
-        //         { id: 20, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_20.jpeg", description: "" },
-        //         { id: 21, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_21.jpeg", description: "" },
-        //         { id: 22, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_22.jpeg", description: "" },
-        //         { id: 23, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_23.jpeg", description: "" },
-        //         { id: 24, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_24.jpeg", description: "" },
-        //         { id: 25, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_25.jpeg", description: "" },
-        //         { id: 26, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_26.jpeg", description: "" },
-        //         { id: 27, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_27.jpeg", description: "" },
-        //         { id: 28, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_28.jpeg", description: "" },
-        //         { id: 29, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_29.jpeg", description: "" },
-        //         { id: 30, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_30.jpeg", description: "" },
-        //         { id: 31, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_31.jpeg", description: "" },
-        //         { id: 32, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_32.jpeg", description: "" },
-        //         { id: 33, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_33.jpeg", description: "" },
-        //         { id: 34, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_34.jpeg", description: "" },
-        //         { id: 35, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_35.jpeg", description: "" },
-        //         { id: 36, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_36.jpeg", description: "" },
-        //         { id: 37, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_37.jpeg", description: "" },
-        //         { id: 38, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_38.jpeg", description: "" },
-        //         { id: 39, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_39.jpeg", description: "" },
-        //         { id: 40, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_40.jpeg", description: "" },
-        //         { id: 41, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_41.jpeg", description: "" },
-        //         { id: 42, title: "", imageUrl: "assets/images/portfolio/arina_shabanova/arina_shabanova_42.jpeg", description: "" },
-        //     ];
-        // }
+        private static getNiluferZakirovaWorks = (): IWork[] => {
+            return [
+                { id: 1, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_1.gif", description: "" },
+                { id: 2, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_2.jpg", description: "" },
+                { id: 3, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_3.gif", description: "" },
+                { id: 4, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_4.gif", description: "" },
+                { id: 5, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_5.gif", description: "" },
+                { id: 6, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_6.gif", description: "" },
+                { id: 7, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_7.jpg", description: "" },
+                { id: 8, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_8.gif", description: "" },
+                { id: 9, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_9.jpg", description: "" },
+                { id: 10, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_10.jpg", description: "" },
+                { id: 11, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_11.jpg", description: "" },
+                { id: 12, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_12.jpg", description: "" },
+                { id: 13, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_13.jpg", description: "" },
+                { id: 14, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_14.gif", description: "" },
+                { id: 15, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_15.jpg", description: "" },
+            ];
+        }
 
         public static authors: IAuthor[] = [
             { id: 1, name: { first: "Евгения", last: "Баринова" }, mascotUrl: "assets/images/portfolio/balet.png", about: "Евгения Баринова — высококвалифицированный специалист широкого профиля. Занимается концептуальным искусством с дошкольного возраста. Вежлива, внимательна к деталям, соблюдает сроки.", promoImages: DataRepository.getPromoImages(DataRepository.getEvgeniaBarinovaWorks()), works: DataRepository.getEvgeniaBarinovaWorks() },
             { id: 2, name: { first: "Хадия", last: "Улумбекова" }, mascotUrl: "assets/images/portfolio/pigeon.png", about: "\"Быстро и качественно? Да, такое бывает! Не получается медленно рисовать)\"", promoImages: DataRepository.getPromoImages(DataRepository.getKhadiaUlumbekovaWorks()), works: DataRepository.getKhadiaUlumbekovaWorks() },
             { id: 3, name: { first: "Любовь", last: "Березина" }, mascotUrl: "assets/images/portfolio/bird.png", about: "Иногда меня спрашивают: \"Вы иллюстратор? А портреты рисуете?\" Я отвечаю: \"Почему бы и нет, но боюсь вы не захотите вешать это на стенку\".", promoImages: DataRepository.getPromoImages(DataRepository.getLuybaBerezinaWorks()), works: DataRepository.getLuybaBerezinaWorks() },
             //
-            { id: 4, name: { first: "Арина", last: "Шабанова" }, mascotUrl: "assets/images/portfolio/heart.png", about: "", promoImages: DataRepository.getPromoImages(DataRepository.getArinaShabanovaWorks()), works: DataRepository.getArinaShabanovaWorks() },
+            { id: 4, name: { first: "Арина", last: "Шабанова" }, mascotUrl: "assets/images/portfolio/heart.png", about: "Арина Шабанова - иллюстратор, на данный момент работает в Москве. Работы отличаются простотой форм, живой палитрой, зачастую с оптимистичным сюжетом. Среди широкого поля проектной деятельности особое место занимает анимация. Способность вкрадчиво и с наслаждением подходить к процессу определяет важность каждой из поставленных задач.", promoImages: DataRepository.getPromoImages(DataRepository.getArinaShabanovaWorks()), works: DataRepository.getArinaShabanovaWorks() },
             { id: 5, name: { first: "Тимур", last: "Зима" }, mascotUrl: "assets/images/portfolio/ball.png", about: "\"Графический дизайнер, иллюстратор и большой любитель ретроконсолей. В иллюстрации я стремлюсь к лаконичности и не забываю про детали. Черпаю вдохновение из разных источников, люблю простоту форм не забывая про детали.\"", promoImages: DataRepository.getPromoImages(DataRepository.getTimurZimaWorks()), works: DataRepository.getTimurZimaWorks() },
             { id: 6, name: { first: "Алексей", last: "Сухов" }, mascotUrl: "assets/images/portfolio/rat.png", about: "Лучший парень в однокомнатной квартире.", promoImages: DataRepository.getPromoImages(DataRepository.getLeshaSuhovWorks()), works: DataRepository.getLeshaSuhovWorks() },
             //
@@ -371,7 +342,7 @@ module Snowstorm {
             { id: 11, name: { first: "Никита", last: "Кибирев" }, mascotUrl: "assets/images/portfolio/nik.png", about: "Я опытный иллюстратор и графический дизайнер, так же работаю в области off-the wall concept work, поскольку участвую в разработке корпоративного бренда широкого формата и также работаю над оформлением объявлений на Facebook для мамы.", promoImages: DataRepository.getPromoImages(DataRepository.getNikitaKibirevWorks()), works: DataRepository.getNikitaKibirevWorks() },
             { id: 12, name: { first: "Сергей", last: "Гудков" }, mascotUrl: "assets/images/portfolio/gudkov.png", about: "Иллюстратор, дизайнер. \"Люблю комиксы, мультфильмы и детские иллюстрации.\"", promoImages: DataRepository.getPromoImages(DataRepository.getSergeyGudkovWorks()), works: DataRepository.getSergeyGudkovWorks() },
             //
-            // { id: 13, name: { first: "Quintillus", last: "Ben" }, mascotUrl: "assets/images/portfolio/mascot4.png", about: "This character is a young woman in her late teens, who is very rude. She comes from a comfortable background, lives in a converted barn and tends to spend too much money.", promoImages: DataRepository.getDefaultImages(), works: DataRepository.getDefaultWorks() },
+            { id: 13, name: { first: "Нилюфер", last: "Закирова" }, mascotUrl: "assets/images/portfolio/flower.png", about: "Иллюстратор и художник по совместительству, постоянно ищет пути усовершенствования своей техники.", promoImages: DataRepository.getPromoImages(DataRepository.getNiluferZakirovaWorks()), works: DataRepository.getNiluferZakirovaWorks() },
             // { id: 14, name: { first: "Mìcheal", last: "Carlito" }, mascotUrl: "assets/images/portfolio/mascot5.png", about: "This character is a woman in her late twenties, who can be quite cruel. She comes from a comfortable background, lives in a rough neighbourhood and tends to have difficulty saying No.", promoImages: DataRepository.getDefaultImages(), works: DataRepository.getDefaultWorks() },
             // { id: 15, name: { first: "Tito", last: "Lavi" }, mascotUrl: "assets/images/portfolio/mascot6.png", about: "This character is a woman in her late forties, who can be quite naive. She comes from a wealthy background, lives in a fisherman's cottage and tends to spend too much money.", promoImages: DataRepository.getDefaultImages(), works: DataRepository.getDefaultWorks() },
             //
@@ -382,6 +353,36 @@ module Snowstorm {
             // { id: 19, name: { first: "Firdaus", last: "Eric" }, mascotUrl: "assets/images/portfolio/mascot1.png", about: "This character is a woman in her late thirties, who can be quite stubborn. She comes from a wealthy background, lives in a mining town and tends to have difficulty saying No.", promoImages: DataRepository.getDefaultImages(), works: DataRepository.getDefaultWorks() },
             // { id: 20, name: { first: "Barış", last: "Kayden" }, mascotUrl: "assets/images/portfolio/mascot2.png", about: "This character is a man in his early thirties, who can be quite judgemental. He comes from a wealthy background, lives in a converted barn and tends to be a little gullible.", promoImages: DataRepository.getDefaultImages(), works: DataRepository.getDefaultWorks() },
             // { id: 21, name: { first: "Phillip", last: "Ingólfr" }, mascotUrl: "assets/images/portfolio/mascot23.png", about: "This character is a man in his early thirties, who is very mysterious. He comes from a poor background, lives in a mansion and tends to eat too much.", promoImages: DataRepository.getDefaultImages(), works: DataRepository.getDefaultWorks() }
+        ];
+
+        public static news: INewsPost[] = [
+            { id: 1, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "В Австралии прошла первая голая экскурсия в Национальной галлереи искусств. Все посетители должна были быть абсолютно голыми.", cover: "assets/images/illustratedNews/1.jpeg" },
+            { id: 2, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Наконец-то Сири заговорил по-русски", cover: "assets/images/illustratedNews/2.jpeg" },
+            { id: 3, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Пасхальное ограбление в Лондоне на сумму в 200 миллионов фунтов", cover: "assets/images/illustratedNews/3.jpeg" },
+            { id: 4, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "По непонятным причинам, российский симфонический оркестр был задержан на 10 часов в аэропорту Хитроу", cover: "assets/images/illustratedNews/5.jpeg" },
+            { id: 5, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Лэйдис найт на скачках закончился провалом, сотни пьяных англичанок расхаживали по городу в красивых нарядах)))", cover: "assets/images/illustratedNews/6.jpeg" },
+            { id: 6, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Отличное совпадение! С Пасхой и днем космонавтики всех!)", cover: "assets/images/illustratedNews/8.jpeg" },
+            { id: 7, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "27-летний китайский солдат Инь Юнфенг стал настоящей интернет звездой после того, как приготовил для своей любимой жены 1000 пельменей и около 70 других блюд перед возвращением в военную часть расположенную в Тибете.", cover: "assets/images/illustratedNews/12.jpeg" },
+            { id: 8, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "В Хакасии задержали корреспондента \"Первого канала\", который поджег траву, чтобы снять фон для сюжета про лесные пожары.", cover: "assets/images/illustratedNews/16.jpeg" },
+            { id: 9, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "5 сезон игр престолов!)", cover: "assets/images/illustratedNews/22.jpeg" },
+            { id: 10, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Привет дачники, пробки и 1 мая!)", cover: "assets/images/illustratedNews/23.jpeg" },
+            { id: 11, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "2 мая, скончалась великая балерина Майя Плисецкая. Легенда российского балета умерла от сердечного приступа в Германии.", cover: "assets/images/illustratedNews/25.jpeg" },
+            { id: 12, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Такую странную картину в последнее время наблюдают жители Токио: пожилой мужчина прогуливается по улице в компании гигантской черепахи. Наверное, имя этого человека вполне можно было бы занести в книгу рекордов Гиннесса как самого терпеливого хозяина.", cover: "assets/images/illustratedNews/26.jpeg" },
+            { id: 13, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Испанские пограничники с помощью рентгена нашли в чемодане живого мальчика. Когда мальчик понял, что его обнаружили, он высунул голову из чемодана и сказал по-французски: «Привет, меня зовут Абу».", cover: "assets/images/illustratedNews/27.jpeg" },
+            { id: 14, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Российская сборная вышла в финал чемпионата мира по хоккею, но так и не смогла выиграть у канадцев! Проиграли со счетом 6:1", cover: "assets/images/illustratedNews/29.jpeg" },
+            { id: 15, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Поженив двух мопсов Pug Rescue( благотворительная организация) провела сбора средств на помощь живущим в приюте собакам. Вход на мероприятие был платным, билеты на церемонию продавались в Интернете. Платье \"невесты\" обошлось в 1600$", cover: "assets/images/illustratedNews/33.jpeg" },
+            { id: 16, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Следующее Евровидение 2016 пройдет в Швеции! У России тем не менее 2 место", cover: "assets/images/illustratedNews/34.jpeg" },
+            { id: 17, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Китайский миллиардер арендовал на 15 лет порнозвезду Рола Такизава. Анонимный богач приобрел актрису за 7,5 млн. долларов", cover: "assets/images/illustratedNews/35.jpeg" },
+            { id: 18, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Nikon научил собак фотографировать их самые волнительные моменты с помощью датчика сердцебиения. Специальное крепление для камер Nikon, которое автоматически делает снимок, если у животного повышается пульс.", cover: "assets/images/illustratedNews/37.jpeg" },
+            { id: 19, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "В Индии взяли под стражу голубя-шпиона. К птице было прикреплено сообщение, которое сочли подозрительным", cover: "assets/images/illustratedNews/41.jpeg" },
+            { id: 20, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Финская полиция приняла на работу кошку по имени Ааму . Хвостатая помощница будет работать с детьми, которым требуется психологическая поддержка.", cover: "assets/images/illustratedNews/45.jpeg" },
+            { id: 21, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Австралийский мастер трик-шотов Бретт Сенфорд забрасывает баскетбольный мяч в кольцо с высоты 126,5 метра. Бросок был произведен с плотины Гордон.", cover: "assets/images/illustratedNews/48.jpeg" },
+            { id: 22, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Англичанкупосадили в тюрьму на две недели за \"слишком громкий секс\")))", cover: "assets/images/illustratedNews/51.jpeg" },
+            { id: 23, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "NASA нашли признаки жидкой воды на Марсе!)", cover: "assets/images/illustratedNews/55.jpeg" },
+            { id: 24, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "В Италии открылся университет порно, который специализируется на подготовке начинающих актрис и актёров индустрии развлечений.", cover: "assets/images/illustratedNews/56.jpeg" },
+            { id: 25, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "Министерство финансов США объявило, что к 2020 году на купюре достоинством в 10$ появится изоображение женщины.", cover: "assets/images/illustratedNews/57.jpeg" },
+            { id: 26, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "В звездных войнах появился новый персонаж", cover: "assets/images/illustratedNews/60.jpeg" },
+            { id: 27, releaseDate: new Date(2016, 12, 1), author: "Хадия Улумбекова", title: "В звездных войнах появился новый персонаж", cover: "assets/images/illustratedNews/61.jpeg" },
         ];
 
     }

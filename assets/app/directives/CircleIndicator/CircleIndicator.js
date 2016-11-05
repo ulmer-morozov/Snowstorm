@@ -32,7 +32,6 @@ var Snowstorm;
                     };
                 }];
             this.start = function ($scope) {
-                console.log("start");
                 $scope.percentage++;
                 $scope.percentage = 0;
                 var self = _this;
@@ -41,7 +40,6 @@ var Snowstorm;
                 }, 30);
             };
             this.stop = function ($scope) {
-                console.log("stop");
                 _this.cancelTimer($scope);
             };
             this.timeUpdate = function ($scope) {
@@ -54,7 +52,6 @@ var Snowstorm;
                         delegate()($scope.data);
                     }
                 }
-                console.log("percentage " + $scope.percentage);
             };
             this.cancelTimer = function ($scope) {
                 _this.$interval.cancel($scope.timerPromise);

@@ -1,9 +1,10 @@
 $primary-font: 'proxima-nova';
-$news-primary-font: 'Josefin Slab';
+$news-primary-font: 'proxima-nova';
 $primary-color: #00b0ec;
 $gray-color: #1d1d1d;
 $background-gap: 11.25pt;
-$gridPadding: 7.5px; //размеры экранов
+$gridPadding: 7.5px;
+/*размеры экранов*/
 $screen-xs-max: 360pt;
 $screen-sm-max: 576pt;
 $screen-md-min: 744pt;
@@ -30,7 +31,7 @@ $screen-md-min: 744pt;
 }
 
 .mainView {
-    // padding-top: 27pt;
+    /* padding-top: 27pt;*/
 }
 
 body,
@@ -42,12 +43,13 @@ html {
 
 body {
     background-image: url('../images/back.svg');
-    background-position-y: -200pt;
+    -webkit-transition: background-image 0.3s ease-in-out;
+    transition: background-image 0.3s ease-in-out;
+    /* background-position-y: -200pt;*/
     background-attachment: fixed;
-    background-size: 1000px;
+    background-size: 100%;
 }
-// формы
-
+/* формы*/
 input.form-input,
 textarea.form-input {
     display: block;
@@ -130,6 +132,7 @@ footer {
 }
 
 h1 {
+    -o-object-fit: contain;
     object-fit: contain;
     font-family: $primary-font;
     font-size: 22.5pt;
@@ -141,8 +144,7 @@ h1 {
     padding-bottom: 33.75pt;
     text-transform: uppercase;
 }
-//формы
-
+/*формы*/
 input.form-input,
 textarea.form-input {
     display: block;
@@ -201,8 +203,8 @@ textarea.form-input {
 
 a.social-links {
     text-decoration: none;
-    // margin-top: -5px;
-    // display: inline-block;
+    /* margin-top: -5px;*/
+    /* display: inline-block;*/
     svg {
         height: 16pt;
         fill: white;
@@ -227,9 +229,9 @@ a.social-links {
         top: 4px;
     }
 }
-//
-//
-//
+/**/
+/**/
+/**/
 $author-names-vertical-gap: 33.75pt;
 $author-names-horizontal-gap: 59.25pt;
 $space-between-rows: 11.25pt;
@@ -245,6 +247,8 @@ $space-between-rows: 11.25pt;
     display: inline-block;
     width: 100%;
     text-align: center;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
     break-inside: avoid;
     margin-bottom: $space-between-rows;
     white-space: nowrap;
@@ -264,7 +268,7 @@ a.author-name {
 .author-names:after {
     @include highlighted-container();
 }
-$author-name-width: 130pt;
+$author-name-width: 160pt;
 $currentWidth: 3*$author-name-width;
 $widthForCount: ('45%', '32.6%','24.4%', '19.5%');
 $lastWidthElement: nth($widthForCount,length($widthForCount));
@@ -290,7 +294,7 @@ $lastWidthElement: nth($widthForCount,length($widthForCount));
 
 .author-promo {
     margin-top: 90pt;
-    // border: solid green 1pt;
+    /* border: solid green 1pt;*/
 }
 
 .author-promo-name {
@@ -351,6 +355,7 @@ $promo-content-margin: 40pt;
     width: 100%;
     height: $promo-content-height;
     background-size: cover;
+    background-position: center center;
     margin-bottom: $promo-content-margin;
 }
 @media (max-width: $screen-sm-max) {
@@ -366,7 +371,7 @@ $promo-content-margin: 40pt;
     }
 }
 @media (min-width: $screen-md-min) {
-    // На больших экранах скрываем 3 картинку
+    /* На больших экранах скрываем 3 картинку*/
     .author-promo-work-container:last-child {
         display: none;
     }
@@ -375,8 +380,7 @@ $promo-content-margin: 40pt;
         margin-bottom: 0;
     }
 }
-// Страница автора
-
+/* Страница автора*/
 .author-page {
     margin-top: 135pt;
 
@@ -391,13 +395,13 @@ $promo-content-margin: 40pt;
     h1 {
         margin-top: 33.75pt;
     }
-    // .author-about {
-    //     margin-bottom: 70pt;
-    //     font-family: $primary-font;
-    //     font-size: 11.25pt;
-    //     text-align: center;
-    //     color: #1d1d1d;
-    // }
+    /* .author-about {*/
+    /*     margin-bottom: 70pt;*/
+    /*     font-family: $primary-font;*/
+    /*     font-size: 11.25pt;*/
+    /*     text-align: center;*/
+    /*     color: #1d1d1d;*/
+    /* }*/
     .author-promo-content {
         position: relative;
         margin-bottom: 40pt;
@@ -409,10 +413,16 @@ $promo-content-margin: 40pt;
     }
 
     .works {
+        -webkit-column-width: 250pt;
+        -moz-column-width: 250pt;
         column-width: 250pt;
+        -webkit-column-gap: 45pt;
+        -moz-column-gap: 45pt;
         column-gap: 45pt;
 
         .work {
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
             break-inside: avoid-column;
             cursor: pointer;
 
@@ -440,8 +450,7 @@ $promo-content-margin: 40pt;
         }
     }
 }
-// Страница о нас
-
+/* Страница о нас*/
 .about-page {
     .about-text {
         max-width: 65em;
@@ -495,8 +504,7 @@ $promo-content-margin: 40pt;
         text-align: center;
     }
 }
-// Illustrated News page
-
+/* Illustrated News page*/
 .illustrated-news-page {
     .news-description {
         margin-bottom: 90pt;
@@ -510,19 +518,26 @@ $promo-content-margin: 40pt;
         font-weight: 300;
         line-height: 1.2;
         text-align: center;
+        font-weight: 100;
+
+        a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1pt solid;
+        }
     }
 
     .main-post {
         margin-bottom: 52.5pt;
     }
     @media (max-width: 600pt) {
-        // скрываем на маленьких экранах главный пост
+        /* скрываем на маленьких экранах главный пост*/
         .main-post {
             display: none;
         }
     }
     @media (min-width: 600pt) {
-        // скрываем на больших экранах первый пост
+        /* скрываем на больших экранах первый пост*/
         .post:first-child {
             display: none;
         }
@@ -548,17 +563,23 @@ $promo-content-margin: 40pt;
     }
 
     .posts {
+        -webkit-column-width: 200pt;
+        -moz-column-width: 200pt;
         column-width: 200pt;
+        -webkit-column-gap: 45pt;
+        -moz-column-gap: 45pt;
         column-gap: 45pt;
 
         .post {
-            // cursor: pointer;
+            /* cursor: pointer;*/
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
             break-inside: avoid-column;
             margin-bottom: 33.75pt;
         }
     }
 }
-// директива просмотра изображений
+/* директива просмотра изображений*/
 $preview-vertical-margin: -60pt;
 
 .image-preview {
@@ -567,15 +588,27 @@ $preview-vertical-margin: -60pt;
     right: 0;
     bottom: 0;
     position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     background-color: rgba(255,255,255,0.9);
     z-index: 10;
 
     a.preview-control {
         margin-top: $preview-vertical-margin;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
         position: fixed;
         cursor: pointer;
@@ -613,6 +646,7 @@ $preview-vertical-margin: -60pt;
             &.back,
             &.close,
             &.next {
+                -webkit-transform: scale(0.5);
                 transform: scale(0.5);
             }
 
