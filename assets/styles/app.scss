@@ -49,6 +49,7 @@ body {
     background-attachment: fixed;
     background-size: 100%;
 }
+
 /* формы*/
 input.form-input,
 textarea.form-input {
@@ -74,6 +75,7 @@ footer {
     margin-top: 90pt;
     padding-top: 18pt;
     padding-bottom: 18pt;
+    position: relative;
     color: white;
     background-color: #1d1d1d;
     font-family: $primary-font;
