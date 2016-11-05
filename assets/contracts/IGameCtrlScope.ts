@@ -12,6 +12,8 @@ module Snowstorm {
         requestAnimationFrameID: number;
         mouseSpeed: Vector;
 
+        pageLoadComplete:boolean;
+
         startInteraction(mascot: Mascot): void;
         stopInteraction(mascot: Mascot): void;
 

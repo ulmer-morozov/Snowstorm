@@ -351,7 +351,7 @@
 }
 
 .ball.pinkbird {
-    background-image: url("../images/mascots/pinkbird_120_120.png");
+    background-image: url("../images/mascots/pinkbird_120x120.png");
     -webkit-animation: play 0.8s steps(24) infinite;
             animation: play 0.8s steps(24) infinite;
 }
@@ -364,7 +364,7 @@
 }
 
 .ball.pigeon {
-    background-image: url("../images/mascots/pigeon.png");
+    background-image: url("../images/mascots/pigeon_120x120.png");
     -webkit-animation: play-pigeon 3s steps(39) infinite;
             animation: play-pigeon 3s steps(39) infinite;
 }
@@ -376,13 +376,13 @@
 }
 
 .ball.livingBall {
-    background-image: url("../images/mascots/ball_120x120.png");
+    background-image: url("../images/mascots/livingBall_120x120.png");
     -webkit-animation: play-ball 1s steps(37) infinite;
             animation: play-ball 1s steps(37) infinite;
 }
 
 .ball.house {
-    background-image: url("../images/mascots/house_120х120.png");
+    background-image: url("../images/mascots/house_120x120.png");
     -webkit-animation: play-house 1s steps(30) infinite;
             animation: play-house 1s steps(30) infinite;
 }

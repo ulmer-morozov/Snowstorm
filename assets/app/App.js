@@ -2,7 +2,7 @@ var Snowstorm;
 (function (Snowstorm) {
     "use strict";
     angular
-        .module("App", ["ngAnimate", "ngRoute"])
+        .module("App", ["ngAnimate", "ngRoute", "preloader"])
         .directive("draggable", Snowstorm.Draggable.factory())
         .directive("imagePreview", Snowstorm.ImagePreview.factory())
         .directive("shuffleElements", Snowstorm.ShuffleElements.factory())
@@ -13,6 +13,17 @@ var Snowstorm;
         .controller("AuthorCtrl", Snowstorm.AuthorCtrl)
         .controller("AuthorsCtrl", Snowstorm.AuthorsCtrl)
         .controller("IllustratedNewsCtrl", Snowstorm.IllustratedNewsCtrl)
+        .run(["$rootScope", "$timeout", function ($rootScope, $timeout) {
+            $rootScope.routeIsLoading = true;
+            $rootScope.$on('$routeChangeStart', function () {
+                $rootScope.routeIsLoading = true;
+            });
+            $rootScope.$on('$routeChangeSuccess', function () {
+                $timeout(function () {
+                    $rootScope.routeIsLoading = false;
+                }, 200);
+            });
+        }])
         .config(["$locationProvider", "$routeProvider", function ($locationProvider, $routeProvider) {
             $locationProvider.html5Mode(false);
             $routeProvider

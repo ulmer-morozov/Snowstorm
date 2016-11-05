@@ -5,7 +5,7 @@
 
         //DI
         static $inject = [
-            "$scope", "$window", "$interval", "$timeout", "$location"
+            "$scope", "$window", "$interval", "$timeout", "$location", "preloader"
         ];
 
         private mouseTrack: Vector;
@@ -23,7 +23,8 @@
             private $window: ng.IWindowService,
             private $interval: ng.IIntervalService,
             private $timeout: ng.ITimeoutService,
-            private $location: ng.ILocationService
+            private $location: ng.ILocationService,
+            private preloader: any
         ) {
             // трекинг мыши
             this.mouseSpeedCounter = 0;
@@ -258,7 +259,30 @@
             this.$scope.getMascotImg = this.getMascotImg;
             this.$scope.goToAuthor = this.goToAuthor;
 
-            this.requestNewFrame();
+            let imagePaths = [];
+            angular.forEach(this.$scope.balls, (mascot: Mascot) => {
+                let imagePath = `assets/images/mascots/${mascot.artist.mascotName}_120x120.png`;
+                imagePaths.push(imagePath);
+            });
+
+            this.$scope.pageIsLoading = true;
+
+            var pageLoadComplete = () => {
+                this.$timeout(() => {
+                    this.$scope.pageIsLoading = false;
+                    this.requestNewFrame();
+                }, 1);
+
+            }
+
+
+            this.preloader.preloadImages(imagePaths)
+                .then(function() {
+                    pageLoadComplete();
+                },
+                function() {
+                    pageLoadComplete();
+                });
         }
 
         createLightSpot = (): void => {

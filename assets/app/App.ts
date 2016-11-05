@@ -3,7 +3,7 @@ module Snowstorm {
     "use strict";
 
     angular
-        .module("App", ["ngAnimate", "ngRoute"])
+        .module("App", ["ngAnimate", "ngRoute", "preloader"])
 
         //директивы
         .directive("draggable", Draggable.factory())
@@ -24,6 +24,19 @@ module Snowstorm {
         //сервисы
         // .service("videoRepository", VideoRepository)
 
+        .run(["$rootScope", "$timeout", function($rootScope: any, $timeout: ng.ITimeoutService) {
+            $rootScope.routeIsLoading = true;
+
+            $rootScope.$on('$routeChangeStart', function() {
+                $rootScope.routeIsLoading = true;
+            });
+
+            $rootScope.$on('$routeChangeSuccess', function() {
+                $timeout(function() {
+                    $rootScope.routeIsLoading = false;
+                }, 200);
+            });
+        }])
         //Настройки
         .config(["$locationProvider", "$routeProvider", ($locationProvider: ng.ILocationProvider, $routeProvider: ng.route.IRouteProvider) => {
             $locationProvider.html5Mode(false);

@@ -2,13 +2,14 @@ var Snowstorm;
 (function (Snowstorm) {
     "use strict";
     var GameCtrl = (function () {
-        function GameCtrl($scope, $window, $interval, $timeout, $location) {
+        function GameCtrl($scope, $window, $interval, $timeout, $location, preloader) {
             var _this = this;
             this.$scope = $scope;
             this.$window = $window;
             this.$interval = $interval;
             this.$timeout = $timeout;
             this.$location = $location;
+            this.preloader = preloader;
             this.goToAuthor = function (mascot) {
                 _this.$location.url("/Author/" + mascot.artist.id);
             };
@@ -96,7 +97,24 @@ var Snowstorm;
                 _this.$scope.ballMouseMove = _this.ballMouseMove;
                 _this.$scope.getMascotImg = _this.getMascotImg;
                 _this.$scope.goToAuthor = _this.goToAuthor;
-                _this.requestNewFrame();
+                var imagePaths = [];
+                angular.forEach(_this.$scope.balls, function (mascot) {
+                    var imagePath = "assets/images/mascots/" + mascot.artist.mascotName + "_120x120.png";
+                    imagePaths.push(imagePath);
+                });
+                _this.$scope.pageIsLoading = true;
+                var pageLoadComplete = function () {
+                    _this.$timeout(function () {
+                        _this.$scope.pageIsLoading = false;
+                        _this.requestNewFrame();
+                    }, 1);
+                };
+                _this.preloader.preloadImages(imagePaths)
+                    .then(function () {
+                    pageLoadComplete();
+                }, function () {
+                    pageLoadComplete();
+                });
             };
             this.createLightSpot = function () {
                 var wStep = _this.screenHeight / 100;
@@ -294,7 +312,7 @@ var Snowstorm;
         return GameCtrl;
     }());
     GameCtrl.$inject = [
-        "$scope", "$window", "$interval", "$timeout", "$location"
+        "$scope", "$window", "$interval", "$timeout", "$location", "preloader"
     ];
     Snowstorm.GameCtrl = GameCtrl;
 })(Snowstorm || (Snowstorm = {}));
