@@ -24,6 +24,10 @@
 </head>
 
 <body ng-app="App">
+    <div ng-show="pageIsLoading">
+        <div class="loader"></div>
+    </div>
+    
     <div ng-view class="mainView"></div>
 
     <a id="logo" href="#/"><img src="assets/images/logo.svg" alt="Вьюга" /></a>

@@ -182,7 +182,7 @@
     }
 
     to {
-        background-position: -4560px;
+        background-position: -6600px;
     }
 }
 @keyframes play-pizza {
@@ -191,7 +191,7 @@
     }
 
     to {
-        background-position: -4560px;
+        background-position: -6600px;
     }
 }
 @-webkit-keyframes play-fox {
@@ -401,8 +401,8 @@
 
 .ball.pizza {
     background-image: url("../images/mascots/pizza_120x120.png");
-    -webkit-animation: play-pizza 2s steps(38) infinite;
-            animation: play-pizza 2s steps(38) infinite;
+    -webkit-animation: play-pizza 2s steps(55) infinite;
+            animation: play-pizza 2s steps(55) infinite;
 }
 
 .ball.fox {

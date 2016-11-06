@@ -17,15 +17,17 @@
     }
 
     @media (max-width: 768px) {
-      .footer-back{
-        height: 160px;
-      }
+        .footer-back {
+            height: 160px;
+        }
     }
 </style>
 <div class="footer-back">
 
 </div>
-<div ng-show="pageIsLoading" class="loading-indicator">Загрузка анимаций</div>
+<div ng-show="pageIsLoading">
+    <div class="loader"></div>
+</div>
 <div ng-hide="pageIsLoading">
 
 
