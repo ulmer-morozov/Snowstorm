@@ -34,6 +34,10 @@ $screen-md-min: 744pt;
     /* padding-top: 27pt;*/
 }
 
+html{
+  overflow-y: scroll;
+}
+
 body,
 html {
     margin: 0;
@@ -48,6 +52,7 @@ body {
     /* background-position-y: -200pt;*/
     background-attachment: fixed;
     background-size: 100%;
+    overflow-y: hidden;
 }
 /* формы*/
 input.form-input,
@@ -95,6 +100,17 @@ $loader-thickness: 0.3em;
     transform: translateZ(0);
     -webkit-animation: load8 1.1s infinite linear;
     animation: load8 1.1s infinite linear;
+}
+
+.loader-holder {
+    height: $loader-size*1.5;
+}
+
+.inline .loader {
+    position: relative;
+    top: 0;
+    margin-top: 0;
+    // height: 100px;
 }
 @-webkit-keyframes load8 {
     0% {
@@ -272,6 +288,8 @@ a.social-links {
         fill: white;
         position: relative;
         top: 4px;
+        padding-right: 4pt;
+        max-width: 28pt;
     }
 
     &:hover {
@@ -289,6 +307,8 @@ a.social-links {
         fill: white;
         position: relative;
         top: 4px;
+        padding-right: 4pt;
+        max-width: 28pt;
     }
 }
 /**/

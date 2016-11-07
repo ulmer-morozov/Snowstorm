@@ -5,7 +5,7 @@
         right: 0;
         bottom: 0;
     }
-/*
+    /*
     @media (max-width: 768px) {
         .footer-back {
             height: 160px;
@@ -40,4 +40,5 @@
         <div ng-repeat="light in lights" ng-style="{left: light.cx, top: light.cy, width: 2*light.r, height: 2*light.r, 'margin-left': -light.r, 'margin-top': - light.r}"
             ng-class="['obstacle'+$index]" class="obstacle"> </div>
 
+        <div ng-include="'assets/app/templates/footer.html'"></div>
     </div>

@@ -266,10 +266,9 @@
 
             this.$scope.startInteraction = this.startInteraction;
             this.$scope.stopInteraction = this.stopInteraction;
+
             this.$scope.stopDrag = this.stopDrag;
-
             this.$scope.startDrag = this.startDrag;
-
 
             this.$scope.ballMouseUp = this.ballMouseUp;
             this.$scope.ballMouseMove = this.ballMouseMove;
@@ -290,7 +289,6 @@
                     this.$scope.pageIsLoading = false;
                     this.requestNewFrame();
                 }, 1);
-
             }
 
             this.preloader.preloadImages(imagePaths)
@@ -342,7 +340,7 @@
             const leftBorder = new Wall(borderRadius, -borderRadius + borderThikness - newOriginx, this.screenWidth / 2 - newOriginx, borderWeght);
             const rightBorder = new Wall(borderRadius, this.screenWidth + borderRadius - borderThikness - newOriginx, this.screenWidth / 2 - newOriginx, borderWeght);
             const topBorder = new Wall(borderRadius, this.screenWidth / 2 - newOriginx, -borderRadius + borderThikness - newOriginx, borderWeght);
-            const bottomBorder = new Wall(borderRadius, this.screenWidth / 2 - newOriginx, this.screenHeight + borderRadius - borderThikness - newOriginx-footerHeight, borderWeght);
+            const bottomBorder = new Wall(borderRadius, this.screenWidth / 2 - newOriginx, this.screenHeight + borderRadius - borderThikness - newOriginx - footerHeight, borderWeght);
 
             obstacles.push(leftBorder);
             obstacles.push(rightBorder);

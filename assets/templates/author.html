@@ -1,4 +1,8 @@
-<div class="author-page">
+<div ng-show="pageIsLoading" class="loader-holder">
+    <div class="loader"></div>
+</div>
+
+<div ng-hide="pageIsLoading" class="author-page">
     <div class="author-mascot" ng-style="{'background-image': 'url('+author.mascotUrl+')'}"></div>
     <h1>{{author.name.last}} {{author.name.first}}</h1>
 
@@ -10,10 +14,10 @@
         <div class="col-xs-20 col-xs-offset-2">
             <!-- Работы -->
             <div class="works">
-              <div class="author-promo-content">
-                  <div class="author-promo-about-header">Об авторе</div>
-                  <div class="author-promo-about">{{author.about}}</div>
-              </div>
+                <div class="author-promo-content">
+                    <div class="author-promo-about-header">Об авторе</div>
+                    <div class="author-promo-about">{{author.about}}</div>
+                </div>
 
                 <!-- Работа -->
                 <div ng-repeat="work in author.works" ng-click="selectWork($index)" class="work">
@@ -25,6 +29,8 @@
 
         </div>
     </div>
+
+    <div ng-hide="pageIsLoading" ng-include="'assets/app/templates/footer.html'"></div>
 
     <image-preview current-index="selectedWorkIndex" source="author.works" converter="converter"></image-preview>
 </div>
