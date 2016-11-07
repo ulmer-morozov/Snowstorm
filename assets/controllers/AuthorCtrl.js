@@ -15,7 +15,7 @@ var Snowstorm;
             this.$scope.author = Snowstorm.DataRepository.authors.filter(function (x) { return x.id == $routeParams['authorId']; })[0];
             this.$scope.selectWork = this.selectWork;
             this.$scope.converter = Snowstorm.ImagePreview.convertWorkToImage;
-            var imagePaths = [];
+            var imagePaths = [this.$scope.author.mascotUrl];
             angular.forEach(this.$scope.author.works, function (work) {
                 imagePaths.push(work.imageUrl);
             });

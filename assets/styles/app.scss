@@ -34,8 +34,8 @@ $screen-md-min: 744pt;
     /* padding-top: 27pt;*/
 }
 
-html{
-  overflow-y: scroll;
+html {
+    overflow-y: scroll;
 }
 
 body,
@@ -47,9 +47,8 @@ html {
 
 body {
     background-image: url('../images/back.svg');
-    -webkit-transition: background-image 0.3s ease-in-out;
-    transition: background-image 0.3s ease-in-out;
-    /* background-position-y: -200pt;*/
+    // -webkit-transition: background-image 0.3s ease-in-out;
+    // transition: background-image 0.3s ease-in-out;
     background-attachment: fixed;
     background-size: 100%;
     overflow-y: hidden;

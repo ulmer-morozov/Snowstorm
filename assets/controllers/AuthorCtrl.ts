@@ -23,7 +23,7 @@ module Snowstorm {
             this.$scope.selectWork = this.selectWork;
             this.$scope.converter = ImagePreview.convertWorkToImage;
 
-            let imagePaths = [];
+            let imagePaths = [this.$scope.author.mascotUrl];
             angular.forEach(this.$scope.author.works, (work: IWork) => {
                 imagePaths.push(work.imageUrl);
             });
@@ -31,7 +31,7 @@ module Snowstorm {
             this.$scope.pageIsLoading = true;
 
             var pageLoadComplete = () => {
-              this.$scope.pageIsLoading = false;
+                this.$scope.pageIsLoading = false;
             }
 
             this.preloader.preloadImages(imagePaths)
