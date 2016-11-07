@@ -55,18 +55,26 @@ var Snowstorm;
             };
             this.positionBallsInArena = function () {
                 var balls = _this.$scope.balls;
+                var result = true;
                 for (var i = 0; i < balls.length; i++) {
                     var ballA = balls[i];
-                    _this.positionBallRandomlyInArena(ballA);
+                    var positioningSuccess = _this.positionBallRandomlyInArena(ballA);
+                    if (positioningSuccess)
+                        continue;
+                    result = false;
+                    break;
                 }
+                return result;
             };
             this.positionBallRandomlyInArena = function (ball) {
                 var balls = _this.$scope.balls;
                 var obstacles = _this.$scope.obstacles;
                 var lights = _this.$scope.lights;
+                var maxAttemptsCount = 2002;
                 var allObjects = balls.concat(obstacles).concat(lights);
                 var overlap, point;
-                do {
+                var success = false;
+                for (var attempt = 0; attempt < maxAttemptsCount; attempt++) {
                     overlap = false;
                     point = _this.getRandomBallPosition(ball);
                     ball.cx = point.x;
@@ -80,7 +88,12 @@ var Snowstorm;
                             break;
                         }
                     }
-                } while (overlap);
+                    if (overlap)
+                        continue;
+                    success = true;
+                    break;
+                }
+                return success;
             };
             this.requestNewFrame = function () {
                 _this.$scope.requestAnimationFrameID = _this.$window.requestAnimationFrame(_this.doAnim);
@@ -88,7 +101,12 @@ var Snowstorm;
             this.initWindow = function () {
                 _this.createBallElements();
                 _this.createWall();
-                _this.positionBallsInArena();
+                var successPositioning = _this.positionBallsInArena();
+                if (!successPositioning) {
+                    debugger;
+                    _this.$location.url("/Authors");
+                    return;
+                }
                 _this.$scope.startInteraction = _this.startInteraction;
                 _this.$scope.stopInteraction = _this.stopInteraction;
                 _this.$scope.stopDrag = _this.stopDrag;

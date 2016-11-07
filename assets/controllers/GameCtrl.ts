@@ -195,24 +195,33 @@
             }
         }
 
-        positionBallsInArena = (): void => {
+        positionBallsInArena = (): boolean => {
             const balls = this.$scope.balls;
-
+            let result = true;
             for (let i = 0; i < balls.length; i++) {
                 const ballA = balls[i];
-                this.positionBallRandomlyInArena(ballA);
+                var positioningSuccess = this.positionBallRandomlyInArena(ballA);
+                if (positioningSuccess)
+                    continue;
+
+                result = false;
+                break;
             }
+            return result;
         }
 
-        positionBallRandomlyInArena = (ball: Ball): void => {
+        positionBallRandomlyInArena = (ball: Ball): boolean => {
             const balls: Colider[] = this.$scope.balls;
             const obstacles: Colider[] = this.$scope.obstacles;
             const lights: Colider[] = this.$scope.lights;
+            const maxAttemptsCount = 2002;
 
             let allObjects = balls.concat(obstacles).concat(lights);
-
             let overlap, point;
-            do {
+
+            let success = false;
+
+            for (let attempt = 0; attempt < maxAttemptsCount; attempt++) {
                 overlap = false;
 
                 point = this.getRandomBallPosition(ball); // Returns an object representing a 2D point.
@@ -229,10 +238,15 @@
                         break;
                     }
                 }
+
+                if (overlap)
+                    continue;
+
+                success = true;
+                break;
             }
-            while (overlap)
 
-
+            return success;
         }
 
         requestNewFrame = (): void => {
@@ -240,11 +254,15 @@
         }
 
         initWindow = (): void => {
-            this.createBallElements(); // Create all ball elements and add custom properties to these elements as well.
+            this.createBallElements();
             this.createWall();
-            // this.createLightSpot();
-
-            this.positionBallsInArena(); // Position the balls in the circular arena such that none of them overlap.
+            let successPositioning = this.positionBallsInArena();
+            if (!successPositioning) {
+                debugger;
+                //переходим на другую страницу, размер экрана не подхожит
+                this.$location.url(`/Authors`);
+                return;
+            }
 
             this.$scope.startInteraction = this.startInteraction;
             this.$scope.stopInteraction = this.stopInteraction;
@@ -274,7 +292,6 @@
                 }, 1);
 
             }
-
 
             this.preloader.preloadImages(imagePaths)
                 .then(function() {
@@ -382,12 +399,6 @@
                     ball.cx = this.screenCenterX;
                     ball.cy = this.screenCenterY;
                 }, 50)
-
-
-                // angular.element(".ball.selected").animate({
-                //     top: 100,
-                //     left: 100
-                // });
 
             } else {
                 ball.v = this.$scope.mouseSpeed;
