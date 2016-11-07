@@ -1,35 +1,21 @@
 <style>
     footer {
         position: fixed;
-        background-color: transparent;
         left: 0;
         right: 0;
         bottom: 0;
     }
-
-    .footer-back {
-        position: fixed;
-        background-color: black;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 74px;
-    }
-
+/*
     @media (max-width: 768px) {
         .footer-back {
             height: 160px;
         }
-    }
+    }*/
 </style>
-<div class="footer-back">
-
-</div>
 <div ng-show="pageIsLoading">
     <div class="loader"></div>
 </div>
 <div ng-hide="pageIsLoading">
-
 
     <!-- <div style="position:absolute">
       {{mouseSpeed | json}}
@@ -39,9 +25,6 @@
       <line x1="150" y1="150" ng-attr-x2="{{mouseSpeed.xc+150}}" ng-attr-y2="{{mouseSpeed.yc+150}}"
           style="stroke:rgb(255,0,0);stroke-width:5" />
   </svg> -->
-
-
-    <div class="selected-artist-title">{{selectedBall.artist.fullname}}</div>
 
     <div id="drawingPlot" ng-mousemove="ballMouseMove($event)">
         <div ng-repeat="ball in balls" ng-mouseover="startInteraction(ball)" ng-mouseleave="stopInteraction(ball)"
@@ -53,8 +36,6 @@
             <circle-Indicator ng-show="ball.activated" title="{{ball.artist.firstname}}" activated="ball.activated"
                 width="{{2*ball.r}}" after-complete="goToAuthor" data="ball"></circle-Indicator>
         </div>
-        <!-- <div ng-repeat="obstacle in obstacles" ng-style="{left: obstacle.cx, top: obstacle.cy, width: 2*obstacle.r, height: 2*obstacle.r, 'margin-left': -obstacle.r, 'margin-top': - obstacle.r}"
-          ng-class="['obstacle'+$index]" class="obstacle" /> -->
 
         <div ng-repeat="light in lights" ng-style="{left: light.cx, top: light.cy, width: 2*light.r, height: 2*light.r, 'margin-left': -light.r, 'margin-top': - light.r}"
             ng-class="['obstacle'+$index]" class="obstacle"> </div>

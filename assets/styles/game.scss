@@ -50,24 +50,6 @@
         background-position: -9000px;
     }
 }
-@-webkit-keyframes fan-animation {
-    from {
-        background-position: 0;
-    }
-
-    to {
-        background-position: -4800px;
-    }
-}
-@keyframes fan-animation {
-    from {
-        background-position: 0;
-    }
-
-    to {
-        background-position: -4800px;
-    }
-}
 @-webkit-keyframes play-pigeon {
     from {
         background-position: 0;
@@ -256,45 +238,6 @@
     to {
         background-position: -1801px;
     }
-}
-.selected-artist-title {
-    position: fixed;
-    left: 50%;
-    top: 70%;
-    font-size: 30pt;
-    text-align: center;
-    width: 400pt;
-    margin-left: -200pt;
-}
-
-.fan {
-    position: fixed;
-    left: 50%;
-    top: 20px;
-    width: 400px;
-    height: 300px;
-    margin-left: -199px;
-    background-image: url("../images/fan.png");
-    -webkit-animation: fan-animation 1s steps(12) infinite;
-            animation: fan-animation 1s steps(12) infinite;
-    pointer-events: none;
-    /* z-index: 1;*/
-}
-
-.lightSpot {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 300px;
-    height: 300px;
-    margin-left: -150px;
-    margin-top: -150px;
-    border-radius: 50%;
-    -webkit-transform: scale(1, 0.5);
-            transform: scale(1, 0.5);
-    background-color: yellow;
-    pointer-events: none;
-    z-index: 0;
 }
 
 .obstacle {

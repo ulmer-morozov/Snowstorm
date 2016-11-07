@@ -102,7 +102,7 @@ var Snowstorm;
                 _this.createBallElements();
                 _this.createWall();
                 var successPositioning = _this.positionBallsInArena();
-                if (!successPositioning) {
+                if (!successPositioning || _this.screenWidth < 768) {
                     debugger;
                     _this.$location.url("/Authors");
                     return;
@@ -160,10 +160,11 @@ var Snowstorm;
                 var obstacles = _this.$scope.obstacles;
                 var borderThikness = 0;
                 var borderRadius = 100000;
+                var footerHeight = 74;
                 var leftBorder = new Snowstorm.Wall(borderRadius, -borderRadius + borderThikness - newOriginx, _this.screenWidth / 2 - newOriginx, borderWeght);
                 var rightBorder = new Snowstorm.Wall(borderRadius, _this.screenWidth + borderRadius - borderThikness - newOriginx, _this.screenWidth / 2 - newOriginx, borderWeght);
                 var topBorder = new Snowstorm.Wall(borderRadius, _this.screenWidth / 2 - newOriginx, -borderRadius + borderThikness - newOriginx, borderWeght);
-                var bottomBorder = new Snowstorm.Wall(borderRadius, _this.screenWidth / 2 - newOriginx, _this.screenHeight + borderRadius - borderThikness - newOriginx, borderWeght);
+                var bottomBorder = new Snowstorm.Wall(borderRadius, _this.screenWidth / 2 - newOriginx, _this.screenHeight + borderRadius - borderThikness - newOriginx - footerHeight, borderWeght);
                 obstacles.push(leftBorder);
                 obstacles.push(rightBorder);
                 obstacles.push(topBorder);

@@ -257,7 +257,7 @@
             this.createBallElements();
             this.createWall();
             let successPositioning = this.positionBallsInArena();
-            if (!successPositioning) {
+            if (!successPositioning || this.screenWidth < 768) {
                 debugger;
                 //переходим на другую страницу, размер экрана не подхожит
                 this.$location.url(`/Authors`);
@@ -337,11 +337,12 @@
 
             const borderThikness = 0;
             const borderRadius = 100000;
+            const footerHeight = 74;
 
             const leftBorder = new Wall(borderRadius, -borderRadius + borderThikness - newOriginx, this.screenWidth / 2 - newOriginx, borderWeght);
             const rightBorder = new Wall(borderRadius, this.screenWidth + borderRadius - borderThikness - newOriginx, this.screenWidth / 2 - newOriginx, borderWeght);
             const topBorder = new Wall(borderRadius, this.screenWidth / 2 - newOriginx, -borderRadius + borderThikness - newOriginx, borderWeght);
-            const bottomBorder = new Wall(borderRadius, this.screenWidth / 2 - newOriginx, this.screenHeight + borderRadius - borderThikness - newOriginx, borderWeght);
+            const bottomBorder = new Wall(borderRadius, this.screenWidth / 2 - newOriginx, this.screenHeight + borderRadius - borderThikness - newOriginx-footerHeight, borderWeght);
 
             obstacles.push(leftBorder);
             obstacles.push(rightBorder);
