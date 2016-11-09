@@ -92,7 +92,7 @@
     }
 
     to {
-        background-position: -4440px;
+        background-position: -4441px;
     }
 }
 @keyframes play-ball {
@@ -101,7 +101,7 @@
     }
 
     to {
-        background-position: -4440px;
+        background-position: -4441px;
     }
 }
 @-webkit-keyframes play-house {
@@ -320,8 +320,8 @@
 
 .ball.livingBall {
     background-image: url("../images/mascots/livingBall_120x120.png");
-    -webkit-animation: play-ball 1s steps(37) infinite;
-            animation: play-ball 1s steps(37) infinite;
+    -webkit-animation: play-ball 10s steps(37) infinite;
+            animation: play-ball 10s steps(37) infinite;
 }
 
 .ball.house {
