@@ -320,8 +320,8 @@
 
 .ball.livingBall {
     background-image: url("../images/mascots/livingBall_120x120.png");
-    -webkit-animation: play-ball 10s steps(37) infinite;
-            animation: play-ball 10s steps(37) infinite;
+    -webkit-animation: play-ball 1.5s steps(37) infinite;
+            animation: play-ball 1.5s steps(37) infinite;
 }
 
 .ball.house {
