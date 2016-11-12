@@ -138,14 +138,18 @@ $loader-thickness: 0.3em;
     left: 8.33333333%;
     position: absolute;
 
-    & img {
+    & svg {
         width: 120pt;
     }
 }
 @media (max-width: $screen-xs-max) {
     #logo {
-        top: 20pt;
+        top: 50pt;
         width: 80pt;
+
+        & svg {
+            width: 80pt;
+        }
     }
 }
 
