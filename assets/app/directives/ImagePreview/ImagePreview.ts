@@ -77,6 +77,8 @@ module Snowstorm {
 
             // debugger;
             if (this.$window.innerWidth < 500) {
+                this.$scope.currentImage = undefined;
+                this.$scope.currentIndex = -1;
                 this.$window.location.href = image.imageUrl;
             } else {
                 $scope.currentImage = image;
