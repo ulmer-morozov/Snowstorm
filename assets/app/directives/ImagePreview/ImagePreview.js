@@ -40,6 +40,8 @@ var Snowstorm;
                 var imgSource = $scope.source[newIndex];
                 var image = $scope.converter()(imgSource);
                 if (_this.$window.innerWidth < 500) {
+                    _this.$scope.currentImage = undefined;
+                    _this.$scope.currentIndex = -1;
                     _this.$window.location.href = image.imageUrl;
                 }
                 else {
