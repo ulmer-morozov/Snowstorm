@@ -393,6 +393,7 @@ $lastWidthElement: nth($widthForCount,length($widthForCount));
     letter-spacing: 5.25pt;
     color: #1d1d1d;
     margin-bottom: 33.75pt;
+    word-wrap: break-word;
 }
 $promo-content-height: 327pt;
 $promo-content-margin: 40pt;
@@ -456,6 +457,11 @@ $promo-content-margin: 40pt;
         cursor: pointer;
         margin-top: 50pt;
         margin-bottom: 0;
+    }
+
+
+    .author-promo-container{
+      margin-top: 40pt;
     }
 }
 @media (min-width: $screen-md-min) {
