@@ -425,7 +425,7 @@
         }
 
         updateMouseSpeed = (): void => {
-            this.mouseSpeedCounter = this.mouseSpeedCounter % 3;
+            this.mouseSpeedCounter = this.mouseSpeedCounter % 5;
             if (this.mouseSpeedCounter != 0)
                 return;
 

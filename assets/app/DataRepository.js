@@ -320,8 +320,7 @@ var Snowstorm;
             { id: 11, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_11.jpg", description: "" },
             { id: 12, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_12.jpg", description: "" },
             { id: 13, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_13.jpg", description: "" },
-            { id: 14, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_14.gif", description: "" },
-            { id: 15, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_15.jpg", description: "" },
+            { id: 14, title: "", imageUrl: "assets/images/portfolio/nilufer_zakirova/nilufer_zakirova_14.gif", description: "" }
         ];
     };
     DataRepository.authors = [

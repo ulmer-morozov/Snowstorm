@@ -228,7 +228,7 @@ var Snowstorm;
                 ball.movingEnabled = false;
             };
             this.updateMouseSpeed = function () {
-                _this.mouseSpeedCounter = _this.mouseSpeedCounter % 3;
+                _this.mouseSpeedCounter = _this.mouseSpeedCounter % 5;
                 if (_this.mouseSpeedCounter != 0)
                     return;
                 var newSpeed = _this.mouseTrack.multi(30).mathRound();

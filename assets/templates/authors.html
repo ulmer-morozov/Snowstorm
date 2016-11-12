@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-xs-20 col-xs-offset-2">
         <div class="author-names">
-            <a href="#/Author/{{author.id}}" ng-repeat="author in authors" class="author-name">{{author.name.last}} {{author.name.first}}</a>
+            <a href="#/Author/{{author.id}}" ng-repeat="author in authors" class="author-name">{{author.name.first}} {{author.name.last}}</a>
         </div>
     </div>
 </div>
@@ -12,7 +12,7 @@
     <div ng-repeat="author in authors | limitTo: 20" class="author-promo">
         <!-- Big Name -->
         <div class="row">
-            <div class="author-promo-name col-xs-20 col-xs-offset-2">{{author.name.last}} {{author.name.first}}</div>
+            <div class="author-promo-name col-xs-20 col-xs-offset-2">{{author.name.first}} {{author.name.last}}</div>
         </div>
 
         <div class="row">
