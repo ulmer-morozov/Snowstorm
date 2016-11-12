@@ -138,6 +138,10 @@ $loader-thickness: 0.3em;
     top: 30pt;
     left: 8.33333333%;
     position: absolute;
+
+    & img {
+        width: 120pt;
+    }
 }
 @media (max-width: $screen-xs-max) {
     #logo {
@@ -641,9 +645,10 @@ $promo-content-margin: 40pt;
         font-size: 11.25pt;
         color: #1d1d1d;
     }
-    .post-author{
-      margin-top: 6pt;
-      // font-weight: bold;
+
+    .post-author {
+        margin-top: 6pt;
+        // font-weight: bold;
     }
 
     .posts {
