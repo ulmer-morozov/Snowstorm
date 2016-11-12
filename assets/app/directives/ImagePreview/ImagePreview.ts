@@ -73,11 +73,13 @@ module Snowstorm {
             }
 
             let imgSource = $scope.source[newIndex];
-            $scope.currentImage = $scope.converter()(imgSource);
+            let image = $scope.converter()(imgSource);
 
             // debugger;
             if (this.$window.innerWidth < 500) {
-                this.$window.location.replace($scope.currentImage.imageUrl);
+                this.$window.location.href = image.imageUrl;
+            } else {
+                $scope.currentImage = image;
             }
         }
 

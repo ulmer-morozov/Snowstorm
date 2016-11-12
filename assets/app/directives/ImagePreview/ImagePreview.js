@@ -38,9 +38,12 @@ var Snowstorm;
                     return;
                 }
                 var imgSource = $scope.source[newIndex];
-                $scope.currentImage = $scope.converter()(imgSource);
+                var image = $scope.converter()(imgSource);
                 if (_this.$window.innerWidth < 500) {
-                    _this.$window.location.replace($scope.currentImage.imageUrl);
+                    _this.$window.location.href = image.imageUrl;
+                }
+                else {
+                    $scope.currentImage = image;
                 }
             };
             this.link = function (scope, el, attrs) {
