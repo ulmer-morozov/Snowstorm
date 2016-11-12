@@ -46,7 +46,9 @@
 
     <div ng-view class="mainView"></div>
 
-    <a id="logo" href="#/"><img src="assets/images/logo.svg" alt="Вьюга" /></a>
+    <a id="logo" href="#/" ng-include="'assets/images/logo.svg'">
+        <!-- <img src="assets/images/logo.svg" alt="Вьюга" /> -->
+    </a>
 
     <!-- Menu -->
     <div class="menu-container">
