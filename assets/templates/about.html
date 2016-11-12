@@ -14,10 +14,14 @@
                 в сети Facebook и Instagram. </div>
         </div>
     </div>
+
+    <div class="about-subtext">Мы принимаем заказы на:</div>
+
     <div class="row">
         <div class="col-sm-3"></div>
         <div ng-repeat="employee in employees" class="employee col-sm-6 col-sm-offset-0 col-xs-20 col-xs-offset-2">
             <div class="employee-avatar" style="background-image: url({{employee.avatar}})"></div>
+            <div class="employee-title">{{employee.title}}</div>
             <div class="employee-description">{{employee.description}}</div>
         </div>
     </div>

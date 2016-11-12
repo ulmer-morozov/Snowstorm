@@ -3,6 +3,7 @@ module Snowstorm {
 
     export interface IEmployee {
         description: string;
+        title: string;
         avatar: string;
     }
 }

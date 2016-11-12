@@ -546,6 +546,18 @@ $promo-content-margin: 40pt;
         text-align: center;
         color: #1d1d1d;
     }
+
+    .about-subtext{
+
+      font-family: "proxima-nova";
+      text-align: center;
+      font-size: 22.5pt;
+      /* font-weight: 900; */
+      margin-bottom: 44.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2.25pt;
+    }
     @media (max-width: $screen-xs-max) {
         .about-text {
             font-size: 16pt;
@@ -570,12 +582,21 @@ $promo-content-margin: 40pt;
             background-position: center;
         }
 
+        .employee-title {
+            font-family: $primary-font;
+            font-size: 11.25pt;
+            // text-transform: uppercase;
+            margin-bottom: 6pt;
+        }
+
         .employee-description {
             font-family: $primary-font;
             font-size: 11.25pt;
-            line-height: 1.7;
+            line-height: 1.1em;
             text-align: center;
             color: #5b5b5b;
+            font-weight: 100;
+            // white-space: pre-line;
         }
     }
 
