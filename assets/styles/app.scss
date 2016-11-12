@@ -394,6 +394,11 @@ $lastWidthElement: nth($widthForCount,length($widthForCount));
     color: #1d1d1d;
     margin-bottom: 33.75pt;
     word-wrap: break-word;
+    @media (max-width: $screen-xs-max) {
+        & {
+          font-size: 22.5pt;
+        }
+    }
 }
 $promo-content-height: 327pt;
 $promo-content-margin: 40pt;
@@ -459,9 +464,8 @@ $promo-content-margin: 40pt;
         margin-bottom: 0;
     }
 
-
-    .author-promo-container{
-      margin-top: 40pt;
+    .author-promo-container {
+        margin-top: 40pt;
     }
 }
 @media (min-width: $screen-md-min) {
@@ -556,16 +560,15 @@ $promo-content-margin: 40pt;
         color: #1d1d1d;
     }
 
-    .about-subtext{
-
-      font-family: "proxima-nova";
-      text-align: center;
-      font-size: 22.5pt;
-      /* font-weight: 900; */
-      margin-bottom: 44.5pt;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 2.25pt;
+    .about-subtext {
+        font-family: "proxima-nova";
+        text-align: center;
+        font-size: 22.5pt;
+        /* font-weight: 900; */
+        margin-bottom: 44.5pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2.25pt;
     }
     @media (max-width: $screen-xs-max) {
         .about-text {
