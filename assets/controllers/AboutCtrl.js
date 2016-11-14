@@ -18,7 +18,7 @@ var Snowstorm;
             $scope.sendMail = function () {
                 $scope.mailIsSending = true;
                 var data = {
-                    "access_token": "1456brqgoflwgxd7fif1ynu1"
+                    "access_token": "mk81u6vgjnwfrw9wezc5fja5"
                 };
                 function onSuccess() {
                     $scope.mailIsSending = false;
