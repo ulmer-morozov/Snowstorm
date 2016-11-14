@@ -161,6 +161,7 @@ footer {
     color: white;
     background-color: #1d1d1d;
     font-family: $primary-font;
+    font-size: 9pt;
 
     a {
         color: white;
@@ -169,6 +170,17 @@ footer {
 
     .footer-line {
         padding-bottom: 10pt;
+    }
+
+    .footer-underline {
+        margin-top: 22.5pt;
+        border-top: 1pt solid white;
+        padding-top: 11.25pt;
+    }
+    @media (max-width: $screen-sm-max) {
+        & {
+            font-size: 11.25pt;
+        }
     }
 }
 
@@ -285,19 +297,10 @@ textarea.form-input {
     margin-top: 6px;
 }
 
-a.social-links {
+a.footer-link {
     text-decoration: none;
     /* margin-top: -5px;*/
     /* display: inline-block;*/
-    svg {
-        height: 16pt;
-        fill: white;
-        position: relative;
-        top: 4px;
-        padding-right: 4pt;
-        max-width: 28pt;
-    }
-
     &:hover {
         color: gray;
 
@@ -307,15 +310,23 @@ a.social-links {
     }
 }
 
-.social-icons {
-    svg {
-        height: 16pt;
-        fill: white;
-        position: relative;
-        top: 4px;
-        padding-right: 4pt;
-        max-width: 28pt;
+.footer-icon svg {
+    width: 20pt;
+    height: 12pt;
+    fill: white;
+    position: relative;
+    top: 4px;
+    padding-right: 4pt;
+    @media (max-width: $screen-sm-max) {
+        & {
+            width: 24pt;
+            height: 16pt;
+        }
     }
+}
+
+.footer-icon.thin svg {
+    width: auto;
 }
 /**/
 /**/
@@ -396,7 +407,7 @@ $lastWidthElement: nth($widthForCount,length($widthForCount));
     word-wrap: break-word;
     @media (max-width: $screen-xs-max) {
         & {
-          font-size: 22.5pt;
+            font-size: 22.5pt;
         }
     }
 }
