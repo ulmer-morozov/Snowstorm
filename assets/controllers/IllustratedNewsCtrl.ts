@@ -5,7 +5,7 @@ module Snowstorm {
 
         //DI
         static $inject = [
-            "$scope", "$interval", "$timeout", "$routeParams",  "preloader"
+            "$scope", "$interval", "$timeout", "$routeParams", "preloader"
         ];
 
         constructor(
