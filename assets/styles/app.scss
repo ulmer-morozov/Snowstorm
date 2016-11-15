@@ -746,6 +746,14 @@ $preview-vertical-margin: -60pt;
     background-color: rgba(255,255,255,0.9);
     z-index: 10;
 
+    .loader-holder{
+      z-index: 1;
+
+      .loader{
+        margin-top: -6em;
+      }
+    }
+
     a.preview-control {
         margin-top: $preview-vertical-margin;
         -webkit-user-select: none;

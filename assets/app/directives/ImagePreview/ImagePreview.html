@@ -1,5 +1,9 @@
 <div class="image-preview" ng-show="currentImage">
 
+    <div ng-show="imageIsLoading" class="loader-holder">
+        <div class="loader"></div>
+    </div>
+
     <a ng-click="prev()" ng-hide="currentIndex==0" class="preview-control back">
         <svg width="90" height="90">
             <path d="M45 5 L5 45 L45 85" />

@@ -9,6 +9,7 @@ module Snowstorm {
 
         // рассчитываемые
         currentImage: IImage;
+        imageIsLoading: boolean;
 
         // методы
         prev: () => void;

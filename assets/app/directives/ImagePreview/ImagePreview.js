@@ -2,10 +2,11 @@ var Snowstorm;
 (function (Snowstorm) {
     "use strict";
     var ImagePreview = (function () {
-        function ImagePreview($guid, $window) {
+        function ImagePreview($guid, $window, preloader) {
             var _this = this;
             this.$guid = $guid;
             this.$window = $window;
+            this.preloader = preloader;
             this.restrict = "E";
             this.replace = true;
             this.templateUrl = "assets/app/directives/ImagePreview/ImagePreview.html";
@@ -43,10 +44,19 @@ var Snowstorm;
                     _this.$scope.currentImage = undefined;
                     _this.$scope.currentIndex = -1;
                     _this.$window.location.href = image.imageUrl;
+                    return;
                 }
-                else {
-                    $scope.currentImage = image;
-                }
+                $scope.imageIsLoading = true;
+                var pageLoadComplete = function () {
+                    $scope.imageIsLoading = false;
+                };
+                _this.preloader.preloadImages([image.imageUrl])
+                    .then(function () {
+                    pageLoadComplete();
+                }, function () {
+                    pageLoadComplete();
+                });
+                $scope.currentImage = image;
             };
             this.link = function (scope, el, attrs) {
             };
@@ -59,8 +69,8 @@ var Snowstorm;
                 }];
         }
         ImagePreview.factory = function () {
-            var directive = function (guid, $window) { return new ImagePreview(guid, $window); };
-            directive.$inject = ["$guid", "$window"];
+            var directive = function (guid, $window, preloader) { return new ImagePreview(guid, $window, preloader); };
+            directive.$inject = ["$guid", "$window", "preloader"];
             return directive;
         };
         ImagePreview.convertNewsPostToImage = function (post) {

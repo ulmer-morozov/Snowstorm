@@ -14,12 +14,12 @@ module Snowstorm {
 
         private $scope: IImagePreviewScope;
 
-        constructor(private $guid: GuidService, private $window: ng.IWindowService) {
+        constructor(private $guid: GuidService, private $window: ng.IWindowService, private preloader: any) {
         }
 
         static factory(): ng.IDirectiveFactory {
-            const directive = (guid: GuidService, $window: ng.IWindowService) => new ImagePreview(guid, $window);
-            directive.$inject = ["$guid", "$window"];
+            const directive = (guid: GuidService, $window: ng.IWindowService, preloader: any) => new ImagePreview(guid, $window, preloader);
+            directive.$inject = ["$guid", "$window", "preloader"];
             return directive;
         }
 
@@ -80,9 +80,25 @@ module Snowstorm {
                 this.$scope.currentImage = undefined;
                 this.$scope.currentIndex = -1;
                 this.$window.location.href = image.imageUrl;
-            } else {
-                $scope.currentImage = image;
+                return;
             }
+
+            $scope.imageIsLoading = true;
+
+            var pageLoadComplete = () => {
+                $scope.imageIsLoading = false;
+            }
+
+            this.preloader.preloadImages([image.imageUrl])
+                .then(function() {
+                    pageLoadComplete();
+                },
+                function() {
+                    pageLoadComplete();
+                });
+
+            $scope.currentImage = image;
+
         }
 
         link = (scope: IImagePreviewScope, el: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
