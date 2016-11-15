@@ -579,11 +579,11 @@ $promo-content-margin: 40pt;
         }
     }
 
-    .about-subtext {
+    h2.about-subheader {
         font-family: "proxima-nova";
         text-align: center;
         font-size: 22.5pt;
-        /* font-weight: 900; */
+        margin-top: 63pt;
         margin-bottom: 44.5pt;
         font-weight: bold;
         text-transform: uppercase;
@@ -596,7 +596,7 @@ $promo-content-margin: 40pt;
     }
 
     .contact-form {
-        margin-top: 33.75pt;
+        // margin-top: 33.75pt;
     }
 
     .employee {
