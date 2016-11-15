@@ -20,8 +20,8 @@ module Snowstorm {
 
             this.$scope.employees = [
                 { avatar: "assets/images/eye.svg", title: "Иллюстрации", description: "на все случаи жизни от журнальных и текстильных до витринных и фасадных" },
-                { avatar: "assets/images/hand.svg", title: "Художественные объекты", description: "для интерьеров, выставок и фестивалей." },
-                { avatar: "assets/images/heart.svg", title: "Оформление пространств", description: "от шоурумов до парков." }
+                { avatar: "assets/images/hand.svg", title: "Художественные объекты", description: "для интерьеров, выставок и фестивалей" },
+                { avatar: "assets/images/heart.svg", title: "Оформление пространств", description: "от шоурумов до парков" }
             ];
 
             $scope.sendMail = (): void => {
