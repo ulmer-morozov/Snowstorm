@@ -8,6 +8,9 @@ module Snowstorm {
         message: string;
         employees: IEmployee[];
 
+        mailIsSending: boolean;
+        mailSendingResultText: string;
+
         sendMail(): void;
     }
 }

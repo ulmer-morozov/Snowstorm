@@ -312,7 +312,7 @@ a.footer-link {
 }
 
 .footer-icon svg {
-    width: 20pt;
+    max-width: 20pt;
     height: 12pt;
     fill: white;
     position: relative;
@@ -320,6 +320,7 @@ a.footer-link {
     padding-right: 4pt;
     @media (max-width: $screen-sm-max) {
         & {
+            max-width: none;
             width: 24pt;
             height: 16pt;
         }
@@ -570,6 +571,12 @@ $promo-content-margin: 40pt;
         font-size: 22.5pt;
         text-align: center;
         color: #1d1d1d;
+
+        a {
+            text-decoration: none;
+            color: #1d1d1d;
+            border-bottom: 1pt solid #1d1d1d;
+        }
     }
 
     .about-subtext {
