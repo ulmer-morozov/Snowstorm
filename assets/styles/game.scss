@@ -1,4 +1,6 @@
-@mixin box-sizing($box-model) { /* Safari <= 5*/ /* Firefox <= 19*/
+@mixin box-sizing($box-model) {
+    /* Safari <= 5*/
+    /* Firefox <= 19*/
     box-sizing: $box-model;
 }
 @mixin flexbox {
@@ -230,6 +232,15 @@
         background-position: -720px;
     }
 }
+@-webkit-keyframes play-flower {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -1801px;
+    }
+}
 @keyframes play-flower {
     from {
         background-position: 0;
@@ -295,81 +306,87 @@
 
 .ball.pinkbird {
     background-image: url("../images/mascots/pinkbird_120x120.png");
-    -webkit-animation: play 0.8s steps(24) infinite;
-            animation: play 0.8s steps(24) infinite;
+    -webkit-animation-name: play;
+            animation-name: play;
+    -webkit-animation-duration: 0.8s;
+            animation-duration: 0.8s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: steps(24);
+            animation-timing-function: steps(24);
 }
 
 .ball.balet {
     background-image: url("../images/mascots/balet_120x120.png");
     /* background-size:  auto 120px;*/
     -webkit-animation: play-balet 2s steps(50) infinite;
-            animation: play-balet 2s steps(50) infinite;
+    animation: play-balet 2s steps(50) infinite;
 }
 
 .ball.pigeon {
     background-image: url("../images/mascots/pigeon_120x120.png");
     -webkit-animation: play-pigeon 4s steps(39) infinite;
-            animation: play-pigeon 4s steps(39) infinite;
+    animation: play-pigeon 4s steps(39) infinite;
 }
 
 .ball.horse {
     background-image: url("../images/mascots/horse_120x120.png");
     -webkit-animation: play-horse 1.2s steps(30) infinite;
-            animation: play-horse 1.2s steps(30) infinite;
+    animation: play-horse 1.2s steps(30) infinite;
 }
 
 .ball.livingBall {
     background-image: url("../images/mascots/livingBall_120x120.png");
     -webkit-animation: play-ball 1.5s steps(37) infinite;
-            animation: play-ball 1.5s steps(37) infinite;
+    animation: play-ball 1.5s steps(37) infinite;
 }
 
 .ball.house {
     background-image: url("../images/mascots/house_120x120.png");
     -webkit-animation: play-house 1s steps(30) infinite;
-            animation: play-house 1s steps(30) infinite;
+    animation: play-house 1s steps(30) infinite;
 }
 
 .ball.heart {
     background-image: url("../images/mascots/heart_120x120.png");
     -webkit-animation: play-heart 1s steps(8) infinite;
-            animation: play-heart 1s steps(8) infinite;
+    animation: play-heart 1s steps(8) infinite;
 }
 
 .ball.rat {
     background-image: url("../images/mascots/rat_120x120.png");
     -webkit-animation: play-rat 1s steps(24) infinite;
-            animation: play-rat 1s steps(24) infinite;
+    animation: play-rat 1s steps(24) infinite;
 }
 
 .ball.pizza {
     background-image: url("../images/mascots/pizza_120x120.png");
     -webkit-animation: play-pizza 2s steps(55) infinite;
-            animation: play-pizza 2s steps(55) infinite;
+    animation: play-pizza 2s steps(55) infinite;
 }
 
 .ball.fox {
     background-image: url("../images/mascots/fox_120x120.png");
     -webkit-animation: play-fox 2s steps(37) infinite;
-            animation: play-fox 2s steps(37) infinite;
+    animation: play-fox 2s steps(37) infinite;
 }
 
 .ball.nik {
     background-image: url("../images/mascots/nik_120x120.png");
     -webkit-animation: play-nik 2s steps(8) infinite;
-            animation: play-nik 2s steps(8) infinite;
+    animation: play-nik 2s steps(8) infinite;
 }
 
 .ball.cat {
     background-image: url("../images/mascots/cat_120x120.png");
     -webkit-animation: play-cat 2s steps(6) infinite;
-            animation: play-cat 2s steps(6) infinite;
+    animation: play-cat 2s steps(6) infinite;
 }
 
 .ball.flower {
     background-image: url("../images/mascots/flower_120x120.png");
     -webkit-animation: play-flower 2s steps(15) infinite;
-            animation: play-flower 2s steps(15) infinite;
+    animation: play-flower 2s steps(15) infinite;
 }
 
 #mouseSpeed {
