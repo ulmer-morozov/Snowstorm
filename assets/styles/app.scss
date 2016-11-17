@@ -664,7 +664,7 @@ $promo-content-margin: 40pt;
     }
 
     .main-post {
-        margin-bottom: 52.5pt;
+        margin-bottom: 50pt;
     }
     @media (max-width: 600pt) {
         /* скрываем на маленьких экранах главный пост*/
@@ -685,8 +685,8 @@ $promo-content-margin: 40pt;
     }
 
     .post-date {
-        margin-top: 22.5pt;
-        margin-bottom: 11.25pt;
+        margin-top: 5pt;
+        margin-bottom: 5pt;
         font-family: $news-primary-font;
         font-size: 22.5pt;
     }
@@ -699,7 +699,7 @@ $promo-content-margin: 40pt;
     }
 
     .post-author {
-        margin-top: 12pt;
+        margin-top: 6.25pt;
         /* font-style: italic;*/
         font-weight: 100;
     }
