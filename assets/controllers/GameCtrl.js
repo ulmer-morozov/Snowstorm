@@ -309,7 +309,7 @@ var Snowstorm;
                 new Snowstorm.Artist(7, "Александра", "Киселёва", "house", 60),
                 new Snowstorm.Artist(8, "Ольга", "Чикина", "horse", 60),
                 new Snowstorm.Artist(9, "Екатерина", "Дорохина", "pizza", 60),
-                new Snowstorm.Artist(10, "Екатерина", "Воронина", "fox", 60),
+                new Snowstorm.Artist(10, "Катерина", "Воронина", "fox", 60),
                 new Snowstorm.Artist(11, "Никита", "Кибирев", "nik", 60),
                 new Snowstorm.Artist(12, "Сергей", "Гудков", "cat", 60),
                 new Snowstorm.Artist(13, "Нилюфер", "Закирова", "flower", 60),
